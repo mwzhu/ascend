@@ -1,76 +1,75 @@
-//
-//  OnboardingView2.swift
-//  Ascend
-//
-//  Created by Michael Zhu on 11/3/25.
-//
-
 import SwiftUI
 
 struct OnboardingView2: View {
-    @State private var selectedOption: Int? = nil
+    @Binding var selectedExperience: String
     let onContinue: () -> Void
     
     var body: some View {
         ZStack {
-            Color.black.ignoresSafeArea()
+            Color.white
+                .ignoresSafeArea()
             
-            VStack(spacing: 0) {
-                // Progress Bar
-                GeometryReader { geometry in
-                    ZStack(alignment: .leading) {
-                        Rectangle()
-                            .fill(Color.white.opacity(0.2))
-                            .frame(height: 4)
-                        
-                        Rectangle()
-                            .fill(Color.white)
-                            .frame(width: geometry.size.width * 0.5, height: 4)
+            VStack(alignment: .leading, spacing: 0) {
+                // Back Button and Progress Bar
+                HStack(spacing: 12) {
+                    Button(action: {}) {
+                        Image(systemName: "chevron.left")
+                            .font(.system(size: 20, weight: .semibold))
+                            .foregroundColor(.black)
                     }
+                    
+                    GeometryReader { geometry in
+                        ZStack(alignment: .leading) {
+                            RoundedRectangle(cornerRadius: 10)
+                                .fill(Color.gray.opacity(0.2))
+                                .frame(height: 8)
+                            
+                            RoundedRectangle(cornerRadius: 10)
+                                .fill(Color.black)
+                                .frame(width: geometry.size.width * 0.5, height: 8)
+                        }
+                    }
+                    .frame(height: 8)
                 }
-                .frame(height: 4)
-                .padding(.bottom, 60)
+                .padding(.horizontal, 24)
+                .padding(.top, 60)
+                .padding(.bottom, 40)
                 
-                // Header
-                Text("Ready to ascend?")
-                    .font(.system(size: 32, weight: .bold))
-                    .foregroundColor(.white)
-                    .multilineTextAlignment(.center)
-                    .padding(.horizontal, 40)
-                    .padding(.bottom, 16)
+                // Header Text
+                Text("Ready to feel like you again?")
+                    .font(.system(size: 28, weight: .bold))
+                    .foregroundColor(.black)
+                    .padding(.horizontal, 24)
+                    .padding(.bottom, 12)
                 
-                // Subtitle
-                Text("Where are you with your peptide journey?")
-                    .font(.system(size: 16))
-                    .foregroundColor(.white.opacity(0.7))
-                    .multilineTextAlignment(.center)
-                    .padding(.horizontal, 40)
+                // Subtitle Text
+                Text("Where are you with your GLP-1 journey?")
+                    .font(.system(size: 16, weight: .regular))
+                    .foregroundColor(.gray)
+                    .padding(.horizontal, 24)
                     .padding(.bottom, 60)
                 
-                // Option Buttons
+                Spacer()
+                
+                // Experience Level Buttons
                 VStack(spacing: 16) {
-                    OptionButton(
-                        title: "I'm new to this",
-                        isSelected: selectedOption == 0
-                    ) {
-                        selectedOption = 0
-                    }
+                    ExperienceButton(
+                        icon: "sparkles",
+                        title: "I'm already on a GLP-1",
+                        isSelected: selectedExperience == "already",
+                        action: { selectedExperience = "already" }
+                    )
                     
-                    OptionButton(
-                        title: "I've got some experience",
-                        isSelected: selectedOption == 1
-                    ) {
-                        selectedOption = 1
-                    }
-                    
-                    OptionButton(
-                        title: "I'm a peptide expert",
-                        isSelected: selectedOption == 2
-                    ) {
-                        selectedOption = 2
-                    }
+                    ExperienceButton(
+                        icon: "play.fill",
+                        title: "I'm about to start a GLP-1",
+                        isSelected: selectedExperience == "starting",
+                        backgroundColor: .black,
+                        action: { selectedExperience = "starting" }
+                    )
                 }
-                .padding(.horizontal, 32)
+                .padding(.horizontal, 24)
+                .padding(.bottom, 100)
                 
                 Spacer()
                 
@@ -78,43 +77,52 @@ struct OnboardingView2: View {
                 Button(action: onContinue) {
                     Text("Continue")
                         .font(.system(size: 18, weight: .semibold))
-                        .foregroundColor(.black)
+                        .foregroundColor(.white)
                         .frame(maxWidth: .infinity)
                         .frame(height: 56)
-                        .background(selectedOption != nil ? Color.white : Color.white.opacity(0.3))
-                        .cornerRadius(28)
+                        .background(selectedExperience.isEmpty ? Color.gray.opacity(0.3) : Color.black)
+                        .cornerRadius(16)
                 }
-                .disabled(selectedOption == nil)
-                .padding(.horizontal, 32)
+                .disabled(selectedExperience.isEmpty)
+                .padding(.horizontal, 24)
                 .padding(.bottom, 50)
             }
         }
     }
 }
 
-struct OptionButton: View {
+struct ExperienceButton: View {
+    let icon: String
     let title: String
     let isSelected: Bool
+    var backgroundColor: Color = .white
     let action: () -> Void
     
     var body: some View {
         Button(action: action) {
-            Text(title)
-                .font(.system(size: 16, weight: .medium))
-                .foregroundColor(isSelected ? .black : .white)
-                .frame(maxWidth: .infinity)
-                .frame(height: 56)
-                .background(isSelected ? Color.white : Color.white.opacity(0.1))
-                .cornerRadius(28)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 28)
-                        .stroke(isSelected ? Color.clear : Color.white.opacity(0.3), lineWidth: 1)
-                )
+            HStack(spacing: 16) {
+                Image(systemName: icon)
+                    .font(.system(size: 20))
+                    .foregroundColor(backgroundColor == .black ? .white : .black)
+                
+                Text(title)
+                    .font(.system(size: 16, weight: .medium))
+                    .foregroundColor(backgroundColor == .black ? .white : .black)
+                
+                Spacer()
+            }
+            .padding(.horizontal, 20)
+            .frame(height: 60)
+            .background(backgroundColor)
+            .overlay(
+                RoundedRectangle(cornerRadius: 12)
+                    .stroke(backgroundColor == .black ? Color.clear : Color.gray.opacity(0.2), lineWidth: 1)
+            )
+            .cornerRadius(12)
         }
     }
 }
 
 #Preview {
-    OnboardingView2(onContinue: {})
+    OnboardingView2(selectedExperience: .constant(""), onContinue: {})
 }
-

@@ -12,14 +12,14 @@ struct HomeView: View {
     
     var body: some View {
         ZStack {
-            Color.black.ignoresSafeArea()
+            Color.white.ignoresSafeArea()
             
             VStack(spacing: 0) {
                 // Top Row - Logo, Date, Streak
                 HStack {
                     Text("ASCEND")
                         .font(.system(size: 20, weight: .bold))
-                        .foregroundColor(.white)
+                        .foregroundColor(.black)
                     
                     Spacer()
                     
@@ -29,7 +29,7 @@ struct HomeView: View {
                         Text(dateString)
                             .font(.system(size: 14, weight: .medium))
                     }
-                    .foregroundColor(.white)
+                    .foregroundColor(.black)
                     
                     Spacer()
                         .frame(width: 20)
@@ -40,7 +40,7 @@ struct HomeView: View {
                             .foregroundColor(.orange)
                         Text("7")
                             .font(.system(size: 14, weight: .bold))
-                            .foregroundColor(.white)
+                            .foregroundColor(.black)
                     }
                 }
                 .padding(.horizontal, 20)
@@ -101,9 +101,9 @@ struct HomeView: View {
                     Button(action: {}) {
                         Image(systemName: "plus")
                             .font(.system(size: 24, weight: .semibold))
-                            .foregroundColor(.black)
+                            .foregroundColor(.white)
                             .frame(width: 60, height: 60)
-                            .background(Color.white)
+                            .background(Color.black)
                             .clipShape(Circle())
                             .shadow(color: .black.opacity(0.3), radius: 10, x: 0, y: 5)
                     }
@@ -135,13 +135,13 @@ struct DateCircle: View {
         VStack(spacing: 4) {
             Text(day)
                 .font(.system(size: 16, weight: isSelected ? .bold : .medium))
-                .foregroundColor(isSelected ? .black : .white)
+                .foregroundColor(isSelected ? .white : .black)
                 .frame(width: 50, height: 50)
-                .background(isSelected ? Color.white : Color.white.opacity(0.1))
+                .background(isSelected ? Color.black : Color.black.opacity(0.1))
                 .clipShape(Circle())
                 .overlay(
                     Circle()
-                        .stroke(isSelected ? Color.clear : Color.white.opacity(0.2), lineWidth: 1)
+                        .stroke(isSelected ? Color.clear : Color.black.opacity(0.2), lineWidth: 1)
                 )
         }
     }
@@ -153,7 +153,7 @@ struct ToDoListCard: View {
             HStack {
                 Text("Peptide Day")
                     .font(.system(size: 18, weight: .bold))
-                    .foregroundColor(.white)
+                    .foregroundColor(.black)
                 Spacer()
             }
             
@@ -162,7 +162,7 @@ struct ToDoListCard: View {
             ToDoItem(title: "Evening injection", time: "8:00 PM", isChecked: false)
         }
         .padding(20)
-        .background(Color.white.opacity(0.05))
+        .background(Color.black.opacity(0.05))
         .cornerRadius(20)
         .padding(.horizontal, 20)
     }
@@ -177,20 +177,20 @@ struct ToDoItem: View {
         HStack(spacing: 12) {
             Image(systemName: isChecked ? "checkmark.circle.fill" : "circle")
                 .font(.system(size: 24))
-                .foregroundColor(isChecked ? .green : .white.opacity(0.3))
+                .foregroundColor(isChecked ? .green : .black.opacity(0.3))
             
             VStack(alignment: .leading, spacing: 2) {
                 Text(title)
                     .font(.system(size: 16, weight: .medium))
-                    .foregroundColor(.white)
-                    .strikethrough(isChecked, color: .white.opacity(0.5))
+                    .foregroundColor(.black)
+                    .strikethrough(isChecked, color: .black.opacity(0.5))
             }
             
             Spacer()
             
             Text(time)
                 .font(.system(size: 14))
-                .foregroundColor(.white.opacity(0.5))
+                .foregroundColor(.black.opacity(0.5))
         }
     }
 }
@@ -201,7 +201,7 @@ struct MedicationLevelCard: View {
             HStack {
                 Text("Medication Level")
                     .font(.system(size: 18, weight: .bold))
-                    .foregroundColor(.white)
+                    .foregroundColor(.black)
                 Spacer()
             }
             
@@ -209,17 +209,17 @@ struct MedicationLevelCard: View {
                 VStack(alignment: .leading, spacing: 4) {
                     Text("Current")
                         .font(.system(size: 12))
-                        .foregroundColor(.white.opacity(0.5))
+                        .foregroundColor(.black.opacity(0.5))
                     Text("2.5mg")
                         .font(.system(size: 24, weight: .bold))
-                        .foregroundColor(.white)
+                        .foregroundColor(.black)
                 }
                 
                 Spacer()
                 
                 ZStack {
                     Circle()
-                        .stroke(Color.white.opacity(0.2), lineWidth: 8)
+                        .stroke(Color.black.opacity(0.2), lineWidth: 8)
                         .frame(width: 80, height: 80)
                     
                     Circle()
@@ -237,12 +237,12 @@ struct MedicationLevelCard: View {
                     
                     Text("75%")
                         .font(.system(size: 16, weight: .bold))
-                        .foregroundColor(.white)
+                        .foregroundColor(.black)
                 }
             }
         }
         .padding(20)
-        .background(Color.white.opacity(0.05))
+        .background(Color.black.opacity(0.05))
         .cornerRadius(20)
         .padding(.horizontal, 20)
     }
@@ -267,20 +267,20 @@ struct MetricCard: View {
             
             Text(title)
                 .font(.system(size: 14))
-                .foregroundColor(.white.opacity(0.7))
+                .foregroundColor(.black.opacity(0.7))
             
             HStack(alignment: .firstTextBaseline, spacing: 4) {
                 Text(value)
                     .font(.system(size: 24, weight: .bold))
-                    .foregroundColor(.white)
+                    .foregroundColor(.black)
                 Text("/ \(goal)")
                     .font(.system(size: 14))
-                    .foregroundColor(.white.opacity(0.5))
+                    .foregroundColor(.black.opacity(0.5))
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(16)
-        .background(Color.white.opacity(0.05))
+        .background(Color.black.opacity(0.05))
         .cornerRadius(16)
         .padding(.horizontal, isWide ? 20 : 0)
         .if(!isWide) { view in
@@ -295,7 +295,7 @@ struct LogCard: View {
             HStack {
                 Text("Selected Date's Log")
                     .font(.system(size: 18, weight: .bold))
-                    .foregroundColor(.white)
+                    .foregroundColor(.black)
                 Spacer()
             }
             
@@ -304,7 +304,7 @@ struct LogCard: View {
             LogEntry(time: "2:00 PM", title: "Symptoms", subtitle: "Feeling great, no side effects")
         }
         .padding(20)
-        .background(Color.white.opacity(0.05))
+        .background(Color.black.opacity(0.05))
         .cornerRadius(20)
         .padding(.horizontal, 20)
     }
@@ -320,13 +320,13 @@ struct LogEntry: View {
             VStack(alignment: .leading, spacing: 2) {
                 Text(time)
                     .font(.system(size: 12))
-                    .foregroundColor(.white.opacity(0.5))
+                    .foregroundColor(.black.opacity(0.5))
                 Text(title)
                     .font(.system(size: 16, weight: .medium))
-                    .foregroundColor(.white)
+                    .foregroundColor(.black)
                 Text(subtitle)
                     .font(.system(size: 14))
-                    .foregroundColor(.white.opacity(0.7))
+                    .foregroundColor(.black.opacity(0.7))
             }
             Spacer()
         }
@@ -345,7 +345,7 @@ struct BottomNavBar: View {
         .padding(.horizontal, 20)
         .padding(.vertical, 16)
         .background(
-            Color.white.opacity(0.05)
+            Color.black.opacity(0.05)
                 .background(.ultraThinMaterial)
         )
     }
@@ -359,7 +359,7 @@ struct NavBarItem: View {
         Button(action: {}) {
             Image(systemName: icon)
                 .font(.system(size: 24))
-                .foregroundColor(isActive ? .white : .white.opacity(0.4))
+                .foregroundColor(isActive ? .black : .black.opacity(0.4))
                 .frame(maxWidth: .infinity)
         }
     }
@@ -378,4 +378,3 @@ extension View {
 #Preview {
     HomeView()
 }
-

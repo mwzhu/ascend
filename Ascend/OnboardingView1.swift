@@ -12,24 +12,24 @@ struct OnboardingView1: View {
     
     var body: some View {
         ZStack {
-            Color.black.ignoresSafeArea()
+            Color.white.ignoresSafeArea()
             
             VStack(spacing: 0) {
                 Spacer()
                 
                 // iPhone Preview
                 RoundedRectangle(cornerRadius: 40)
-                    .fill(Color.white.opacity(0.1))
+                    .fill(Color.black.opacity(0.1))
                     .overlay(
                         RoundedRectangle(cornerRadius: 40)
-                            .stroke(Color.white.opacity(0.3), lineWidth: 1)
+                            .stroke(Color.black.opacity(0.3), lineWidth: 1)
                     )
                     .frame(width: 220, height: 450)
                     .overlay(
                         VStack {
                             Image(systemName: "chart.line.uptrend.xyaxis")
                                 .font(.system(size: 60))
-                                .foregroundColor(.white.opacity(0.6))
+                                .foregroundColor(.black.opacity(0.6))
                         }
                     )
                     .padding(.bottom, 60)
@@ -37,7 +37,7 @@ struct OnboardingView1: View {
                 // Header
                 Text("Stay on top of your peptide journey")
                     .font(.system(size: 28, weight: .bold))
-                    .foregroundColor(.white)
+                    .foregroundColor(.black)
                     .multilineTextAlignment(.center)
                     .padding(.horizontal, 40)
                     .padding(.bottom, 16)
@@ -45,7 +45,7 @@ struct OnboardingView1: View {
                 // Subtitle
                 Text("See your current dose, progress metrics, and daily goals all in one place.")
                     .font(.system(size: 16))
-                    .foregroundColor(.white.opacity(0.7))
+                    .foregroundColor(.black.opacity(0.7))
                     .multilineTextAlignment(.center)
                     .padding(.horizontal, 40)
                     .padding(.bottom, 40)
@@ -53,10 +53,10 @@ struct OnboardingView1: View {
                 // Progress Dots
                 HStack(spacing: 8) {
                     Circle()
-                        .fill(Color.white)
+                        .fill(Color.black)
                         .frame(width: 8, height: 8)
                     Circle()
-                        .fill(Color.white.opacity(0.3))
+                        .fill(Color.black.opacity(0.3))
                         .frame(width: 8, height: 8)
                 }
                 .padding(.bottom, 40)
@@ -67,10 +67,10 @@ struct OnboardingView1: View {
                 Button(action: onGetStarted) {
                     Text("Get Started")
                         .font(.system(size: 18, weight: .semibold))
-                        .foregroundColor(.black)
+                        .foregroundColor(.white)
                         .frame(maxWidth: .infinity)
                         .frame(height: 56)
-                        .background(Color.white)
+                        .background(Color.black)
                         .cornerRadius(28)
                 }
                 .padding(.horizontal, 32)
@@ -83,4 +83,3 @@ struct OnboardingView1: View {
 #Preview {
     OnboardingView1(onGetStarted: {})
 }
-
