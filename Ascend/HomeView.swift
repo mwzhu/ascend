@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @State private var selectedDate = Date()
+    @State private var showDateCircles = false
     
     var body: some View {
         ZStack {
@@ -18,50 +19,62 @@ struct HomeView: View {
                 // Top Row - Logo, Date, Streak
                 HStack {
                     Text("ASCEND")
-                        .font(.system(size: 20, weight: .bold))
+                        .font(.system(size: 26, weight: .bold))
                         .foregroundColor(.black)
                     
                     Spacer()
                     
-                    HStack(spacing: 6) {
-                        Image(systemName: "calendar")
-                            .font(.system(size: 14))
-                        Text(dateString)
-                            .font(.system(size: 14, weight: .medium))
+                    Button(action: {
+                        showDateCircles.toggle()
+                    }) {
+                        HStack(spacing: 6) {
+                            Image(systemName: "calendar")
+                                .font(.system(size: 19))
+                                .foregroundColor(.gray).opacity(0.5)
+                            Text(dateString)
+                                .font(.system(size: 15, weight: .semibold))
+                        }
+                        .foregroundColor(.black)
                     }
-                    .foregroundColor(.black)
                     
                     Spacer()
                         .frame(width: 20)
                     
                     HStack(spacing: 6) {
                         Image(systemName: "flame.fill")
-                            .font(.system(size: 14))
-                            .foregroundColor(.orange)
+                            .font(.system(size: 19))
+                            .foregroundColor(.orange).opacity(0.7)
                         Text("7")
-                            .font(.system(size: 14, weight: .bold))
+                            .font(.system(size: 15, weight: .bold))
                             .foregroundColor(.black)
                     }
                 }
                 .padding(.horizontal, 20)
-                .padding(.top, 16)
-                .padding(.bottom, 20)
+                .padding(.top, 12)
+                .padding(.bottom, 2)
                 
                 ScrollView(showsIndicators: false) {
-                    VStack(spacing: 20) {
+                    VStack(spacing: 12) {
                         // Date Circles Row
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            HStack(spacing: 12) {
-                                ForEach(0..<14) { index in
-                                    DateCircle(
-                                        day: "\(index + 1)",
-                                        isSelected: index == 7
-                                    )
+                        if showDateCircles {
+                            ScrollView(.horizontal, showsIndicators: false) {
+                                HStack(spacing: 16) {
+                                    ForEach(0..<14) { index in
+                                        let date = Calendar.current.date(byAdding: .day, value: index - 7, to: Date())!
+                                        DateCircle(
+                                            date: date,
+                                            isSelected: Calendar.current.isDate(date, inSameDayAs: selectedDate),
+                                            circleStyle: index % 3 == 0 ? .blank : (index % 3 == 1 ? .grayWithIcon : .orangeWithIcon)
+                                        ) {
+                                            selectedDate = date
+                                        }
+                                    }
                                 }
+                                .padding(.horizontal, 20)
                             }
-                            .padding(.horizontal, 20)
+                        } else {
+                            Spacer().frame(height: 1)
                         }
-                        .padding(.bottom, 10)
                         
                         // To Do List
                         ToDoListCard()
@@ -121,28 +134,125 @@ struct HomeView: View {
     }
     
     var dateString: String {
+        if Calendar.current.isDateInToday(selectedDate) {
+            return "Today"
+        }
         let formatter = DateFormatter()
-        formatter.dateFormat = "MMM d"
+        formatter.dateFormat = "MMM d, yyyy"
         return formatter.string(from: selectedDate)
     }
 }
 
+enum DateCircleStyle {
+    case blank
+    case grayWithIcon
+    case orangeWithIcon
+}
+
 struct DateCircle: View {
-    let day: String
+    let date: Date
     let isSelected: Bool
+    let circleStyle: DateCircleStyle
+    let onTap: () -> Void
+    
+    private var dayLetter: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEEEE"
+        return formatter.string(from: date)
+    }
     
     var body: some View {
-        VStack(spacing: 4) {
-            Text(day)
-                .font(.system(size: 16, weight: isSelected ? .bold : .medium))
-                .foregroundColor(isSelected ? .white : .black)
-                .frame(width: 50, height: 50)
-                .background(isSelected ? Color.black : Color.black.opacity(0.1))
-                .clipShape(Circle())
-                .overlay(
+        Button(action: onTap) {
+            VStack(spacing: 3) {
+                ZStack {
                     Circle()
-                        .stroke(isSelected ? Color.clear : Color.black.opacity(0.2), lineWidth: 1)
-                )
+                        .fill(circleBackground)
+                        .frame(width: circleSize, height: circleSize)
+                    
+                    Circle()
+                        .strokeBorder(
+                            style: StrokeStyle(
+                                lineWidth: 2,
+                                dash: [4, 4]
+                            )
+                        )
+                        .foregroundColor(borderColor)
+                        .frame(width: circleSize, height: circleSize)
+                    
+                    if showIcon {
+                        Image(systemName: "syringe.fill")
+                            .font(.system(size: iconSize))
+                            .foregroundColor(iconColor)
+                    }
+                }
+                .frame(height: 38)
+                
+                Text(dayLetter)
+                    .font(.system(size: 11, weight: .medium))
+                    .foregroundColor(.black)
+            }
+            .padding(.vertical, 2)
+            .padding(.horizontal, 4)
+            .background(
+                RoundedRectangle(cornerRadius: 20)
+                    .fill(isSelected ? Color.gray.opacity(0.15) : Color.clear)
+            )
+        }
+        .buttonStyle(PlainButtonStyle())
+    }
+    
+    private var circleSize: CGFloat {
+        switch circleStyle {
+        case .orangeWithIcon:
+            return 26
+        case .blank, .grayWithIcon:
+            return 30
+        }
+    }
+    
+    private var iconSize: CGFloat {
+        switch circleStyle {
+        case .orangeWithIcon:
+            return 12
+        case .grayWithIcon:
+            return 12
+        case .blank:
+            return 12
+        }
+    }
+    
+    private var circleBackground: Color {
+        switch circleStyle {
+        case .blank:
+            return Color.gray.opacity(0.2)
+        case .grayWithIcon:
+            return Color.gray.opacity(0.2)
+        case .orangeWithIcon:
+            return Color(hex: "FF7300")
+        }
+    }
+    
+    private var borderColor: Color {
+        return Color(hex: "FF7300")
+    }
+    
+    private var showIcon: Bool {
+        switch circleStyle {
+        case .blank:
+            return false
+        case .grayWithIcon, .orangeWithIcon:
+            return true
+        }
+    }
+    
+    private var iconColor: Color {
+        switch circleStyle {
+        case .grayWithIcon:
+            return Color(hex: "FF7300")
+        case .orangeWithIcon:
+            return .white
+        case .blank:
+            return .clear
         }
     }
 }
@@ -335,19 +445,23 @@ struct LogEntry: View {
 
 struct BottomNavBar: View {
     var body: some View {
-        HStack(spacing: 0) {
-            NavBarItem(icon: "house.fill", isActive: true)
-            NavBarItem(icon: "chart.line.uptrend.xyaxis", isActive: false)
-            NavBarItem(icon: "plus.circle", isActive: false)
-            NavBarItem(icon: "calendar", isActive: false)
-            NavBarItem(icon: "person.fill", isActive: false)
+        VStack(spacing: 0) {
+            Rectangle()
+                .fill(Color.gray.opacity(0.2))
+                .frame(height: 0.5)
+            
+            HStack(spacing: 0) {
+                NavBarItem(icon: "house.fill", isActive: true)
+                NavBarItem(icon: "syringe.fill", isActive: false)
+                NavBarItem(icon: "chart.line.uptrend.xyaxis", isActive: false)
+                NavBarItem(icon: "book.fill", isActive: false)
+                NavBarItem(icon: "person.fill", isActive: false)
+            }
+            .padding(.horizontal, 20)
+            .padding(.top, 16)
+            .padding(.bottom, 6)
         }
-        .padding(.horizontal, 20)
-        .padding(.vertical, 16)
-        .background(
-            Color.black.opacity(0.05)
-                .background(.ultraThinMaterial)
-        )
+        .background(Color.white)
     }
 }
 
@@ -372,6 +486,32 @@ extension View {
         } else {
             self
         }
+    }
+}
+
+extension Color {
+    init(hex: String) {
+        let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
+        var int: UInt64 = 0
+        Scanner(string: hex).scanHexInt64(&int)
+        let a, r, g, b: UInt64
+        switch hex.count {
+        case 3:
+            (a, r, g, b) = (255, (int >> 8) * 17, (int >> 4 & 0xF) * 17, (int & 0xF) * 17)
+        case 6:
+            (a, r, g, b) = (255, int >> 16, int >> 8 & 0xFF, int & 0xFF)
+        case 8:
+            (a, r, g, b) = (int >> 24, int >> 16 & 0xFF, int >> 8 & 0xFF, int & 0xFF)
+        default:
+            (a, r, g, b) = (255, 0, 0, 0)
+        }
+        self.init(
+            .sRGB,
+            red: Double(r) / 255,
+            green: Double(g) / 255,
+            blue: Double(b) / 255,
+            opacity: Double(a) / 255
+        )
     }
 }
 
