@@ -3,7 +3,6 @@ import SwiftUI
 struct ContentView: View {
     @State private var showOnboarding = true
     @State private var onboardingStep = 1
-    @State private var selectedExperience = ""
     
     var body: some View {
         if showOnboarding {
@@ -12,12 +11,9 @@ struct ContentView: View {
                     onboardingStep = 2
                 })
             } else {
-                OnboardingView2(
-                    selectedExperience: $selectedExperience,
-                    onContinue: {
-                        showOnboarding = false
-                    }
-                )
+                OnboardingExperience(onNext: {
+                    showOnboarding = false
+                })
             }
         } else {
             HomeView()

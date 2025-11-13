@@ -1,8 +1,8 @@
 import SwiftUI
 
-struct OnboardingView2: View {
-    @Binding var selectedExperience: String
-    let onContinue: () -> Void
+struct OnboardingExperience: View {
+    @State private var selectedExperience: String = ""
+    let onNext: () -> Void
     
     var body: some View {
         ZStack {
@@ -11,10 +11,10 @@ struct OnboardingView2: View {
             
             VStack(alignment: .leading, spacing: 0) {
                 // Back Button and Progress Bar
-                HStack(spacing: 12) {
+                HStack(spacing: 20) {
                     Button(action: {}) {
                         Image(systemName: "chevron.left")
-                            .font(.system(size: 20, weight: .semibold))
+                            .font(.system(size: 22, weight: .semibold))
                             .foregroundColor(.black)
                     }
                     
@@ -22,70 +22,73 @@ struct OnboardingView2: View {
                         ZStack(alignment: .leading) {
                             RoundedRectangle(cornerRadius: 10)
                                 .fill(Color.gray.opacity(0.2))
-                                .frame(height: 8)
+                                .frame(height: 4)
                             
                             RoundedRectangle(cornerRadius: 10)
                                 .fill(Color.black)
-                                .frame(width: geometry.size.width * 0.5, height: 8)
+                                .frame(width: geometry.size.width * 0.05, height: 4)
                         }
                     }
-                    .frame(height: 8)
+                    .frame(height: 4)
                 }
                 .padding(.horizontal, 24)
-                .padding(.top, 60)
-                .padding(.bottom, 40)
+                .padding(.top, 20)
+                .padding(.bottom, 20)
                 
                 // Header Text
-                Text("Ready to feel like you again?")
+                Text("Ready to ascend?")
                     .font(.system(size: 28, weight: .bold))
                     .foregroundColor(.black)
                     .padding(.horizontal, 24)
-                    .padding(.bottom, 12)
+                    .padding(.bottom, 16)
                 
                 // Subtitle Text
-                Text("Where are you with your GLP-1 journey?")
-                    .font(.system(size: 16, weight: .regular))
-                    .foregroundColor(.gray)
+                Text("Where are you with your peptide journey?")
+                    .font(.system(size: 12, weight: .light))
+                    .foregroundColor(.black)
                     .padding(.horizontal, 24)
                     .padding(.bottom, 60)
-                
-                Spacer()
                 
                 // Experience Level Buttons
                 VStack(spacing: 16) {
                     ExperienceButton(
                         icon: "sparkles",
-                        title: "I'm already on a GLP-1",
-                        isSelected: selectedExperience == "already",
-                        action: { selectedExperience = "already" }
+                        title: "I'm new to this",
+                        isSelected: selectedExperience == "new",
+                        action: { selectedExperience = "new" }
                     )
                     
                     ExperienceButton(
-                        icon: "play.fill",
-                        title: "I'm about to start a GLP-1",
-                        isSelected: selectedExperience == "starting",
-                        backgroundColor: .black,
-                        action: { selectedExperience = "starting" }
+                        icon: "chart.line.uptrend.xyaxis",
+                        title: "I've got some experience",
+                        isSelected: selectedExperience == "experienced",
+                        action: { selectedExperience = "experienced" }
+                    )
+
+                    ExperienceButton(
+                        icon: "star.fill",
+                        title: "I'm a peptide expert",
+                        isSelected: selectedExperience == "expert",
+                        action: { selectedExperience = "expert" }
                     )
                 }
                 .padding(.horizontal, 24)
-                .padding(.bottom, 100)
                 
                 Spacer()
                 
-                // Continue Button
-                Button(action: onContinue) {
-                    Text("Continue")
+                // Next Button
+                Button(action: onNext) {
+                    Text("Next")
                         .font(.system(size: 18, weight: .semibold))
                         .foregroundColor(.white)
                         .frame(maxWidth: .infinity)
                         .frame(height: 56)
-                        .background(selectedExperience.isEmpty ? Color.gray.opacity(0.3) : Color.black)
-                        .cornerRadius(16)
+                        .background(selectedExperience.isEmpty ? Color.black.opacity(0.3) : Color.black)
+                        .cornerRadius(28)
                 }
                 .disabled(selectedExperience.isEmpty)
-                .padding(.horizontal, 24)
-                .padding(.bottom, 50)
+                .padding(.horizontal, 32)
+                .padding(.bottom, 20)
             }
         }
     }
@@ -95,7 +98,6 @@ struct ExperienceButton: View {
     let icon: String
     let title: String
     let isSelected: Bool
-    var backgroundColor: Color = .white
     let action: () -> Void
     
     var body: some View {
@@ -103,26 +105,23 @@ struct ExperienceButton: View {
             HStack(spacing: 16) {
                 Image(systemName: icon)
                     .font(.system(size: 20))
-                    .foregroundColor(backgroundColor == .black ? .white : .black)
+                    .foregroundColor(isSelected ? .white : .black)
                 
                 Text(title)
                     .font(.system(size: 16, weight: .medium))
-                    .foregroundColor(backgroundColor == .black ? .white : .black)
+                    .foregroundColor(isSelected ? .white : .black)
                 
                 Spacer()
             }
             .padding(.horizontal, 20)
+            .frame(maxWidth: .infinity)
             .frame(height: 60)
-            .background(backgroundColor)
-            .overlay(
-                RoundedRectangle(cornerRadius: 12)
-                    .stroke(backgroundColor == .black ? Color.clear : Color.gray.opacity(0.2), lineWidth: 1)
-            )
+            .background(isSelected ? Color.black : Color.gray.opacity(0.05))
             .cornerRadius(12)
         }
     }
 }
 
 #Preview {
-    OnboardingView2(selectedExperience: .constant(""), onContinue: {})
+    OnboardingExperience(onNext: {})
 }
