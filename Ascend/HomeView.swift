@@ -7,9 +7,52 @@
 
 import SwiftUI
 
+enum Tab {
+    case home
+    case peptides
+    case progress
+    case library
+    case account
+}
+
 struct HomeView: View {
     @State private var selectedDate = Date()
     @State private var showDateCircles = false
+    @State private var selectedTab: Tab = .home
+    
+    var body: some View {
+        ZStack {
+            Color.white.ignoresSafeArea()
+            
+            VStack(spacing: 0) {
+                currentView
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                
+                BottomNavBar(selectedTab: $selectedTab)
+            }
+        }
+    }
+    
+    @ViewBuilder
+    private var currentView: some View {
+        switch selectedTab {
+        case .home:
+            HomeContentView(selectedDate: $selectedDate, showDateCircles: $showDateCircles)
+        case .peptides:
+            PeptidesView()
+        case .progress:
+            ProgressView()
+        case .library:
+            LibraryView()
+        case .account:
+            AccountView()
+        }
+    }
+}
+
+struct HomeContentView: View {
+    @Binding var selectedDate: Date
+    @Binding var showDateCircles: Bool
     
     var body: some View {
         ZStack {
@@ -123,12 +166,6 @@ struct HomeView: View {
                     .padding(.trailing, 20)
                     .padding(.bottom, 90)
                 }
-            }
-            
-            // Bottom Navigation Bar
-            VStack {
-                Spacer()
-                BottomNavBar()
             }
         }
     }
@@ -444,6 +481,8 @@ struct LogEntry: View {
 }
 
 struct BottomNavBar: View {
+    @Binding var selectedTab: Tab
+    
     var body: some View {
         VStack(spacing: 0) {
             Rectangle()
@@ -451,11 +490,21 @@ struct BottomNavBar: View {
                 .frame(height: 0.5)
             
             HStack(spacing: 0) {
-                NavBarItem(icon: "house.fill", isActive: true)
-                NavBarItem(icon: "syringe.fill", isActive: false)
-                NavBarItem(icon: "chart.line.uptrend.xyaxis", isActive: false)
-                NavBarItem(icon: "book.fill", isActive: false)
-                NavBarItem(icon: "person.fill", isActive: false)
+                NavBarItem(icon: "house.fill", isActive: selectedTab == .home) {
+                    selectedTab = .home
+                }
+                NavBarItem(icon: "syringe.fill", isActive: selectedTab == .peptides) {
+                    selectedTab = .peptides
+                }
+                NavBarItem(icon: "chart.line.uptrend.xyaxis", isActive: selectedTab == .progress) {
+                    selectedTab = .progress
+                }
+                NavBarItem(icon: "book.fill", isActive: selectedTab == .library) {
+                    selectedTab = .library
+                }
+                NavBarItem(icon: "person.fill", isActive: selectedTab == .account) {
+                    selectedTab = .account
+                }
             }
             .padding(.horizontal, 20)
             .padding(.top, 16)
@@ -468,9 +517,10 @@ struct BottomNavBar: View {
 struct NavBarItem: View {
     let icon: String
     let isActive: Bool
+    let action: () -> Void
     
     var body: some View {
-        Button(action: {}) {
+        Button(action: action) {
             Image(systemName: icon)
                 .font(.system(size: 24))
                 .foregroundColor(isActive ? .black : .black.opacity(0.4))
