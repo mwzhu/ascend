@@ -204,12 +204,12 @@ struct DateCircle: View {
                 ZStack {
                     Circle()
                         .fill(circleBackground)
-                        .frame(width: circleSize, height: circleSize)
+                        .frame(width: 26, height: 26)
                     
                     Circle()
                         .strokeBorder(
                             style: StrokeStyle(
-                                lineWidth: 2,
+                                lineWidth: 1,
                                 dash: [4, 4]
                             )
                         )
@@ -218,7 +218,7 @@ struct DateCircle: View {
                     
                     if showIcon {
                         Image(systemName: "syringe.fill")
-                            .font(.system(size: iconSize))
+                            .font(.system(size: 12))
                             .foregroundColor(iconColor)
                     }
                 }
@@ -232,7 +232,7 @@ struct DateCircle: View {
             .padding(.horizontal, 4)
             .background(
                 RoundedRectangle(cornerRadius: 20)
-                    .fill(isSelected ? Color.gray.opacity(0.15) : Color.clear)
+                    .fill(isSelected ? Color.gray.opacity(0.14) : Color.clear)
             )
         }
         .buttonStyle(PlainButtonStyle())
@@ -247,23 +247,12 @@ struct DateCircle: View {
         }
     }
     
-    private var iconSize: CGFloat {
-        switch circleStyle {
-        case .orangeWithIcon:
-            return 12
-        case .grayWithIcon:
-            return 12
-        case .blank:
-            return 12
-        }
-    }
-    
     private var circleBackground: Color {
         switch circleStyle {
         case .blank:
-            return Color.gray.opacity(0.2)
+            return Color.gray.opacity(0.11)
         case .grayWithIcon:
-            return Color.gray.opacity(0.2)
+            return Color.gray.opacity(0.11)
         case .orangeWithIcon:
             return Color(hex: "FF7300")
         }
@@ -285,7 +274,7 @@ struct DateCircle: View {
     private var iconColor: Color {
         switch circleStyle {
         case .grayWithIcon:
-            return Color(hex: "FF7300")
+            return Color.gray.opacity(0.55)
         case .orangeWithIcon:
             return .white
         case .blank:
