@@ -1,22 +1,7 @@
 import SwiftUI
 
 struct OnboardingDreamWeight3: View {
-    @State private var isMetric = false
-    @State private var dreamWeightLbs: Double = 110
-    @State private var dreamWeightKg: Double = 49.9
     let onNext: () -> Void
-    
-    var displayWeight: String {
-        if isMetric {
-            return String(format: "%.1f", dreamWeightKg)
-        } else {
-            return String(format: "%.1f", dreamWeightLbs)
-        }
-    }
-    
-    var unit: String {
-        isMetric ? "kg" : "lbs"
-    }
     
     var body: some View {
         ZStack {
@@ -40,7 +25,7 @@ struct OnboardingDreamWeight3: View {
                             
                             RoundedRectangle(cornerRadius: 10)
                                 .fill(Color.black)
-                                .frame(width: geometry.size.width * 0.5, height: 4)
+                                .frame(width: geometry.size.width * 0.15, height: 4)
                         }
                     }
                     .frame(height: 4)
@@ -50,71 +35,72 @@ struct OnboardingDreamWeight3: View {
                 .padding(.bottom, 20)
                 
                 // Header Text
-                Text("What's Your Dream Weight?")
+                Text("Make Peptides Work for You — 3x More Effectively")
                     .font(.system(size: 28, weight: .bold))
                     .foregroundColor(.black)
                     .padding(.horizontal, 24)
-                    .padding(.bottom, 16)
+                    .padding(.bottom, 40)
                 
-                // Subtitle Text
-                Text("Share your goal weight so we can map out your transformation.")
-                    .font(.system(size: 12, weight: .light))
-                    .foregroundColor(.black)
-                    .padding(.horizontal, 24)
-                
-                Spacer()
-                
-                // Dream Weight Display and Slider
-                VStack(spacing: 20) {
-                    // Weight Display
-                    VStack(spacing: 20) {
-                        Text("Dream Weight")
-                            .font(.system(size: 18, weight: .regular))
-                            .foregroundColor(.black)
+                // Comparison Chart Section
+                VStack(spacing: 30) {
+                    // Comparison Bars
+                    HStack(alignment: .bottom, spacing: 40) {
+                        // Without Column
+                        VStack(spacing: 16) {
+                            Text("Without")
+                                .font(.system(size: 18, weight: .semibold))
+                                .foregroundColor(.black)
+                            
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 20)
+                                    .fill(Color.gray.opacity(0.2))
+                                    .frame(width: 120, height: 60)
+                                
+                                Text("18%")
+                                    .font(.system(size: 20, weight: .bold))
+                                    .foregroundColor(.black)
+                            }
+                        }
                         
-                        HStack(alignment: .firstTextBaseline, spacing: 4) {
-                            Text(displayWeight)
-                                .font(.system(size: 36, weight: .heavy))
-                                .foregroundColor(.black)
-                            Text(unit)
-                                .font(.system(size: 24, weight: .regular))
-                                .foregroundColor(.black)
+                        // Ascend Column
+                        VStack(spacing: 16) {
+                            HStack(alignment: .center, spacing: 4) {
+                                Image(systemName: "bolt.fill")
+                                    .font(.system(size: 16, weight: .semibold))
+                                    .foregroundColor(Color(hex: "FF7300"))
+                                
+                                Text("Ascend")
+                                    .font(.system(size: 18, weight: .semibold))
+                                    .foregroundColor(.black)
+                                    .italic()
+                            }
+                            
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 20)
+                                    .fill(Color(hex: "FF7300").opacity(0.8))
+                                    .frame(width: 120, height: 200)
+                                
+                                Text("3X")
+                                    .font(.system(size: 26, weight: .bold))
+                                    .foregroundColor(.white)
+                            }
                         }
                     }
                     
-                    // Ruler Slider
-                    VStack(spacing: 16) {
-                        RulerSlider(
-                            value: isMetric ? $dreamWeightKg : $dreamWeightLbs,
-                            range: isMetric ? 30...150 : 66...330,
-                            unit: unit
-                        )
-                    }
-                    .padding(.horizontal, 24)
+                    // Description Text
+                    Text("Enjoy a smoother experience, from managing side effects to hitting your health goals more effectively.")
+                        .font(.system(size: 14, weight: .semibold))
+                        .foregroundColor(.black)
+                        .multilineTextAlignment(.center)
+                        .lineSpacing(2)
+                        .padding(.horizontal, 40)
                 }
+                .padding(.vertical, 40)
+                .background(Color.gray.opacity(0.05))
+                .cornerRadius(20)
+                .padding(.horizontal, 24)
                 
                 Spacer()
-                
-                // Imperial/Metric Toggle
-                HStack {
-                    Spacer()
-                    
-                    Text("imperial")
-                        .font(.system(size: 14, weight: .medium))
-                        .foregroundColor(isMetric ? .gray : .black)
-                    
-                    Toggle("", isOn: $isMetric)
-                        .labelsHidden()
-                        .tint(.gray)
-                        .frame(width: 50)
-                    
-                    Text("metric")
-                        .font(.system(size: 14, weight: .medium))
-                        .foregroundColor(isMetric ? .black : .gray)
-                    
-                    Spacer()
-                }
-                .padding(.bottom, 30)
                 
                 // Next Button
                 Button(action: onNext) {

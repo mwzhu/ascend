@@ -76,24 +76,21 @@ struct ProgressView: View {
                             Spacer().frame(height: 1)
                         }
                         
-                        // To Do List
-                        ToDoListCard()
+                        // Weight Chart
+                        WeightChartCard()
                         
-                        // Medication Level
-                        MedicationLevelCard()
-                        
-                        // Health Metrics Grid
+                        // Progress and BMI Row
                         HStack(spacing: 12) {
-                            MetricCard(icon: "carrot.fill", title: "Fiber", value: "25g", goal: "30g", color: .orange)
-                            MetricCard(icon: "drop.fill", title: "Water", value: "6", goal: "8", color: .blue)
+                            ProgressCircleCard()
+                            BMICard()
                         }
+                        .padding(.horizontal, 20)
                         
-                        HStack(spacing: 12) {
-                            MetricCard(icon: "fork.knife", title: "Protein", value: "80g", goal: "100g", color: .red)
-                            MetricCard(icon: "figure.walk", title: "Activity", value: "45m", goal: "60m", color: .green)
-                        }
+                        // Difference Card
+                        DifferenceCard()
                         
-                        MetricCard(icon: "target", title: "Goal", value: "2/3", goal: "Complete", color: .purple, isWide: true)
+                        // Timeline
+                        TimelineCard()
                         
                         // Selected Date's Log
                         LogCard()
@@ -137,3 +134,364 @@ struct ProgressView: View {
     }
 }
 
+struct WeightChartCard: View {
+    var body: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            HStack {
+                HStack(spacing: 6) {
+                    Image(systemName: "scalemass.fill")
+                        .font(.system(size: 16))
+                        .foregroundColor(Color(hex: "B366FF"))
+                    Text("Weight(lbs)")
+                        .font(.system(size: 15, weight: .bold))
+                        .foregroundColor(.black)
+                }
+                
+                Spacer()
+                
+                HStack(spacing: 6) {
+                    Button(action: {}) {
+                        Text("7d")
+                            .font(.system(size: 12, weight: .semibold))
+                            .foregroundColor(.black)
+                            .padding(.horizontal, 10)
+                            .padding(.vertical, 5)
+                            .background(Color.gray.opacity(0.15))
+                            .cornerRadius(6)
+                    }
+                    Button(action: {}) {
+                        Text("30d")
+                            .font(.system(size: 12, weight: .semibold))
+                            .foregroundColor(.gray)
+                    }
+                    Button(action: {}) {
+                        Text("90d")
+                            .font(.system(size: 12, weight: .semibold))
+                            .foregroundColor(.gray)
+                    }
+                    Button(action: {}) {
+                        Text("1y")
+                            .font(.system(size: 12, weight: .semibold))
+                            .foregroundColor(.gray)
+                    }
+                }
+            }
+            
+            VStack(alignment: .trailing, spacing: 3) {
+                Text("148.9lbs")
+                    .font(.system(size: 22, weight: .bold))
+                    .foregroundColor(.black)
+                Text("Nov 17, 1:33 PM")
+                    .font(.system(size: 11))
+                    .foregroundColor(.gray)
+            }
+            .frame(maxWidth: .infinity, alignment: .trailing)
+            .padding(.top, 4)
+            
+            GeometryReader { geometry in
+                Canvas { context, size in
+                    let path = Path { path in
+                        path.move(to: CGPoint(x: 0, y: size.height * 0.5))
+                        path.addLine(to: CGPoint(x: size.width, y: size.height * 0.5))
+                    }
+                    context.stroke(path, with: .color(Color(hex: "B366FF")), lineWidth: 2.5)
+                    
+                    let circleX = size.width * 0.85
+                    let circleY = size.height * 0.5
+                    context.fill(
+                        Path(ellipseIn: CGRect(x: circleX - 5, y: circleY - 5, width: 10, height: 10)),
+                        with: .color(Color(hex: "B366FF"))
+                    )
+                }
+            }
+            .frame(height: 80)
+        }
+        .padding(16)
+        .background(Color.black.opacity(0.05))
+        .cornerRadius(16)
+        .padding(.horizontal, 20)
+    }
+}
+
+struct ProgressCircleCard: View {
+    var body: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            HStack {
+                Image(systemName: "target")
+                    .font(.system(size: 16))
+                    .foregroundColor(Color(hex: "B366FF"))
+                Text("Progress")
+                    .font(.system(size: 15, weight: .bold))
+                    .foregroundColor(.black)
+            }
+            
+            Text("Goal Weight: 160lbs")
+                .font(.system(size: 12))
+                .foregroundColor(.gray)
+            
+            ZStack {
+                Circle()
+                    .stroke(Color.gray.opacity(0.2), lineWidth: 10)
+                    .frame(width: 90, height: 90)
+                
+                Circle()
+                    .trim(from: 0, to: 1.0)
+                    .stroke(
+                        Color(hex: "B366FF"),
+                        style: StrokeStyle(lineWidth: 10, lineCap: .round)
+                    )
+                    .frame(width: 90, height: 90)
+                    .rotationEffect(.degrees(-90))
+                
+                Text("100%")
+                    .font(.system(size: 24, weight: .bold))
+                    .foregroundColor(.black)
+            }
+            .frame(maxWidth: .infinity)
+            .padding(.vertical, 6)
+        }
+        .frame(maxWidth: .infinity)
+        .padding(16)
+        .background(Color.black.opacity(0.05))
+        .cornerRadius(16)
+    }
+}
+
+struct BMICard: View {
+    var body: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            HStack {
+                Image(systemName: "waveform.path.ecg")
+                    .font(.system(size: 16))
+                    .foregroundColor(Color(hex: "B366FF"))
+                Text("BMI")
+                    .font(.system(size: 15, weight: .bold))
+                    .foregroundColor(.black)
+                Spacer()
+                Image(systemName: "info.circle")
+                    .font(.system(size: 14))
+                    .foregroundColor(.gray)
+            }
+            
+            Spacer()
+            
+            VStack(alignment: .leading, spacing: 3) {
+                Text("22")
+                    .font(.system(size: 36, weight: .bold))
+                    .foregroundColor(.black)
+                Text("Nov 3, 2:15 PM")
+                    .font(.system(size: 11))
+                    .foregroundColor(.gray)
+            }
+            
+            Spacer()
+        }
+        .frame(maxWidth: .infinity)
+        .padding(16)
+        .background(Color.black.opacity(0.05))
+        .cornerRadius(16)
+    }
+}
+
+struct DifferenceCard: View {
+    var body: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            HStack {
+                Image(systemName: "arrow.down.right")
+                    .font(.system(size: 16))
+                    .foregroundColor(Color(hex: "B366FF"))
+                Text("Difference")
+                    .font(.system(size: 15, weight: .bold))
+                    .foregroundColor(.black)
+            }
+            
+            VStack(alignment: .leading, spacing: 3) {
+                Text("-25.1lbs")
+                    .font(.system(size: 28, weight: .bold))
+                    .foregroundColor(.black)
+                Text("From 174lbs, 11/02/25")
+                    .font(.system(size: 12))
+                    .foregroundColor(.gray)
+            }
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(16)
+        .background(Color.black.opacity(0.05))
+        .cornerRadius(16)
+        .padding(.horizontal, 20)
+    }
+}
+
+struct TimelineCard: View {
+    var body: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            HStack {
+                Image(systemName: "calendar")
+                    .font(.system(size: 16))
+                    .foregroundColor(Color(hex: "B366FF"))
+                Text("Timeline")
+                    .font(.system(size: 15, weight: .bold))
+                    .foregroundColor(.black)
+                
+                Spacer()
+                
+                HStack(spacing: 3) {
+                    Text("Est. Date")
+                        .font(.system(size: 11))
+                        .foregroundColor(.gray)
+                    Text("Nov 17, 2025")
+                        .font(.system(size: 11, weight: .semibold))
+                        .foregroundColor(.black)
+                }
+                .padding(.horizontal, 10)
+                .padding(.vertical, 5)
+                .background(Color.gray.opacity(0.15))
+                .cornerRadius(6)
+            }
+            
+            HStack(alignment: .center, spacing: 0) {
+                VStack(spacing: 3) {
+                    Text("174lbs")
+                        .font(.system(size: 15, weight: .bold))
+                        .foregroundColor(.black)
+                    Text("Nov 2, 2025")
+                        .font(.system(size: 10))
+                        .foregroundColor(.gray)
+                }
+                .frame(maxWidth: .infinity)
+                
+                VStack(spacing: 3) {
+                    Text("149lbs")
+                        .font(.system(size: 15, weight: .bold))
+                        .foregroundColor(.black)
+                    Text("Nov 3, 2025")
+                        .font(.system(size: 10))
+                        .foregroundColor(.gray)
+                }
+                .frame(maxWidth: .infinity)
+                
+                VStack(spacing: 3) {
+                    Text("160lbs")
+                        .font(.system(size: 15, weight: .bold))
+                        .foregroundColor(.black)
+                    Text("Today, 1:33 PM")
+                        .font(.system(size: 10))
+                        .foregroundColor(.gray)
+                }
+                .frame(maxWidth: .infinity)
+            }
+            
+            GeometryReader { geometry in
+                ZStack(alignment: .leading) {
+                    RoundedRectangle(cornerRadius: 3)
+                        .fill(Color.gray.opacity(0.2))
+                        .frame(height: 6)
+                    
+                    HStack(spacing: 0) {
+                        RoundedRectangle(cornerRadius: 3)
+                            .fill(Color(hex: "B366FF"))
+                            .frame(width: geometry.size.width * 0.33, height: 6)
+                        
+                        RoundedRectangle(cornerRadius: 3)
+                            .fill(Color(hex: "B366FF").opacity(0.4))
+                            .frame(width: geometry.size.width * 0.67, height: 6)
+                    }
+                }
+            }
+            .frame(height: 6)
+        }
+        .padding(16)
+        .background(Color.black.opacity(0.05))
+        .cornerRadius(16)
+        .padding(.horizontal, 20)
+    }
+}
+
+// struct LogCard: View {
+//     var body: some View {
+//         VStack(alignment: .leading, spacing: 16) {
+//             HStack {
+//                 Image(systemName: "list.bullet.clipboard")
+//                     .font(.system(size: 20))
+//                     .foregroundColor(.black)
+//                 Text("Selected Date's Log (1)")
+//                     .font(.system(size: 18, weight: .bold))
+//                     .foregroundColor(.black)
+//                 Spacer()
+//                 Button(action: {}) {
+//                     Text("See more")
+//                         .font(.system(size: 14))
+//                         .foregroundColor(.black.opacity(0.6))
+//                 }
+//             }
+            
+//             Divider()
+            
+//             VStack(alignment: .leading, spacing: 12) {
+//                 Text("OPTIONS")
+//                     .font(.system(size: 11, weight: .semibold))
+//                     .foregroundColor(.gray)
+                
+//                 HStack {
+//                     Image(systemName: "scalemass.fill")
+//                         .font(.system(size: 20))
+//                         .foregroundColor(.gray)
+//                     Text("Weight Settings")
+//                         .font(.system(size: 16))
+//                         .foregroundColor(.black)
+//                     Spacer()
+//                     Image(systemName: "chevron.right")
+//                         .font(.system(size: 14))
+//                         .foregroundColor(.gray)
+//                 }
+                
+//                 HStack {
+//                     Image(systemName: "list.bullet")
+//                         .font(.system(size: 20))
+//                         .foregroundColor(.gray)
+//                     Text("Show All Weight Logs")
+//                         .font(.system(size: 16))
+//                         .foregroundColor(.black)
+//                     Spacer()
+//                     Image(systemName: "chevron.right")
+//                         .font(.system(size: 14))
+//                         .foregroundColor(.gray)
+//                 }
+//             }
+//         }
+//         .padding(20)
+//         .background(Color.black.opacity(0.05))
+//         .cornerRadius(20)
+//         .padding(.horizontal, 20)
+//     }
+// }
+
+// extension Color {
+//     init(hex: String) {
+//         let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
+//         var int: UInt64 = 0
+//         Scanner(string: hex).scanHexInt64(&int)
+//         let a, r, g, b: UInt64
+//         switch hex.count {
+//         case 3:
+//             (a, r, g, b) = (255, (int >> 8) * 17, (int >> 4 & 0xF) * 17, (int & 0xF) * 17)
+//         case 6:
+//             (a, r, g, b) = (255, int >> 16, int >> 8 & 0xFF, int & 0xFF)
+//         case 8:
+//             (a, r, g, b) = (int >> 24, int >> 16 & 0xFF, int >> 8 & 0xFF, int & 0xFF)
+//         default:
+//             (a, r, g, b) = (255, 0, 0, 0)
+//         }
+//         self.init(
+//             .sRGB,
+//             red: Double(r) / 255,
+//             green: Double(g) / 255,
+//             blue: Double(b) / 255,
+//             opacity: Double(a) / 255
+//         )
+//     }
+// }
+
+#Preview {
+    ProgressView()
+}
