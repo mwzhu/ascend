@@ -35,26 +35,26 @@ struct OnboardingGraph4: View {
                 .padding(.bottom, 20)
                 
                 // Header Text
-                Text("Ascend creates long-term results")
+                Text("You have great potential to crush your goals")
                     .font(.system(size: 28, weight: .bold))
                     .foregroundColor(.black)
                     .padding(.horizontal, 24)
                     .padding(.bottom, 70)
                 
                 // Timeline Graph Section
-                VStack(spacing: 24) {
+                VStack(spacing: 8) {
                     ProgressTimelineGraph()
                         .frame(height: 280)
                         .padding(.horizontal, 24)
                     
                     Text("Based on Ascend's historical data, weight loss is usually delayed at first, but after 7 days, you can burn fat like crazy!")
-                        .font(.system(size: 14, weight: .regular))
-                        .foregroundColor(.black.opacity(0.8))
+                        .font(.system(size: 15, weight: .semibold))
+                        .foregroundColor(.black.opacity(0.65))
                         .multilineTextAlignment(.center)
                         .lineSpacing(2)
-                        .padding(.horizontal, 40)
+                        .padding(.horizontal, 30)
                 }
-                .padding(.vertical, 40)
+                .padding(.vertical, 30)
                 .background(Color.gray.opacity(0.05))
                 .cornerRadius(20)
                 .padding(.horizontal, 24)
@@ -87,118 +87,262 @@ struct ProgressTimelineGraph: View {
             VStack(alignment: .leading, spacing: 0) {
                 // Title
                 Text("Your weight transition")
-                    .font(.system(size: 20, weight: .semibold))
-                    .foregroundColor(.black)
+                    .font(.system(size: 21, weight: .semibold))
+                    .foregroundColor(.black.opacity(0.85))
                     .padding(.bottom, 20)
                 
                 ZStack(alignment: .topLeading) {
-                    // Grid lines
-                    VStack(spacing: height * 0.25) {
-                        ForEach(0..<4) { _ in
-                            Rectangle()
-                                .fill(Color.gray.opacity(0.2))
-                                .frame(height: 1)
-                        }
-                    }
-                    .padding(.top, 20)
-                    
                     Canvas { context, size in
-                        let point1X: CGFloat = 20
-                        let point2X = size.width * 0.45
-                        let point3X = size.width - 20
+                        // Dot positions
+                        let dot1X: CGFloat = 0
+                        let dot2X = size.width * 0.25
+                        let dot3X = size.width * 0.5
+                        let trophyX = size.width
                         
-                        let point1Y = size.height * 0.65
-                        let point2Y = size.height * 0.48
-                        let point3Y = size.height * 0.08
+                        let dot1Y = size.height * 0.7 + 10
+                        let dot2Y = size.height * 0.7 + 3
+                        let dot3Y = size.height * 0.5
+                        let trophyY: CGFloat = 0
                         
-                        // Fill areas under the path
+                        // Draw horizontal grid lines (dotted)
+                        for i in 0..<5 {
+                            let y = CGFloat(i) * size.height * 0.25
+                            let gridLine = Path { path in
+                                path.move(to: CGPoint(x: 0, y: y))
+                                path.addLine(to: CGPoint(x: size.width, y: y))
+                            }
+                            context.stroke(
+                                gridLine,
+                                with: .color(Color.gray.opacity(0.2)),
+                                style: StrokeStyle(lineWidth: 1, dash: [2, 2])
+                            )
+                        }
+                        
+                        // Draw dotted vertical lines from first 3 dots
+                        let dottedLine1 = Path { path in
+                            path.move(to: CGPoint(x: dot1X, y: dot1Y))
+                            path.addLine(to: CGPoint(x: dot1X, y: size.height))
+                        }
+                        
+                        let dottedLine2 = Path { path in
+                            path.move(to: CGPoint(x: dot2X, y: dot2Y))
+                            path.addLine(to: CGPoint(x: dot2X, y: size.height))
+                        }
+                        
+                        let dottedLine3 = Path { path in
+                            path.move(to: CGPoint(x: dot3X, y: dot3Y))
+                            path.addLine(to: CGPoint(x: dot3X, y: size.height))
+                        }
+                        
+                        context.stroke(
+                            dottedLine1,
+                            with: .color(Color.gray.opacity(0.3)),
+                            style: StrokeStyle(lineWidth: 1, dash: [2, 2])
+                        )
+                        
+                        context.stroke(
+                            dottedLine2,
+                            with: .color(Color.gray.opacity(0.3)),
+                            style: StrokeStyle(lineWidth: 1, dash: [2, 2])
+                        )
+                        
+                        context.stroke(
+                            dottedLine3,
+                            with: .color(Color.gray.opacity(0.3)),
+                            style: StrokeStyle(lineWidth: 1, dash: [2, 2])
+                        )
+                        
+                        // Fill areas under the path - extend to bottom (using curves)
                         let fill1 = Path { path in
-                            path.move(to: CGPoint(x: point1X, y: point1Y))
-                            path.addLine(to: CGPoint(x: point2X, y: point2Y))
-                            path.addLine(to: CGPoint(x: point2X, y: size.height))
-                            path.addLine(to: CGPoint(x: point1X, y: size.height))
+                            path.move(to: CGPoint(x: dot1X, y: dot1Y))
+                            // Curve from dot1 to dot2
+                            let control1X = (dot1X + dot2X) / 2
+                            let control1Y = dot1Y
+                            path.addQuadCurve(
+                                to: CGPoint(x: dot2X, y: dot2Y),
+                                control: CGPoint(x: control1X, y: control1Y)
+                            )
+                            path.addLine(to: CGPoint(x: dot2X, y: size.height))
+                            path.addLine(to: CGPoint(x: dot1X, y: size.height))
                             path.closeSubpath()
                         }
                         
                         let fill2 = Path { path in
-                            path.move(to: CGPoint(x: point2X, y: point2Y))
-                            path.addLine(to: CGPoint(x: point3X, y: point3Y))
-                            path.addLine(to: CGPoint(x: point3X, y: size.height))
-                            path.addLine(to: CGPoint(x: point2X, y: size.height))
+                            path.move(to: CGPoint(x: dot2X, y: dot2Y))
+                            // Curve from dot2 to dot3
+                            let control2X = (dot2X + dot3X) / 2
+                            let control2Y = (dot2Y + dot3Y) / 2
+                            path.addQuadCurve(
+                                to: CGPoint(x: dot3X, y: dot3Y),
+                                control: CGPoint(x: control2X + 10, y: control2Y)
+                            )
+                            path.addLine(to: CGPoint(x: dot3X, y: size.height))
+                            path.addLine(to: CGPoint(x: dot2X, y: size.height))
                             path.closeSubpath()
                         }
                         
-                        context.fill(fill1, with: .color(Color.gray.opacity(0.15)))
-                        context.fill(fill2, with: .color(Color(hex: "D4A574").opacity(0.3)))
+                        let fill3 = Path { path in
+                            path.move(to: CGPoint(x: dot3X, y: dot3Y))
+                            // Curve from dot3 to trophy
+                            let control3X = (dot3X + trophyX) / 2
+                            let control3Y = (dot3Y + trophyY) / 2
+                            path.addQuadCurve(
+                                to: CGPoint(x: trophyX, y: trophyY),
+                                control: CGPoint(x: control3X - 20, y: control3Y)
+                            )
+                            path.addLine(to: CGPoint(x: trophyX, y: size.height))
+                            path.addLine(to: CGPoint(x: dot3X, y: size.height))
+                            path.closeSubpath()
+                        }
                         
-                        // Draw the main path
+                        // Gradient 1: First circle to 3rd circle (gray to light orange)
+                        context.fill(
+                            fill1,
+                            with: .linearGradient(
+                                Gradient(colors: [
+                                    Color.gray.opacity(0.15),
+                                    Color(hex: "FF7300").opacity(0.1)
+                                ]),
+                                startPoint: CGPoint(x: dot1X, y: size.height / 2),
+                                endPoint: CGPoint(x: dot3X, y: size.height / 2)
+                            )
+                        )
+                        
+                        context.fill(
+                            fill2,
+                            with: .linearGradient(
+                                Gradient(colors: [
+                                    Color.gray.opacity(0.15),
+                                    Color(hex: "FF7300").opacity(0.1)
+                                ]),
+                                startPoint: CGPoint(x: dot1X, y: size.height / 2),
+                                endPoint: CGPoint(x: dot3X, y: size.height / 2)
+                            )
+                        )
+                        
+                        // Gradient 2: 3rd circle to trophy (light orange to darker orange)
+                        context.fill(
+                            fill3,
+                            with: .linearGradient(
+                                Gradient(colors: [
+                                    Color(hex: "FF7300").opacity(0.1),
+                                    Color(hex: "FF7300").opacity(0.25)
+                                ]),
+                                startPoint: CGPoint(x: dot3X, y: size.height / 2),
+                                endPoint: CGPoint(x: trophyX, y: size.height / 2)
+                            )
+                        )
+                        
+                        // Draw the main path with gradient (curved)
                         let progressPath = Path { path in
-                            path.move(to: CGPoint(x: point1X, y: point1Y))
-                            path.addLine(to: CGPoint(x: point2X, y: point2Y))
-                            path.addLine(to: CGPoint(x: point3X, y: point3Y))
+                            path.move(to: CGPoint(x: dot1X, y: dot1Y))
+                            
+                            // Curve from dot1 to dot2
+                            let control1X = (dot1X + dot2X) / 2
+                            let control1Y = dot1Y
+                            path.addQuadCurve(
+                                to: CGPoint(x: dot2X, y: dot2Y),
+                                control: CGPoint(x: control1X, y: control1Y)
+                            )
+                            
+                            // Curve from dot2 to dot3
+                            let control2X = (dot2X + dot3X) / 2
+                            let control2Y = (dot2Y + dot3Y) / 2
+                            path.addQuadCurve(
+                                to: CGPoint(x: dot3X, y: dot3Y),
+                                control: CGPoint(x: control2X + 10, y: control2Y )
+                            )
+                            
+                            // Curve from dot3 to trophy
+                            let control3X = (dot3X + trophyX) / 2
+                            let control3Y = (dot3Y + trophyY) / 2
+                            path.addQuadCurve(
+                                to: CGPoint(x: trophyX, y: trophyY),
+                                control: CGPoint(x: control3X - 20, y: control3Y)
+                            )
                         }
                         
                         context.stroke(
                             progressPath,
-                            with: .color(Color(hex: "FF7300")),
+                            with: .linearGradient(
+                                Gradient(stops: [
+                                    .init(color: Color.black, location: 0.0),
+                                    .init(color: Color(hex: "FF7300").opacity(0.7), location: 0.5),
+                                    .init(color: Color(hex: "FF7300"), location: 1.0)
+                                ]),
+                                startPoint: CGPoint(x: dot1X, y: 0),
+                                endPoint: CGPoint(x: trophyX, y: 0)
+                            ),
                             lineWidth: 3
                         )
                     }
                     .frame(height: height * 0.7)
-                    .padding(.top, 20)
                     
-                    // Data points
-                    ZStack(alignment: .topLeading) {
-                        // First circle (3 days)
+                    // Data points - positioned to match line exactly
+                    GeometryReader { geo in
+                        let canvasHeight = height * 0.7
+                        
+                        // First circle
                         Circle()
                             .fill(Color.white)
-                            .frame(width: 16, height: 16)
+                            .frame(width: 13, height: 13)
                             .overlay(
                                 Circle()
-                                    .stroke(.black, lineWidth: 2.5)
+                                    .stroke(.black, lineWidth: 2)
                             )
-                            .offset(x: 12, y: height * 0.65 + 12)
+                            .position(x: 0, y: canvasHeight * 0.7 + 10)
                         
-                        // Second circle (7 days)
+                        // Second circle
                         Circle()
                             .fill(Color.white)
-                            .frame(width: 16, height: 16)
+                            .frame(width: 13, height: 13)
                             .overlay(
                                 Circle()
-                                    .stroke(.black, lineWidth: 2.5)
+                                    .stroke(.black, lineWidth: 2)
                             )
-                            .offset(x: width * 0.45 - 8, y: height * 0.48 + 12)
+                            .position(x: geo.size.width * 0.25, y: canvasHeight * 0.7 + 3)
+
+                        // Third circle
+                        Circle()
+                            .fill(Color.white)
+                            .frame(width: 13, height: 13)
+                            .overlay(
+                                Circle()
+                                    .stroke(.black, lineWidth: 2)
+                            )
+                            .position(x: geo.size.width * 0.5, y: canvasHeight * 0.5)
                         
-                        // Trophy (30 days)
+                        // Trophy
                         ZStack {
                             Circle()
-                                .fill(Color(hex: "D4A574"))
-                                .frame(width: 40, height: 40)
+                                .fill(Color(hex: "FF7300"))
+                                .frame(width: 32, height: 32)
                             
                             Image(systemName: "trophy.fill")
-                                .font(.system(size: 18))
+                                .font(.system(size: 14))
                                 .foregroundColor(.white)
                         }
-                        .offset(x: width - 40, y: height * 0.08)
+                        .position(x: geo.size.width, y: 0)
                     }
+                    .frame(height: height * 0.7)
                 }
                 
                 // Timeline labels
                 ZStack(alignment: .topLeading) {
                     Text("3 Days")
-                        .font(.system(size: 14, weight: .medium))
+                        .font(.system(size: 13, weight: .medium))
                         .foregroundColor(.black)
-                        .offset(x: 0, y: 0)
+                        .offset(x: width * 0.06, y: 0)
                     
                     Text("7 Days")
-                        .font(.system(size: 14, weight: .medium))
+                        .font(.system(size: 13, weight: .medium))
                         .foregroundColor(.black)
-                        .offset(x: width * 0.45 - 30, y: 0)
+                        .offset(x: width * 0.32, y: 0)
                     
                     Text("30 Days")
-                        .font(.system(size: 14, weight: .medium))
+                        .font(.system(size: 13, weight: .medium))
                         .foregroundColor(.black)
-                        .offset(x: width - 60, y: 0)
+                        .offset(x: width * 0.68, y: 0)
                 }
                 .padding(.top, 8)
                 .frame(maxWidth: .infinity, alignment: .leading)
