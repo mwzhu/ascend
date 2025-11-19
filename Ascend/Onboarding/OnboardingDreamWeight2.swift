@@ -2,6 +2,8 @@ import SwiftUI
 
 struct OnboardingDreamWeight2: View {
     let onNext: () -> Void
+    let onBack: () -> Void
+    let progress: Double
     
     var body: some View {
         ZStack {
@@ -11,7 +13,7 @@ struct OnboardingDreamWeight2: View {
             VStack(alignment: .leading, spacing: 0) {
                 // Back Button and Progress Bar
                 HStack(spacing: 20) {
-                    Button(action: {}) {
+                    Button(action: onBack) {
                         Image(systemName: "chevron.left")
                             .font(.system(size: 22, weight: .semibold))
                             .foregroundColor(.black)
@@ -25,7 +27,7 @@ struct OnboardingDreamWeight2: View {
                             
                             RoundedRectangle(cornerRadius: 10)
                                 .fill(Color.black)
-                                .frame(width: geometry.size.width * 0.5, height: 4)
+                                .frame(width: geometry.size.width * progress, height: 4)
                         }
                     }
                     .frame(height: 4)
@@ -98,5 +100,5 @@ struct OnboardingDreamWeight2: View {
 }
 
 #Preview {
-    OnboardingDreamWeight2(onNext: {})
+    OnboardingDreamWeight2(onNext: {}, onBack: {}, progress: 0.52)
 }

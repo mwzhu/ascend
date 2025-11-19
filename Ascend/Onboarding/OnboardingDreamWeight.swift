@@ -5,6 +5,8 @@ struct OnboardingDreamWeight: View {
     @State private var dreamWeightLbs: Double = 110
     @State private var dreamWeightKg: Double = 49.9
     let onNext: () -> Void
+    let onBack: () -> Void
+    let progress: Double
     
     var displayWeight: String {
         if isMetric {
@@ -26,7 +28,7 @@ struct OnboardingDreamWeight: View {
             VStack(alignment: .leading, spacing: 0) {
                 // Back Button and Progress Bar
                 HStack(spacing: 20) {
-                    Button(action: {}) {
+                    Button(action: onBack) {
                         Image(systemName: "chevron.left")
                             .font(.system(size: 22, weight: .semibold))
                             .foregroundColor(.black)
@@ -40,7 +42,7 @@ struct OnboardingDreamWeight: View {
                             
                             RoundedRectangle(cornerRadius: 10)
                                 .fill(Color.black)
-                                .frame(width: geometry.size.width * 0.5, height: 4)
+                                .frame(width: geometry.size.width * progress, height: 4)
                         }
                     }
                     .frame(height: 4)
@@ -205,5 +207,5 @@ struct RulerSlider: View {
 }
 
 #Preview {
-    OnboardingDreamWeight(onNext: {})
+    OnboardingDreamWeight(onNext: {}, onBack: {}, progress: 0.48)
 }

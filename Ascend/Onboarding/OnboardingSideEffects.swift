@@ -3,6 +3,8 @@ import SwiftUI
 struct OnboardingSideEffects: View {
     @State private var selectedSideEffects: Set<String> = []
     let onNext: () -> Void
+    let onBack: () -> Void
+    let progress: Double
     
     let sideEffects = [
         "Nausea",
@@ -23,7 +25,7 @@ struct OnboardingSideEffects: View {
             VStack(alignment: .leading, spacing: 0) {
                 // Back Button and Progress Bar
                 HStack(spacing: 20) {
-                    Button(action: {}) {
+                    Button(action: onBack) {
                         Image(systemName: "chevron.left")
                             .font(.system(size: 22, weight: .semibold))
                             .foregroundColor(.black)
@@ -37,7 +39,7 @@ struct OnboardingSideEffects: View {
                             
                             RoundedRectangle(cornerRadius: 10)
                                 .fill(Color.black)
-                                .frame(width: geometry.size.width * 0.1, height: 4)
+                                .frame(width: geometry.size.width * progress, height: 4)
                         }
                     }
                     .frame(height: 4)
@@ -101,5 +103,5 @@ struct OnboardingSideEffects: View {
 }
 
 #Preview {
-    OnboardingSideEffects(onNext: {})
+    OnboardingSideEffects(onNext: {}, onBack: {}, progress: 0.72)
 }

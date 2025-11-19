@@ -1,5 +1,5 @@
 //
-//  ProgressView.swift
+//  ResultsView.swift
 //  Ascend
 //
 //  Created by Michael Zhu on 11/3/25.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ProgressView: View {
+struct ResultsView: View {
     @State private var selectedDate = Date()
     @State private var showDateCircles = false
     
@@ -493,5 +493,5 @@ struct TimelineCard: View {
 // }
 
 #Preview {
-    ProgressView()
+    ResultsView()
 }

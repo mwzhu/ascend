@@ -1,0 +1,2313 @@
+[
+      {
+        "id": 1,
+        "name": "5-Amino-1MQ",
+        "abbreviation": "5",
+        "short_description": "NNMT Inhibitor | Longevity & Metabolic Enhancement",
+        "research_level": "Limited Research",
+        "tags": ["Longevity & Life Extension", "Metabolism Support", "Weight Loss"],
+        "common_research_uses": ["NAD+ Enhancement", "Mitochondrial Function", "Cellular Repair", "Energy Metabolism", "Insulin Sensitivity"],
+        "typical_dose": "50-100mg",
+        "typical_dose_frequency": "1x daily",
+        "route_of_administration": [
+          {
+            "route": "Oral",
+            "details": "N/A - Oral administration"
+          }
+        ],
+        "cycle": "8-12 weeks",
+        "storage": {
+          "temperature": "Room temperature",
+          "condition": "Refrigerated"
+        },
+        "overview": {
+          "what_is_it": "5-Amino-1MQ is a small molecule NNMT (nicotinamide N-methyltransferase) inhibitor that enhances cellular NAD+ levels and mitochondrial function. Originally developed for metabolic research, it's gaining attention for its potential anti-aging properties and ability to improve energy metabolism at the cellular level.",
+          "key_benefits": ["Enhanced NAD+ levels", "improved mitochondrial function", "longevity benefits", "better energy metabolism", "enhanced cellular repair", "improved insulin sensitivity", "convenient daily dosing"],
+          "mechanism_of_action": "Orally administered 5-Amino-1MQ inhibits NNMT enzyme systemically, preventing NAD+ degradation and maintaining higher cellular NAD+ levels throughout the body, supporting mitochondrial function and metabolic processes"
+        },
+        "research_indications": {
+          "longevity": {
+            "effectiveness": "Most Effective",
+            "categories": [{
+                "title": "NAD+ Enhancement",
+                "description": "Significantly increases cellular NAD+ levels by inhibiting NNMT enzyme, supporting cellular energy production and DNA repair mechanisms essential for healthy aging"
+            }, {
+                "title": "Mitochondrial Function",
+                "description": "Improves mitochondrial biogenesis and efficiency, enhancing cellular energy production and reducing oxidative stress markers associated with aging"
+            }, {
+                "title": "Cellular Repair",
+                "description": "Enhanced NAD+ availability supports sirtuins and other longevity pathways involved in DNA repair, cellular maintenance, and stress resistance"
+            }]
+          },
+          "metabolism": {
+            "effectiveness": "Effective",
+            "categories": [
+                {
+                    "title": "Energy Metabolism",
+                    "description": "Improves cellular energy production through enhanced mitochondrial function and more efficient glucose and fatty acid utilization pathways"
+                },
+                {
+                    "title": "Insulin Sensitivity",
+                    "description": "Research shows improved insulin sensitivity and glucose metabolism through enhanced cellular energy processes and mitochondrial function"
+                },
+                {
+                    "title": "Metabolic Flexibility",
+                    "description": "Enhances the body's ability to switch between fuel sources (glucose and fat) for optimal energy production and metabolic health"
+                }
+            ]
+          },
+          "weight_loss": {
+            "effectiveness": "Moderate",
+            "categories": [
+                {
+                    "title": "Metabolic Rate Enhancement",
+                    "description": "Increases basal metabolic rate and helps body burn fat for energy while maintaining muscle mass through improved mitochondrial function"
+                },
+                {
+                    "title": "Fat Oxidation",
+                    "description": "Studies show enhanced fat burning capacity and improved body composition through optimized cellular energy metabolism"
+                },
+                {
+                    "title": "Appetite Regulation",
+                    "description": "May help regulate appetite and energy balance through improved cellular signaling and metabolic efficiency"
+                }
+            ]
+          }
+        },
+        "research_protocols": [
+          {
+            "goal": "Conservative approach",
+            "dose": "25mg",
+            "frequency": "1x daily",
+            "route": "Oral (with food)"
+          },
+          {
+            "goal": "Standard starting dose",
+            "dose": "50mg",
+            "frequency": "1x daily",
+            "route": "Oral (with food)"
+          },
+          {
+            "goal": "Typical maintenance",
+            "dose": "75mg",
+            "frequency": "1x daily",
+            "route": "Oral (with food)"
+          },
+          {
+            "goal": "Maximum dose",
+            "dose": "100mg",
+            "frequency": "1x daily",
+            "route": "Oral (with food)"
+          },
+          {
+            "goal": "Split dosing option",
+            "dose": "50mg",
+            "frequency": "2x daily",
+            "route": "Oral (with meals)"
+          }
+        ],
+        "protocol_timing": "Take 5-Amino-1MQ with food to improve absorption and reduce potential GI effects. Consistent daily timing helps maintain steady NAD+ levels. Morning or early afternoon dosing is preferred to avoid potential sleep interference.",
+        "peptide_interactions": [
+          {
+            "peptide": "NAD+ Precursors (NMN, NR)",
+            "interaction": "Synergistic",
+            "description": "May work synergistically with NAD+ precursors by preventing breakdown while supporting production"
+          },
+          {
+            "peptide": "Resveratrol",
+            "interaction": "Synergistic",
+            "description": "Both support longevity pathways; resveratrol activates sirtuins while 5-Amino-1MQ provides NAD+ substrate"
+          },
+          {
+            "peptide": "Metformin",
+            "interaction": "Monitor Combination",
+            "description": "Both affect metabolic pathways; combination may enhance effects but requires careful monitoring"
+          },
+          {
+            "peptide": "BPC-157",
+            "interaction": "Compatible",
+            "description": "No known interactions; different mechanisms of action with potential complementary benefits"
+          },
+          {
+            "peptide": "Blood Thinners",
+            "interaction": "Unknown",
+            "description": "Limited interaction data; consult healthcare provider before combining with anticoagulants"
+          },
+          {
+            "peptide": "Berberine",
+            "interaction": "Monitor Combination",
+            "description": "Both affect metabolic pathways; potential additive effects on glucose metabolism"
+          }
+        ],
+        "reconstitution_steps": [
+          {
+            "step": 1,
+            "instruction": "Use pre-made capsules for convenience and accuracy (recommended)"
+          },
+          {
+            "step": 2,
+            "instruction": "If using powder: measure precise dose with milligram scale"
+          },
+          {
+            "step": 3,
+            "instruction": "Take with food to improve absorption and reduce GI effects"
+          },
+          {
+            "step": 4,
+            "instruction": "Maintain consistent daily timing for optimal results"
+          },
+          {
+            "step": 5,
+            "instruction": "Store in cool, dry place away from light and moisture"
+          },
+          {
+            "step": 6,
+            "instruction": "Consider cycling: 8-12 weeks on, 2-4 weeks off"
+          }
+        ],
+        "quality_indicators": {
+          "positive": [
+            {
+              "indicator": "White to off-white capsules",
+              "description": "High-quality capsules should be uniform in color and size with clear labeling and batch information"
+            },
+            {
+              "indicator": "Third-party testing certificates",
+              "description": "Reputable suppliers provide COA with purity analysis (should be >98% pure) and heavy metal testing"
+            },
+            {
+              "indicator": "Proper pharmaceutical packaging",
+              "description": "Sealed bottles with moisture protection, clear expiration dates, and professional labeling"
+            }
+          ],
+          "negative": [
+            {
+              "indicator": "Moisture damage or clumping",
+              "description": "Capsules should not be sticky, discolored, or show signs of moisture exposure or heat damage"
+            },
+            {
+              "indicator": "Unusual odor or appearance",
+              "description": "Should be relatively odorless; strong chemical odors may indicate contamination or degradation"
+            }
+          ]
+        },
+        "what_to_expect": [
+          "Week 1-2: Gradual increase in energy levels and mental clarity",
+          "Week 2-4: Enhanced exercise performance and recovery",
+          "Week 4-8: Improved metabolic markers and body composition",
+          "Week 8-12: Sustained longevity benefits and cellular health",
+          "Side effects: Generally minimal, occasional mild GI adjustment",
+          "Most effective for: Metabolic health, longevity, energy enhancement"
+        ],
+        "side_effects_and_safety": [
+          "No human clinical trials published - all dosing extrapolated from animal studies",
+          "38.4% oral bioavailability demonstrated in rats (PubMed 34304009)",
+          "Start with lowest effective dose (25-50mg) to assess tolerance",
+          "Take with food to reduce potential GI effects",
+          "Monitor for any unusual symptoms and discontinue if adverse effects occur",
+          "Not recommended for pregnant or breastfeeding women",
+          "Consult healthcare provider before use, especially with existing conditions"
+        ],
+        "references": [
+          {
+            "title": "Mouse Obesity Study - Neelakantan et al. (2018)",
+            "type": "Animal study",
+            "dose_info": "20mg/kg TID (60mg/kg/day)",
+            "duration": "11 days",
+            "sample_size": "n=10 mice/group",
+            "findings": "Diet-induced obese mice showed 5.1% weight loss, 30% adipocyte size reduction. Human equivalent ~5mg/kg/day using FDA allometric scaling.",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5826726/"
+          },
+          {
+            "title": "Rat Pharmacokinetics Study (2021)",
+            "type": "Animal PK study",
+            "dose_info": "Various doses",
+            "duration": "Bioavailability",
+            "findings": "Demonstrated 38.4% oral bioavailability, half-life 6.9hr (oral) and 3.8hr (IV). Supports oral administration viability.",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/34304009/"
+          },
+          {
+            "title": "Muscle Function in Aged Mice (2024)",
+            "type": "Animal study",
+            "dose_info": "10mg/kg/day SubQ",
+            "duration": "8 weeks",
+            "findings": "40% grip strength improvement in sedentary mice, 60% with exercise. No adverse effects observed.",
+            "url": "https://www.nature.com/articles/s41598-024-66034-9"
+          }
+        ],
+        "quick_start_guide": {
+            "typical_dose": "50-75mg",
+            "how_often": "Once daily with food",
+            "how_to_take": "N/A - Oral administration",
+            "best_timing": "With breakfast or lunch for better absorption",
+            "effects_timeline": "Energy: 1-2 weeks, Metabolic: 4-8 weeks, Longevity: 8-12 weeks",
+            "storage": "Cool, dry place at room temperature",
+            "cycle_length": "8-12 weeks",
+            "break_between": "2-4 weeks off between cycles"
+        }
+      },
+    ]
+
+[  
+    {
+        "name": "5-Amino-1MQ",
+        "typical_dose": "50-100mg",
+        "typical_dose_frequency": "1x daily",
+        "route_of_administration": [
+          {
+            "route": "Oral",
+            "details": "N/A - Oral administration"
+          }
+        ],
+        "cycle": "8-12 weeks",
+        "storage": {
+          "temperature": "Room temperature",
+          "condition": "Refrigerated"
+        },
+        "overview": {
+          "what_is_it": "5-Amino-1MQ is a small molecule NNMT (nicotinamide N-methyltransferase) inhibitor that enhances cellular NAD+ levels and mitochondrial function. Originally developed for metabolic research, it's gaining attention for its potential anti-aging properties and ability to improve energy metabolism at the cellular level.",
+          "key_benefits": ["Enhanced NAD+ levels", "improved mitochondrial function", "longevity benefits", "better energy metabolism", "enhanced cellular repair", "improved insulin sensitivity", "convenient daily dosing"],
+          "mechanism_of_action": "Orally administered 5-Amino-1MQ inhibits NNMT enzyme systemically, preventing NAD+ degradation and maintaining higher cellular NAD+ levels throughout the body, supporting mitochondrial function and metabolic processes"
+        },
+        "research_indications": {
+          "longevity": {
+            "effectiveness": "Most Effective",
+            "categories": [{
+                "title": "NAD+ Enhancement",
+                "description": "Significantly increases cellular NAD+ levels by inhibiting NNMT enzyme, supporting cellular energy production and DNA repair mechanisms essential for healthy aging"
+            }, {
+                "title": "Mitochondrial Function",
+                "description": "Improves mitochondrial biogenesis and efficiency, enhancing cellular energy production and reducing oxidative stress markers associated with aging"
+            }, {
+                "title": "Cellular Repair",
+                "description": "Enhanced NAD+ availability supports sirtuins and other longevity pathways involved in DNA repair, cellular maintenance, and stress resistance"
+            }]
+          },
+          "metabolism": {
+            "effectiveness": "Effective",
+            "categories": [
+                {
+                    "title": "Energy Metabolism",
+                    "description": "Improves cellular energy production through enhanced mitochondrial function and more efficient glucose and fatty acid utilization pathways"
+                },
+                {
+                    "title": "Insulin Sensitivity",
+                    "description": "Research shows improved insulin sensitivity and glucose metabolism through enhanced cellular energy processes and mitochondrial function"
+                },
+                {
+                    "title": "Metabolic Flexibility",
+                    "description": "Enhances the body's ability to switch between fuel sources (glucose and fat) for optimal energy production and metabolic health"
+                }
+            ]
+          },
+          "weight_loss": {
+            "effectiveness": "Moderate",
+            "categories": [
+                {
+                    "title": "Metabolic Rate Enhancement",
+                    "description": "Increases basal metabolic rate and helps body burn fat for energy while maintaining muscle mass through improved mitochondrial function"
+                },
+                {
+                    "title": "Fat Oxidation",
+                    "description": "Studies show enhanced fat burning capacity and improved body composition through optimized cellular energy metabolism"
+                },
+                {
+                    "title": "Appetite Regulation",
+                    "description": "May help regulate appetite and energy balance through improved cellular signaling and metabolic efficiency"
+                }
+            ]
+          }
+        },
+        "research_protocols": [
+          {
+            "goal": "Conservative approach",
+            "dose": "25mg",
+            "frequency": "1x daily",
+            "route": "Oral (with food)"
+          },
+          {
+            "goal": "Standard starting dose",
+            "dose": "50mg",
+            "frequency": "1x daily",
+            "route": "Oral (with food)"
+          },
+          {
+            "goal": "Typical maintenance",
+            "dose": "75mg",
+            "frequency": "1x daily",
+            "route": "Oral (with food)"
+          },
+          {
+            "goal": "Maximum dose",
+            "dose": "100mg",
+            "frequency": "1x daily",
+            "route": "Oral (with food)"
+          },
+          {
+            "goal": "Split dosing option",
+            "dose": "50mg",
+            "frequency": "2x daily",
+            "route": "Oral (with meals)"
+          }
+        ],
+        "protocol_timing": "Take 5-Amino-1MQ with food to improve absorption and reduce potential GI effects. Consistent daily timing helps maintain steady NAD+ levels. Morning or early afternoon dosing is preferred to avoid potential sleep interference.",
+        "peptide_interactions": [
+          {
+            "peptide": "NAD+ Precursors (NMN, NR)",
+            "interaction": "Synergistic",
+            "description": "May work synergistically with NAD+ precursors by preventing breakdown while supporting production"
+          },
+          {
+            "peptide": "Resveratrol",
+            "interaction": "Synergistic",
+            "description": "Both support longevity pathways; resveratrol activates sirtuins while 5-Amino-1MQ provides NAD+ substrate"
+          },
+          {
+            "peptide": "Metformin",
+            "interaction": "Monitor Combination",
+            "description": "Both affect metabolic pathways; combination may enhance effects but requires careful monitoring"
+          },
+          {
+            "peptide": "BPC-157",
+            "interaction": "Compatible",
+            "description": "No known interactions; different mechanisms of action with potential complementary benefits"
+          },
+          {
+            "peptide": "Blood Thinners",
+            "interaction": "Unknown",
+            "description": "Limited interaction data; consult healthcare provider before combining with anticoagulants"
+          },
+          {
+            "peptide": "Berberine",
+            "interaction": "Monitor Combination",
+            "description": "Both affect metabolic pathways; potential additive effects on glucose metabolism"
+          }
+        ],
+        "reconstitution_steps": [
+          {
+            "step": 1,
+            "instruction": "Use pre-made capsules for convenience and accuracy (recommended)"
+          },
+          {
+            "step": 2,
+            "instruction": "If using powder: measure precise dose with milligram scale"
+          },
+          {
+            "step": 3,
+            "instruction": "Take with food to improve absorption and reduce GI effects"
+          },
+          {
+            "step": 4,
+            "instruction": "Maintain consistent daily timing for optimal results"
+          },
+          {
+            "step": 5,
+            "instruction": "Store in cool, dry place away from light and moisture"
+          },
+          {
+            "step": 6,
+            "instruction": "Consider cycling: 8-12 weeks on, 2-4 weeks off"
+          }
+        ],
+        "quality_indicators": {
+          "positive": [
+            {
+              "indicator": "White to off-white capsules",
+              "description": "High-quality capsules should be uniform in color and size with clear labeling and batch information"
+            },
+            {
+              "indicator": "Third-party testing certificates",
+              "description": "Reputable suppliers provide COA with purity analysis (should be >98% pure) and heavy metal testing"
+            },
+            {
+              "indicator": "Proper pharmaceutical packaging",
+              "description": "Sealed bottles with moisture protection, clear expiration dates, and professional labeling"
+            }
+          ],
+          "negative": [
+            {
+              "indicator": "Moisture damage or clumping",
+              "description": "Capsules should not be sticky, discolored, or show signs of moisture exposure or heat damage"
+            },
+            {
+              "indicator": "Unusual odor or appearance",
+              "description": "Should be relatively odorless; strong chemical odors may indicate contamination or degradation"
+            }
+          ]
+        },
+        "what_to_expect": [
+          "Week 1-2: Gradual increase in energy levels and mental clarity",
+          "Week 2-4: Enhanced exercise performance and recovery",
+          "Week 4-8: Improved metabolic markers and body composition",
+          "Week 8-12: Sustained longevity benefits and cellular health",
+          "Side effects: Generally minimal, occasional mild GI adjustment",
+          "Most effective for: Metabolic health, longevity, energy enhancement"
+        ],
+        "side_effects_and_safety": [
+          "No human clinical trials published - all dosing extrapolated from animal studies",
+          "38.4% oral bioavailability demonstrated in rats (PubMed 34304009)",
+          "Start with lowest effective dose (25-50mg) to assess tolerance",
+          "Take with food to reduce potential GI effects",
+          "Monitor for any unusual symptoms and discontinue if adverse effects occur",
+          "Not recommended for pregnant or breastfeeding women",
+          "Consult healthcare provider before use, especially with existing conditions"
+        ],
+        "references": [
+          {
+            "title": "Mouse Obesity Study - Neelakantan et al. (2018)",
+            "type": "Animal study",
+            "dose_info": "20mg/kg TID (60mg/kg/day)",
+            "duration": "11 days",
+            "sample_size": "n=10 mice/group",
+            "findings": "Diet-induced obese mice showed 5.1% weight loss, 30% adipocyte size reduction. Human equivalent ~5mg/kg/day using FDA allometric scaling.",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5826726/"
+          },
+          {
+            "title": "Rat Pharmacokinetics Study (2021)",
+            "type": "Animal PK study",
+            "dose_info": "Various doses",
+            "duration": "Bioavailability",
+            "findings": "Demonstrated 38.4% oral bioavailability, half-life 6.9hr (oral) and 3.8hr (IV). Supports oral administration viability.",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/34304009/"
+          },
+          {
+            "title": "Muscle Function in Aged Mice (2024)",
+            "type": "Animal study",
+            "dose_info": "10mg/kg/day SubQ",
+            "duration": "8 weeks",
+            "findings": "40% grip strength improvement in sedentary mice, 60% with exercise. No adverse effects observed.",
+            "url": "https://www.nature.com/articles/s41598-024-66034-9"
+          }
+        ],
+        "quick_start_guide": {
+            "typical_dose": "50-75mg",
+            "how_often": "Once daily with food",
+            "how_to_take": "N/A - Oral administration",
+            "best_timing": "With breakfast or lunch for better absorption",
+            "effects_timeline": "Energy: 1-2 weeks, Metabolic: 4-8 weeks, Longevity: 8-12 weeks",
+            "storage": "Cool, dry place at room temperature",
+            "cycle_length": "8-12 weeks",
+            "break_between": "2-4 weeks off between cycles"
+        }
+      },
+      {
+        "name": "5-Amino-1MQ",
+        "typical_dose": "150-600mcg (injectable) or 50-100mg (oral)",
+        "typical_dose_frequency": "1x daily",
+        "route_of_administration": [
+        {
+        "route": "SubQ injectable",
+        "details": "Subcutaneous injection; abdomen, thigh, or arm"
+        },
+        ],
+        "cycle": "4-8 weeks (injectable) or 8-12 weeks (oral as per other sources)",
+        "storage": {
+        "temperature": "2-8°C (injectable); room temperature (oral)",
+        "condition": "Refrigerated (injectable); keep sealed, dry"
+        },
+        "overview": {
+        "what_is_it": "5-Amino-1MQ is a small molecule NNMT (nicotinamide N-methyltransferase) inhibitor that enhances cellular NAD+ levels and mitochondrial function. Originally developed for metabolic research, it's gaining attention for its potential anti-aging properties and ability to improve energy metabolism at the cellular level.",
+        "key_benefits": [
+        "Higher bioavailability",
+        "precise dosing",
+        "rapid systemic effects",
+        "research-validated delivery method",
+        "enhanced NAD+ elevation",
+        "superior metabolic impact"
+        ],
+        "mechanism_of_action": "Injectable 5-Amino-1MQ provides direct systemic delivery with 100% bioavailability, rapidly inhibiting NNMT enzyme and maximizing NAD+ elevation for enhanced cellular energy and metabolic benefits"
+        },
+        "research_indications": {
+        "metabolism": {
+        "effectiveness": "Most Effective",
+        "categories": [
+        {
+        "title": "Rapid Metabolic Enhancement",
+        "description": "Injectable delivery provides immediate systemic effects on metabolic rate and cellular energy production with superior bioavailability"
+        },
+        {
+        "title": "Enhanced Fat Oxidation",
+        "description": "Direct systemic delivery maximizes fat burning capacity and metabolic flexibility through optimal NNMT inhibition"
+        },
+        {
+        "title": "Improved Glucose Metabolism",
+        "description": "Injectable form shows enhanced effects on insulin sensitivity and glucose utilization compared to oral administration"
+        }
+        ]
+        },
+        "weight_loss": {
+        "effectiveness": "Effective",
+        "categories": [
+        {
+        "title": "Accelerated Fat Loss",
+        "description": "Research studies using injectable 5-Amino-1MQ showed significant weight loss and body composition improvements"
+        },
+        {
+        "title": "Metabolic Rate Boost",
+        "description": "Direct systemic delivery provides maximum metabolic enhancement for weight management and body recomposition"
+        },
+        {
+        "title": "Appetite Suppression",
+        "description": "Injectable form may provide enhanced appetite regulation effects through optimized metabolic signaling"
+        }
+        ]
+        },
+        "longevity": {
+        "effectiveness": "Moderate",
+        "categories": [
+        {
+        "title": "Maximal NAD+ Enhancement",
+        "description": "Injectable delivery achieves highest NAD+ levels and most pronounced longevity pathway activation"
+        },
+        {
+        "title": "Cellular Repair Optimization",
+        "description": "Superior bioavailability enhances cellular repair mechanisms and stress resistance pathways"
+        },
+        {
+        "title": "Mitochondrial Optimization",
+        "description": "Direct systemic delivery maximizes mitochondrial biogenesis and function for longevity benefits"
+        }
+        ]
+        }
+        },
+        "research_protocols": [
+        {
+        "goal": "Conservative starting",
+        "dose": "150-250mcg",
+        "frequency": "1x daily",
+        "route": "SubQ"
+        },
+        {
+        "goal": "Conservative standard",
+        "dose": "250-500mcg",
+        "frequency": "1x daily",
+        "route": "SubQ"
+        },
+        {
+        "goal": "Conservative moderate",
+        "dose": "500mcg",
+        "frequency": "1x daily",
+        "route": "SubQ"
+        },
+        {
+        "goal": "Mouse study (PMC5826726)",
+        "dose": "20mg/kg TID (60mg/kg/day)",
+        "frequency": "3x daily",
+        "route": "SubQ (mice)"
+        },
+        {
+        "goal": "Human equivalent (FDA scaling)",
+        "dose": "~5mg/kg/day (~350mg for 70kg)",
+        "frequency": "theoretical",
+        "route": "not tested"
+        }
+        ],
+        "protocol_timing": "Morning or early afternoon dosing for injectables is best to avoid potential sleep interference. Rotate injection sites for safety. Oral protocols may align similarly.",
+        "peptide_interactions": [
+        {
+        "peptide": "NAD+ Precursors (NMN, NR)",
+        "interaction": "Synergistic",
+        "description": "May work synergistically with NAD+ precursors by preventing breakdown while supporting production"
+        },
+        {
+        "peptide": "Resveratrol",
+        "interaction": "Synergistic",
+        "description": "Both support longevity pathways; resveratrol activates sirtuins while 5-Amino-1MQ provides NAD+ substrate"
+        },
+        {
+        "peptide": "Metformin",
+        "interaction": "Monitor Combination",
+        "description": "Both affect metabolic pathways; combination may enhance effects but requires careful monitoring"
+        },
+        {
+        "peptide": "BPC-157",
+        "interaction": "Compatible",
+        "description": "No known interactions; different mechanisms of action with potential complementary benefits"
+        },
+        {
+        "peptide": "Blood Thinners",
+        "interaction": "Unknown",
+        "description": "Limited interaction data; consult healthcare provider before combining with anticoagulants"
+        },
+        {
+        "peptide": "Berberine",
+        "interaction": "Monitor Combination",
+        "description": "Both affect metabolic pathways; potential additive effects on glucose metabolism"
+        }
+        ],
+        "reconstitution_steps": [
+        {
+        "step": 1,
+        "instruction": "Confirm which protocol (mcg vs mg) you're following"
+        },
+        {
+        "step": 2,
+        "instruction": "Clean vial stopper, inject BAC water slowly down side"
+        },
+        {
+        "step": 3,
+        "instruction": "Gently swirl until dissolved (never shake)"
+        },
+        {
+        "step": 4,
+        "instruction": "Label clearly with concentration AND units (mg/mL)"
+        },
+        {
+        "step": 5,
+        "instruction": "Store in refrigerator, use within 28 days"
+        }
+        ],
+        "quality_indicators": {
+        "positive": [
+        {
+        "indicator": "Vial size matches protocol",
+        "description": "5-10mg vials for conservative mcg dosing, 50-200mg vials for common mg dosing"
+        },
+        {
+        "indicator": "Orange to amber-colored powder",
+        "description": "5-Amino-1MQ commonly appears as orange to amber colored powder. Color consistency within batch is important"
+        },
+        {
+        "indicator": "Clear solution after reconstitution",
+        "description": "Should dissolve completely in BAC water to form clear, colorless solution with no particles"
+        },
+        {
+        "indicator": "Research-grade sourcing",
+        "description": "Obtained from reputable research chemical suppliers with proper documentation and purity certificates"
+        }
+        ],
+        "negative": [
+        {
+        "indicator": "Clumping or moisture damage",
+        "description": "Powder should not be clumped, sticky, or show signs of moisture exposure during storage"
+        },
+        {
+        "indicator": "Cloudy reconstitution",
+        "description": "Persistent cloudiness or particles after reconstitution may indicate degradation or contamination"
+        }
+        ]
+        },
+        "what_to_expect": [
+        "Week 1: Energy increase (variable by protocol)",
+        "Week 2-3: Metabolic changes (more pronounced with mg dosing)",
+        "Week 3-4: May feel 'winded' during cardio (adaptation phase)",
+        "Week 4-6: Body composition changes (dose-dependent)",
+        "Week 6-8: Effects plateau - cycling recommended",
+        "Conservative mcg protocol: Subtle or minimal effects reported",
+        "Common mg protocol: More pronounced effects",
+        "Most effective for: Unknown due to lack of human trials"
+        ],
+        "side_effects_and_safety": [
+        "Verify dose units - mcg vs mg is 1000x difference",
+        "Start with lower doses to assess tolerance",
+        "Use sterile injection technique to prevent infection",
+        "Not recommended for pregnant or breastfeeding women"
+        ],
+        "references": [
+        {
+        "title": "Mouse Obesity Study - Neelakantan et al. (2018)",
+        "type": "Animal study",
+        "dose_info": "20mg/kg TID (60mg/kg/day)",
+        "duration": "11 days",
+        "sample_size": "n=10 mice/group",
+        "findings": "Diet-induced obese mice showed 5.1% weight loss, 30% adipocyte size reduction. Human equivalent ~5mg/kg/day using FDA allometric scaling.",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5826726/"
+        },
+        {
+        "title": "Rat Pharmacokinetics Study (2021)",
+        "type": "Animal PK study",
+        "dose_info": "Various doses",
+        "duration": "Bioavailability",
+        "findings": "Demonstrated 38.4% oral bioavailability, half-life 6.9hr (oral) and 3.8hr (IV). Supports oral administration viability.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34304009/"
+        },
+        {
+        "title": "Muscle Function in Aged Mice (2024)",
+        "type": "Animal study",
+        "dose_info": "10mg/kg/day SubQ",
+        "duration": "8 weeks",
+        "findings": "40% grip strength improvement in sedentary mice, 60% with exercise. No adverse effects observed.",
+        "url": "https://www.nature.com/articles/s41598-024-66034-9"
+        }
+        ],
+        "quick_start_guide": {
+        "typical_dose": "150-600mcg (injectable) or 50-100mg (oral)",
+        "how_often": "Once daily",
+        "how_to_take": "SubQ abdominal, thigh, or arm (injectable); N/A for oral",
+        "best_timing": "Morning or early afternoon (injectable); with food (oral)",
+        "effects_timeline": "Energy: 3-7 days, Metabolic: 1-3 weeks, Weight: 2-6 weeks",
+        "storage": "Refrigerate (injectable); room temp (oral)",
+        "cycle_length": "4-8 weeks (injectable); 8-12 weeks (oral alternate)",
+        "break_between": "2-4 weeks off between cycles"
+        }
+        },
+        {
+            "name": "Adipotide (Prohibitin-TP01)",
+            "typical_dose": "0.43 mg/kg",
+            "typical_dose_frequency": "Once daily",
+            "route_of_administration": [
+                {
+                    "route": "Injectable (Subcutaneous)",
+                    "details": "Rotated abdominal SubQ sites"
+                }
+            ],
+            "cycle": "28 days",
+            "storage": {
+                "temperature": "2–8°C (reconstituted)",
+                "condition": "Refrigerated"
+            },
+            "overview": {
+                "what_is_it": "Adipotide (Prohibitin‑TP01) is a chimeric, adipose‑vasculature–targeted peptidomimetic that homes to prohibitin/annexin A2 on white adipose tissue endothelium and delivers a pro‑apoptotic D‑(KLAKLAK)2 motif. In obese primates it produced rapid fat loss with improved insulin resistance, but development halted after an early Phase 1 oncology trial; kidney safety signals remain a key concern.",
+                "key_benefits": [
+                    "Rapid fat-mass reduction in obese non-human primates",
+                    "Improved insulin sensitivity",
+                    "Direct WAT vascular targeting"
+                ],
+                "mechanism_of_action": "CKGGRAKDC homes to prohibitin/annexin A2 on white-fat endothelium; the linked D-(KLAKLAK)2 disrupts mitochondrial membranes after internalization, triggering localized endothelial apoptosis and adipocyte loss."
+            },
+            "research_indications": {
+                "weight_loss": {
+                    "effectiveness": "Most Effective",
+                    "categories": [
+                        {
+                            "title": "Adipose Mass Reduction",
+                            "description": "Selective WAT vascular targeting produced 7–15% body‑weight loss over 4 weeks in obese macaques."
+                        }
+                    ]
+                },
+                "metabolism": {
+                    "effectiveness": "Effective",
+                    "categories": [
+                        {
+                            "title": "Insulin Resistance",
+                            "description": "Improved insulin response (reduced insulin AUC) following fat-mass reduction in primates."
+                        }
+                    ]
+                },
+                "appetite_control": {
+                    "effectiveness": "Moderate",
+                    "categories": [
+                        {
+                            "title": "Non-CNS Mechanism",
+                            "description": "Weight loss without primary appetite suppression; peripheral (vascular) mechanism."
+                        }
+                    ]
+                }
+            },
+            "research_protocols": [
+                {
+                    "goal": "Primate research replication",
+                    "dose": "0.43 mg/kg",
+                    "frequency": "Once daily",
+                    "route": "Subcutaneous"
+                },
+                {
+                    "goal": "Dose-finding (research)",
+                    "dose": "0.10–0.75 mg/kg",
+                    "frequency": "Once daily",
+                    "route": "Subcutaneous (escalating tiers)"
+                }
+            ],
+            "protocol_timing": "Rotate SC sites to reduce irritation; ensure adequate hydration and frequent renal labs during treatment.",
+            "peptide_interactions": [
+                {
+                    "peptide": "Semaglutide (GLP-1 RA)",
+                    "interaction": "Monitor Combination",
+                    "description": "Potential additive dehydration/GI effects; monitor renal function."
+                },
+                {
+                    "peptide": "Tirzepatide (GLP-1/GIP RA)",
+                    "interaction": "Monitor Combination",
+                    "description": "Overlapping weight-loss effects; monitor kidney function, volume status, and electrolytes."
+                },
+                {
+                    "peptide": "Cagrilintide (Amylin analog)",
+                    "interaction": "Unknown",
+                    "description": "No clinical data on co-administration; mechanisms differ."
+                },
+                {
+                    "peptide": "AOD-9604",
+                    "interaction": "Unknown",
+                    "description": "No published data on combined use or pharmacodynamic interaction."
+                },
+                {
+                    "peptide": "BPC-157",
+                    "interaction": "Compatible",
+                    "description": "No known direct interaction; distinct mechanisms and targets."
+                },
+                {
+                    "peptide": "CJC-1295 / Ipamorelin",
+                    "interaction": "Use Caution",
+                    "description": "Metabolic effects may confound body-composition endpoints; consider staging or separating protocols."
+                },
+                {
+                    "peptide": "Melanotan II",
+                    "interaction": "Requires Timing",
+                    "description": "Theoretical vascular/pressor effects; stagger dosing if studied together."
+                },
+                {
+                    "peptide": "Nephrotoxic drugs (NSAIDs, aminoglycosides)",
+                    "interaction": "Avoid Combination",
+                    "description": "Adipotide shows dose-dependent proximal tubule injury in primates; avoid additional renal insults."
+                }
+            ],
+            "reconstitution_steps": [
+                {
+                    "step": 1,
+                    "instruction": "Sanitize hands and workspace; swab vial septum."
+                },
+                {
+                    "step": 2,
+                    "instruction": "Inject BAC water slowly down the vial wall; do not jet onto powder."
+                },
+                {
+                    "step": 3,
+                    "instruction": "Gently swirl until fully dissolved (do not shake)."
+                },
+                {
+                    "step": 4,
+                    "instruction": "Label with concentration/date; store at 2–8°C; discard per lab SOP."
+                }
+            ],
+            "quality_indicators": {
+                "positive": [
+                    {
+                        "indicator": "Intact Lyophilized Cake",
+                        "description": "White, uniform ‘cake’ indicates proper lyophilization."
+                    },
+                    {
+                        "indicator": "Clear Solution",
+                        "description": "Fully dissolved, particle-free solution after reconstitution."
+                    }
+                ],
+                "negative": [
+                    {
+                        "indicator": "Collapsed/Moist Cake",
+                        "description": "Suggests temperature excursion; do not use without QC."
+                    },
+                    {
+                        "indicator": "Cloudiness/Precipitate",
+                        "description": "Indicates degradation or contamination—discard per SOP."
+                    }
+                ]
+            },
+            "what_to_expect": [
+                "Week 1–2: Early reduction in abdominal circumference",
+                "Week 2–4: Progressive weight/fat-mass decline",
+                "Recovery: Partial rebound possible after discontinuation",
+                "Common lab signals: mild creatinine rise, electrolyte shifts"
+            ],
+            "side_effects_and_safety": [
+                "Not FDA-approved; investigational/educational only.",
+                "Monitor serum creatinine, BUN, urinalysis, electrolytes weekly in animal studies.",
+                "Kidney: dose-dependent, largely reversible proximal tubule changes observed in primates.",
+                "Avoid dehydration; consider temporarily pausing if creatinine rises persistently.",
+                "Pregnancy/lactation: not studied; avoid."
+            ],
+            "references": [
+                {
+                    "title": "Obese rhesus macaques – fixed-dose efficacy & safety (2011)",
+                    "type": "Primate study",
+                    "dose_info": "0.43 mg/kg SC daily",
+                    "duration": "28 days + 28-day recovery",
+                    "findings": "7.4–14.7% weight loss; insulin resistance improved; mild, dose-dependent, reversible proximal tubule changes.",
+                    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3666164/"
+                },
+                {
+                    "title": "Rhesus macaques – dose-finding (2011)",
+                    "type": "Primate study",
+                    "dose_info": "0.10 → 0.25 → 0.43 → 0.75 mg/kg SC (escalated)",
+                    "duration": "63 days total",
+                    "findings": "Dose-dependent efficacy; renal safety signal >0.25 mg/kg.",
+                    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3666164/"
+                },
+                {
+                    "title": "Rodent proof-of-concept – targeted adipose vascular ablation (2004)",
+                    "type": "Animal study",
+                    "dose_info": "CKGGRAKDC-GG-D(KLAKLAK)2 daily",
+                    "duration": "4 weeks",
+                    "findings": "~30% weight reduction; adipose vascular apoptosis; metabolic normalization.",
+                    "url": "https://pubmed.ncbi.nlm.nih.gov/15133506/"
+                },
+                {
+                    "title": "First-in-human Phase 1 (oncology/weight) – terminated (2010–2013)",
+                    "type": "Human trial (terminated)",
+                    "dose_info": "Subcutaneous, dose-escalation",
+                    "findings": "Early termination; limited enrollment.",
+                    "url": "https://clinicaltrials.gov/study/NCT01262664"
+                },
+                {
+                    "title": "Human adipose targeting – imaging validation (2018)",
+                    "type": "Translational/Imaging",
+                    "dose_info": "CKGGRAKDC MRI probe",
+                    "findings": "Specific WAT targeting demonstrated.",
+                    "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0197477"
+                }
+            ],
+            "quick_start_guide": {
+                "typical_dose": "0.43 mg/kg",
+                "how_often": "Once daily",
+                "how_to_take": "Rotated abdominal SubQ sites",
+                "best_timing": "Consistent daily timing; monitor hydration",
+                "effects_timeline": "Fat loss visible by 2–4 weeks in primate models",
+                "storage": "2–8°C",
+                "cycle_length": "28 days",
+                "break_between": "≥4 weeks"
+            },
+            "citations": [
+                {
+                    "title": "A peptidomimetic targeting white fat causes weight loss and improved insulin resistance in obese monkeys",
+                    "subtitle": "Science Translational Medicine, 3(108), 108ra112 (2011)",
+                    "publication_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3666164/"
+                },
+                {
+                    "title": "Reversal of obesity by targeted ablation of adipose tissue",
+                    "subtitle": "Nature Medicine, 10(6), 625-632 (2004)",
+                    "publication_link": "https://pubmed.ncbi.nlm.nih.gov/15133506/"
+                },
+                {
+                    "title": "Comment on: A peptidomimetic targeting white fat causes weight loss and improved insulin resistance in obese monkeys",
+                    "subtitle": "Science Translational Medicine, 4(131), 131le2 (2012)",
+                    "publication_link": "https://www.science.org/doi/pdf/10.1126/scitranslmed.3003760"
+                },
+                {
+                    "title": "Prohibitin/annexin 2 interaction regulates fatty acid transport in adipose tissue",
+                    "subtitle": "JCI Insight, 1(10), e86351 (2016)",
+                    "publication_link": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5033886/"
+                },
+                {
+                    "title": "Targeted Molecular Magnetic Resonance Imaging Detects Brown Adipose Tissue in Vivo Using a CKGGRAKDC Peptide Probe",
+                    "subtitle": "PLOS ONE, 13(6), e0197477 (2018)",
+                    "publication_link": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0197477"
+                },
+                {
+                    "title": "Vascular‑targeted nanotherapy for obesity: unexpected passive targeting mechanism to obese fat for the enhancement of active drug delivery",
+                    "subtitle": "Journal of Controlled Release, 163(2), 101-110 (2012)",
+                    "publication_link": "https://www.sciencedirect.com/science/article/abs/pii/S016836591200658X"
+                },
+                {
+                    "title": "Prohibitin ligands in cell death and survival: mode of action and therapeutic potential",
+                    "subtitle": "Cell Chemical Biology (Chemistry & Biology), 20(3), 316-325 (2013)",
+                    "publication_link": "https://www.cell.com/chemistry-biology/fulltext/S1074-5521(13)00052-7"
+                },
+                {
+                    "title": "Mixed‑Chirality Prohibitin Peptide: D‑(RLARLAR)2 Enhances Stability and In Vivo Effects on Obesity",
+                    "subtitle": "Journal of the American Chemical Society, 147(28), 24628-24642 (2025)",
+                    "publication_link": "https://pubmed.ncbi.nlm.nih.gov/40591817/"
+                },
+                {
+                    "title": "Adipose tissue‑targeting nanomedicines for obesity pharmacotherapy",
+                    "subtitle": "Trends in Endocrinology & Metabolism, Online ahead of print (2025)",
+                    "publication_link": "https://pubmed.ncbi.nlm.nih.gov/40234177/"
+                },
+                {
+                    "title": "A First‑in‑Man, Phase 1 Evaluation of a Prohibitin‑Targeting Peptide 1 (PROHIBITIN‑TP01) in Patients with Advanced Prostate Cancer (NCT01262664)",
+                    "subtitle": "ClinicalTrials.gov (2010)",
+                    "publication_link": "https://clinicaltrials.gov/study/NCT01262664"
+                }
+            ]
+        },
+        {
+            "name": "Ara 290 (Cibinetide)",
+            "subtitle": "Tissue-Protective Peptide | Innate Repair Receptor Agonist",
+            "status": "Emerging Research",
+            "typical_dose": "1-8 mg",
+            "typical_dose_frequency": "Once daily",
+            "route_of_administration": [
+              {
+                "route": "Injectable (Subcutaneous)",
+                "details": "Anterior thigh, abdomen"
+              },
+              {
+                "route": "Intravenous",
+                "details": "Clinical setting only"
+              }
+            ],
+            "cycle": "28 days",
+            "storage": {
+              "temperature": "2–8°C",
+              "condition": "Refrigerated"
+            },
+            "overview": {
+              "what_is_it": "Ara 290 (Cibinetide) is an engineered 11-amino acid peptide derived from erythropoietin that activates the Innate Repair Receptor (IRR) to provide tissue-protective effects without stimulating red blood cell production. It has completed multiple Phase 2 clinical trials and holds FDA Orphan Drug status for several indications.",
+              "key_benefits": [
+                "Proven tissue protection",
+                "Nerve regeneration",
+                "Anti-inflammatory effects",
+                "Excellent safety profile in clinical trials"
+              ],
+              "mechanism_of_action": "Activates Innate Repair Receptor (IRR) through EPOR/β-common receptor complex, triggering tissue-protective signaling without erythropoietic effects"
+            },
+            "research_indications": {
+              "neuroprotection": {
+                "effectiveness": "Most Effective",
+                "categories": [
+                  {
+                    "title": "Peripheral Nerve Regeneration",
+                    "description": "23% increase in corneal nerve fiber area demonstrated in clinical trials, with sustained improvement in neuropathic pain"
+                  },
+                  {
+                    "title": "Diabetic Neuropathy Treatment",
+                    "description": "Significant nerve regeneration and metabolic improvements in Type 2 diabetes patients with peripheral neuropathy"
+                  },
+                  {
+                    "title": "Central Nervous System Protection",
+                    "description": "Crosses blood-brain barrier to provide neuroprotection in stroke and traumatic brain injury models"
+                  }
+                ]
+              },
+              "tissue_repair": {
+                "effectiveness": "Effective",
+                "categories": [
+                  {
+                    "title": "Wound Healing Enhancement",
+                    "description": "Improves re-epithelialization and angiogenesis in diabetic wound models through VEGF upregulation"
+                  },
+                  {
+                    "title": "Cardiovascular Protection",
+                    "description": "Reduces infarct size and improves survival in myocardial infarction models with sustained cardioprotective effects"
+                  },
+                  {
+                    "title": "Anti-Aging Tissue Effects",
+                    "description": "Maintains cardiac function and reduces inflammation in aging heart models through IRR activation"
+                  }
+                ]
+              },
+              "anti_inflammatory": {
+                "effectiveness": "Moderate",
+                "categories": [
+                  {
+                    "title": "Cytokine Reduction",
+                    "description": "Significantly reduces TNF-α, IL-6, and IL-12 production while maintaining tissue-protective signaling"
+                  },
+                  {
+                    "title": "Inflammatory Bowel Disease",
+                    "description": "Reduces colitis severity in animal models through broad anti-inflammatory mechanisms"
+                  },
+                  {
+                    "title": "Transplant Protection",
+                    "description": "Improves islet graft survival and reduces rejection through immunomodulatory effects"
+                  }
+                ]
+              }
+            },
+            "research_protocols": [
+              {
+                "goal": "Neuropathy Treatment",
+                "dose": "4 mg daily",
+                "frequency": "Once daily",
+                "route": "Subcutaneous"
+              },
+              {
+                "goal": "Tissue Protection",
+                "dose": "1-8 mg daily",
+                "frequency": "Once daily",
+                "route": "Subcutaneous"
+              },
+              {
+                "goal": "Acute Intervention",
+                "dose": "2 mg",
+                "frequency": "3x weekly",
+                "route": "Intravenous"
+              },
+              {
+                "goal": "Research Protocol",
+                "dose": "4 mg daily",
+                "frequency": "Once daily for 28 days",
+                "route": "Subcutaneous"
+              }
+            ],
+            "protocol_timing": "Ara 290 has a short half-life (~20 minutes) but triggers long-lasting cellular effects. Morning administration may optimize circadian alignment with tissue repair processes.",
+            "peptide_interactions": [
+              {
+                "peptide": "BPC-157",
+                "interaction": "Synergistic",
+                "description": "Both peptides promote tissue repair through complementary pathways - Ara 290 via IRR activation and BPC-157 via growth factor signaling, potentially enhancing wound healing and neuroprotection"
+              },
+              {
+                "peptide": "TB-500",
+                "interaction": "Synergistic",
+                "description": "Combined tissue repair mechanisms may enhance recovery from injury - Ara 290 provides anti-inflammatory effects while TB-500 promotes cellular migration and angiogenesis"
+              },
+              {
+                "peptide": "Thymosin Beta-4",
+                "interaction": "Compatible",
+                "description": "No known interactions between IRR activation and thymosin pathways, both work through different mechanisms for tissue protection and repair"
+              },
+              {
+                "peptide": "EPO (Erythropoietin)",
+                "interaction": "Avoid Combination",
+                "description": "Clinical trials exclude recent EPO use within 2 months due to potential receptor interference and unclear combined effects on hematopoiesis"
+              },
+              {
+                "peptide": "NAD+",
+                "interaction": "Monitor Combination",
+                "description": "Both affect cellular metabolism and stress response - monitor for additive anti-inflammatory effects and potential enhanced tissue protection"
+              },
+              {
+                "peptide": "Semaglutide",
+                "interaction": "Compatible",
+                "description": "Clinical trials included patients on antidiabetic medications including GLP-1 agonists with no adverse interactions, may provide complementary metabolic benefits"
+              },
+              {
+                "peptide": "Growth Hormone",
+                "interaction": "Use Caution",
+                "description": "Both affect tissue repair and growth pathways - combination may enhance effects but requires monitoring for potential excessive growth factor activity"
+              },
+              {
+                "peptide": "Anti-TNF Biologics",
+                "interaction": "Requires Timing",
+                "description": "Clinical protocols require 6-month washout from anti-TNF therapy before Ara 290 to avoid potential immune system interactions"
+              }
+            ],
+            "reconstitution_steps": [
+              {
+                "step": 1,
+                "instruction": "Allow vial to reach room temperature (15-20 minutes)"
+              },
+              {
+                "step": 2,
+                "instruction": "Clean vial top with alcohol swab"
+              },
+              {
+                "step": 3,
+                "instruction": "Slowly inject 1 mL sterile water into vial"
+              },
+              {
+                "step": 4,
+                "instruction": "Gently swirl to dissolve (do not shake vigorously)"
+              },
+              {
+                "step": 5,
+                "instruction": "Solution may appear slightly cloudy - this is normal"
+              },
+              {
+                "step": 6,
+                "instruction": "Use immediately or store at 2-8°C for up to 24 hours"
+              },
+              {
+                "step": 7,
+                "instruction": "Protect from light during storage and use"
+              },
+              {
+                "step": 8,
+                "instruction": "Rotate injection sites (anterior thigh recommended)"
+              }
+            ],
+            "quality_indicators": {
+              "positive": [
+                {
+                  "indicator": "Pharmaceutical grade manufacturing",
+                  "description": "Clinical trial material manufactured under GMP conditions with full quality documentation"
+                },
+                {
+                  "indicator": "Proper peptide sequence verification",
+                  "description": "Correct 11-amino acid sequence (pGlu-Glu-Leu-Glu-Arg-Ala-Leu-Asn-Ser-Ser) with N-terminal pyroglutamate"
+                },
+                {
+                  "indicator": "Sterile lyophilized powder",
+                  "description": "Proper freeze-drying with excipients like sucrose or mannitol for stability and sterility"
+                },
+                {
+                  "indicator": "Clinical batch documentation",
+                  "description": "Certificates of analysis showing purity >95%, endotoxin levels <1 EU/mg, and sterility testing"
+                }
+              ],
+              "negative": [
+                {
+                  "indicator": "Light-sensitive formulation",
+                  "description": "Requires protection from light during storage, reconstitution, and administration"
+                },
+                {
+                  "indicator": "Cloudy or discolored solution",
+                  "description": "Reconstituted solution should be clear to slightly cloudy and colorless - discoloration indicates degradation"
+                }
+              ]
+            },
+            "what_to_expect": [
+              "Week 1-2: Initial anti-inflammatory effects, potential mild improvement in pain symptoms",
+              "Week 2-4: Progressive nerve regeneration, improved tissue healing markers, enhanced wound healing if applicable",
+              "Week 4-6: Peak therapeutic effects, maximum nerve fiber density improvements, sustained pain relief",
+              "Month 2-6: Long-lasting benefits continue due to molecular switch effect, sustained tissue protection"
+            ],
+            "side_effects_and_safety": [
+              "Excellent safety profile in clinical trials with no serious drug-related adverse events",
+              "No anti-drug antibodies detected in human studies",
+              "No hematopoietic effects or risk of polycythemia unlike erythropoietin",
+              "Contraindicated with recent anti-TNF therapy (within 6 months) or EPO use (within 2 months)",
+              "Monitor for injection site reactions and rotate injection sites",
+              "Not recommended during pregnancy or in patients with BMI >34 kg/m²"
+            ],
+            "references": [
+              {
+                "title": "Sarcoidosis Neuropathy Phase 2b Trial (2017)",
+                "type": "Human Clinical Trial",
+                "dose_info": "1-8 mg SC daily",
+                "duration": "28 days",
+                "findings": "23% increase in corneal nerve fiber area at 4 mg dose",
+                "description": "Double-blind, placebo-controlled trial in 64 patients with sarcoidosis-associated small fiber neuropathy. The 4 mg dose showed significant nerve regeneration and pain reduction in moderate-severe cases.",
+                "url": "https://clinicaltrials.gov/study/NCT02039687"
+              },
+              {
+                "title": "Type 2 Diabetes Neuropathy Phase 2 (2015)",
+                "type": "Human Clinical Trial",
+                "dose_info": "4 mg SC daily",
+                "duration": "28 days",
+                "findings": "Sustained HbA1c improvement and nerve regeneration",
+                "description": "Randomized controlled trial in 48 patients with diabetic peripheral neuropathy demonstrating sustained metabolic improvements and comparable nerve regeneration to sarcoidosis studies.",
+                "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4365069/"
+              },
+              {
+                "title": "Diabetic Macular Edema Pilot Study (2020)",
+                "type": "Human Clinical Trial",
+                "dose_info": "4 mg SC daily",
+                "duration": "12 weeks",
+                "findings": "Improved quality of life, variable visual outcomes",
+                "description": "Open-label pilot study in 9 patients examining Ara 290 effects on diabetic macular edema, showing good safety profile and improved patient-reported outcomes.",
+                "url": "https://doi.org/10.3390/jcm9072225"
+              },
+              {
+                "title": "Myocardial Infarction Protection Study (2012)",
+                "type": "Preclinical Study",
+                "dose_info": "24 μg/kg IV",
+                "duration": "Single dose",
+                "findings": "Reduced infarct size and improved survival",
+                "description": "Preclinical study demonstrating cardioprotective effects of Ara 290 in acute myocardial infarction model with significant reduction in cardiac damage.",
+                "url": "https://doi.org/10.1016/j.biocel.2012.04.009"
+              },
+              {
+                "title": "Stroke Neuroprotection Research (2011)",
+                "type": "Preclinical Study",
+                "dose_info": "300 μg/kg IV",
+                "duration": "Single dose",
+                "findings": "Reduced stroke volume and improved outcomes",
+                "description": "Comprehensive study showing Ara 290 crosses blood-brain barrier and provides significant neuroprotection in stroke models through IRR activation.",
+                "url": "https://doi.org/10.1161/STROKEAHA.110.607309"
+              },
+              {
+                "title": "Pancreatic Islet Protection Study (2021)",
+                "type": "In Vitro Study",
+                "dose_info": "100 nM",
+                "duration": "48 hours",
+                "findings": "Improved viability and function",
+                "description": "In vitro study of human pancreatic islets showing Ara 290 protection against inflammatory damage, supporting its potential in diabetes treatment and transplantation.",
+                "url": "https://doi.org/10.1177/09636897211039739"
+              }
+            ],
+            "citations": [
+    {
+      "title": "Nonerythropoietic, tissue-protective peptides derived from the tertiary structure of erythropoietin",
+      "subtitle": "Proceedings of the National Academy of Sciences, 105(31), 10925-10930 (2008)",
+      "publication_link": "https://doi.org/10.1073/pnas.0805594105"
+    },
+    {
+      "title": "ARA 290, a nonerythropoietic EPO analog, for treatment of patients with sarcoidosis and chronic neuropathic pain",
+      "subtitle": "Molecular Medicine, 19(1), 334-345 (2013)",
+      "publication_link": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3967126/"
+    },
+    {
+      "title": "ARA 290, a nonerythropoietic peptide engineered from erythropoietin, improves metabolic control and neuropathic symptoms in patients with type 2 diabetes",
+      "subtitle": "Molecular Medicine, 20(1), 658-666 (2015)",
+      "publication_link": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4365069/"
+    },
+    {
+      "title": "Clinical efficacy of ARA 290 (cibinetide) in sarcoidosis-associated neuropathy",
+      "subtitle": "Investigative Ophthalmology & Visual Science, 58(6), BIO52-BIO60 (2017)",
+      "publication_link": "https://doi.org/10.1167/iovs.16-21291"
+    },
+    {
+      "title": "Cibinetide for the treatment of diabetic macular edema: A randomized controlled pilot study",
+      "subtitle": "Journal of Clinical Medicine, 9(7), 2225 (2020)",
+      "publication_link": "https://doi.org/10.3390/jcm9072225"
+    },
+    {
+      "title": "The erythropoietin-derived peptide ARA 290 reverses the effects of chronic stress on depressive-like behavior and neuroplasticity markers",
+      "subtitle": "Frontiers in Pharmacology, 13, 896601 (2022)",
+      "publication_link": "https://doi.org/10.3389/fphar.2022.896601"
+    },
+    {
+      "title": "ARA 290 protects human isolated pancreatic islets against lipotoxicity via reducing ER stress",
+      "subtitle": "Cell Transplantation, 30, 09636897211039739 (2021)",
+      "publication_link": "https://doi.org/10.1177/09636897211039739"
+    },
+    {
+      "title": "Flipping the molecular switch for innate protection and repair of tissues: Long-lasting effects of a non-erythropoietic small peptide engineered from erythropoietin",
+      "subtitle": "Pharmacology & Therapeutics, 151, 32-40 (2015)",
+      "publication_link": "https://doi.org/10.1016/j.pharmthera.2015.02.005"
+    }
+  ],
+},
+{
+    "name": "BPC-157",
+    "typical_dose": "250-500mcg",
+    "typical_dose_frequency": "1-2x daily",
+    "route_of_administration": [
+      {
+        "route": "Injectable",
+        "details": "Subcutaneous injection near injury (belly, thigh, arm for localized healing)"
+      }
+    ],
+    "cycle": "4-8 weeks",
+    "storage": {
+      "temperature": "2-6°C",
+      "condition": "Refrigerated"
+    },
+    "overview": {
+      "what_is_it": "BPC-157 is a synthetic pentadecapeptide (15 amino acids) derived from a protective protein found in human gastric juice. It's known for its remarkable healing properties and is extensively researched for tissue repair, inflammation reduction, and gastrointestinal protection.",
+      "key_benefits": [
+        "Accelerated healing of tendons, ligaments, muscles, bones, and localized tissue repair",
+        "Superior bioavailability for targeted healing",
+        "Anti-inflammatory effects"
+      ],
+      "mechanism_of_action": "Injectable BPC-157 provides direct tissue targeting and higher local concentrations. Promotes angiogenesis (formation of new blood vessels), enhances collagen synthesis, modulates growth factor expression, and provides localized protection against tissue damage."
+    },
+    "research_indications": {
+      "wound_healing": {
+        "effectiveness": "Most Effective",
+        "categories": [
+          {
+            "title": "Tendon Healing",
+            "description": "Accelerated tendon-to-bone healing and improved biomechanical properties in injury models. Most effective with localized injection."
+          },
+          {
+            "title": "Muscle Recovery",
+            "description": "Enhanced muscle healing and reduced recovery time following crush injuries and surgical procedures with direct tissue targeting."
+          },
+          {
+            "title": "Angiogenesis",
+            "description": "Promotes blood vessel formation and improves vascularization in healing tissues through localized delivery."
+          }
+        ]
+      },
+      "neurological": {
+        "effectiveness": "Effective",
+        "categories": [
+          {
+            "title": "Neuroprotection",
+            "description": "Protective effects against various neurotoxic agents and ischemic brain injury models with systemic administration."
+          },
+          {
+            "title": "Spinal Cord Injury",
+            "description": "Improved functional recovery and reduced tissue damage in spinal cord injury studies via injection."
+          },
+          {
+            "title": "Peripheral Nerves",
+            "description": "Enhanced peripheral nerve regeneration and functional recovery after injury with localized treatment."
+          }
+        ]
+      },
+      "gastrointestinal": {
+        "effectiveness": "Moderate",
+        "categories": [
+          {
+            "title": "Systemic GI Protection",
+            "description": "Injectable BPC-157 provides systemic gastrointestinal protection through circulation, though oral may be more targeted for GI issues."
+          },
+          {
+            "title": "Ulcer Prevention",
+            "description": "Studies show protective effects against stress-induced gastric ulcers through systemic anti-inflammatory mechanisms."
+          },
+          {
+            "title": "Intestinal Barrier",
+            "description": "Supports intestinal barrier function and reduces inflammatory markers through systemic circulation."
+          }
+        ]
+      }
+    },
+    "research_protocols": [
+      {
+        "goal": "Tendon/Joint healing",
+        "dose": "250-500mcg",
+        "frequency": "1-2x daily",
+        "route": "SubQ near injury"
+      },
+      {
+        "goal": "Serious injury",
+        "dose": "500-1000mcg",
+        "frequency": "2x daily",
+        "route": "SubQ near injury"
+      },
+      {
+        "goal": "General healing",
+        "dose": "250-500mcg",
+        "frequency": "1-2x daily",
+        "route": "SubQ or IM"
+      },
+      {
+        "goal": "Maintenance",
+        "dose": "250mcg",
+        "frequency": "1x daily",
+        "route": "SubQ"
+      }
+    ],
+    "protocol_timing": "Injectable BPC-157 is most effective on empty stomach. For injury healing, inject as close to the injury site as possible. Rotate injection sites to prevent tissue irritation.",
+    "peptide_interactions": [
+      {
+        "peptide": "TB-500",
+        "interaction": "Synergistic",
+        "description": "Complementary healing mechanisms, often used together"
+      },
+      {
+        "peptide": "GHRP-6",
+        "interaction": "Compatible",
+        "description": "No known negative interactions"
+      },
+      {
+        "peptide": "Ipamorelin",
+        "interaction": "Synergistic",
+        "description": "BPC-157 increases GH receptor expression, amplifying Ipamorelin's growth hormone benefits"
+      },
+      {
+        "peptide": "CJC-1295",
+        "interaction": "Synergistic",
+        "description": "BPC-157 upregulates GH receptors, enhancing CJC-1295 effectiveness for tissue repair"
+      },
+      {
+        "peptide": "Melanotan II",
+        "interaction": "Compatible",
+        "description": "No known interactions - different mechanisms of action and receptor targets"
+      },
+      {
+        "peptide": "AOD-9604",
+        "interaction": "Unknown",
+        "description": "Interaction profile unclear"
+      }
+    ],
+    "reconstitution_steps": [
+      {
+        "step": 1,
+        "instruction": "Clean work area and hands thoroughly"
+      },
+      {
+        "step": 2,
+        "instruction": "Calculate required BAC water volume using calculator"
+      },
+      {
+        "step": 3,
+        "instruction": "Draw BAC water into syringe"
+      },
+      {
+        "step": 4,
+        "instruction": "Inject slowly down vial side (not directly onto powder)"
+      },
+      {
+        "step": 5,
+        "instruction": "Gently swirl until dissolved (never shake)"
+      },
+      {
+        "step": 6,
+        "instruction": "Store in refrigerator, use within 28 days"
+      }
+    ],
+    "quality_indicators": {
+      "positive": [
+        {
+          "indicator": "White, Fluffy Cake",
+          "description": "Lyophilized powder should appear as a white, fluffy 'cake' that fills most of the vial bottom. This indicates proper freeze-drying."
+        },
+        {
+          "indicator": "Clear Solution After Reconstitution",
+          "description": "When properly mixed with BAC water, solution should be crystal clear with no particles or cloudiness."
+        },
+        {
+          "indicator": "Slight Clumping",
+          "description": "Small clumps that dissolve completely with gentle swirling are acceptable. Shipping can cause minor compaction."
+        }
+      ],
+      "negative": [
+        {
+          "indicator": "Collapsed or Melted Appearance",
+          "description": "If powder appears collapsed, melted, or stuck to vial sides, it may have been exposed to heat during shipping."
+        },
+        {
+          "indicator": "Cloudy After Reconstitution",
+          "description": "Persistent cloudiness, particles, or precipitates after gentle mixing indicate degraded or contaminated peptide."
+        }
+      ]
+    },
+    "what_to_expect": [
+      "Week 1-2: Reduced inflammation and pain at injection site",
+      "Week 2-4: Improved healing rate and tissue repair",
+      "Week 4-8: Maximum localized healing benefits",
+      "Side effects: Mild injection site redness or irritation",
+      "Most effective for: Tendon, ligament, muscle injuries"
+    ],
+    "side_effects_and_safety": [
+      "Use sterile injection technique to prevent infection",
+      "Generally well tolerated with minimal systemic side effects",
+      "May cause mild injection site reactions",
+      "Consult doctor if on blood thinners due to angiogenesis effects",
+      "Not recommended during pregnancy or breastfeeding"
+    ],
+    "references": [
+      {
+        "title": "Achilles Tendon Healing Study (2003)",
+        "type": "Animal study",
+        "dose_info": "10 μg/kg i.p. daily",
+        "duration": "14 days",
+        "sample_size": "n/a",
+        "findings": "Significant improvement in tendon healing compared to controls, improved biomechanical properties, faster functional recovery, enhanced tendon-to-bone integration.",
+        "url": "https://doi.org/10.1016/S0736-0266(03)00110-4"
+      },
+      {
+        "title": "Muscle Healing Research (2006)",
+        "type": "Animal study",
+        "dose_info": "10 μg/kg i.p. daily",
+        "duration": "28 days",
+        "sample_size": "n/a",
+        "findings": "Enhanced muscle regeneration, improved histological appearance, reduced inflammatory markers, restored muscle function.",
+        "url": "https://doi.org/10.1002/jor.20089"
+      },
+      {
+        "title": "Spinal Cord Injury Recovery (2019)",
+        "type": "Animal study",
+        "dose_info": "10 μg/kg i.p. daily",
+        "duration": "30 days",
+        "sample_size": "n/a",
+        "findings": "Improved functional recovery and reduced tissue damage in spinal cord injury models.",
+        "url": "https://doi.org/10.1186/s13018-019-1242-6"
+      },
+      {
+        "title": "Gastric Ulcer Protection (2020)",
+        "type": "Animal study",
+        "dose_info": "Multiple routes tested",
+        "duration": "Various durations",
+        "sample_size": "n/a",
+        "findings": "Comprehensive study showing BPC-157's protective effects against gastric ulcers through multiple mechanisms including cytoprotection and enhanced mucosal healing.",
+        "url": "https://doi.org/10.5009/gnl18490"
+      },
+      {
+        "title": "VEGF and Angiogenesis Study (2017)",
+        "type": "In vitro and animal study",
+        "dose_info": "Various concentrations",
+        "duration": "n/a",
+        "sample_size": "n/a",
+        "findings": "Demonstrated BPC-157's pro-angiogenic effects through VEGFR2 activation and upregulation, explaining its wound healing and tissue repair mechanisms.",
+        "url": "https://doi.org/10.1007/s00109-016-1488-y"
+      },
+      {
+        "title": "Safety Evaluation Study (2020)",
+        "type": "Preclinical safety study",
+        "dose_info": "Up to 1000 μg/kg",
+        "duration": "90 days",
+        "sample_size": "Multiple species",
+        "findings": "Comprehensive toxicology; no serious adverse effects at therapeutic doses, established safety profile.",
+        "url": "https://doi.org/10.1016/j.yrtph.2020.104665"
+      }
+    ],
+    "quick_start_guide": {
+      "typical_dose": "250-500mcg",
+      "how_often": "1-2x daily",
+      "how_to_take": "SubQ belly, thigh, or arm (near injury for localized healing)",
+      "best_timing": "Empty stomach preferred",
+      "effects_timeline": "1-3 weeks for healing, 3-7 days for inflammation",
+      "storage": "Fridge 2-6°C, use within 28 days",
+      "cycle_length": "4-12 weeks",
+      "break_between": "4+ weeks"
+    },
+    "citations": [
+        {
+          "title": "Jóźwiak, M., Bauer, M., Kamysz, W., Kleczkowska, P. (2025). Multifunctionality and Possible Medical Application of the BPC 157 Peptide—Literature and Patent Review. Pharmaceuticals, 18(2), 185.",
+          "publication_link": "https://doi.org/10.3390/ph18020185"
+        },
+        {
+          "title": "Seiwerth, S., Milavic, M., Vukojevic, J., et al. (2021). Stable Gastric Pentadecapeptide BPC 157 and Wound Healing. Frontiers in Pharmacology, 12, 627533.",
+          "publication_link": "https://doi.org/10.3389/fphar.2021.627533"
+        },
+        {
+          "title": "Hsieh, M.J., Liu, H.T., Wang, C.N., et al. (2017). Therapeutic potential of pro-angiogenic BPC157 is associated with VEGFR2 activation and up-regulation. Journal of Molecular Medicine, 95(3), 323-333.",
+          "publication_link": "https://doi.org/10.1007/s00109-016-1488-y"
+        },
+        {
+          "title": "Staresinic, M., Sebecic, B., Patrlj, L., et al. (2003). Gastric pentadecapeptide BPC 157 accelerates healing of transected rat Achilles tendon and in vitro stimulates tendocytes growth. Journal of Orthopaedic Research, 21(6), 976-983.",
+          "publication_link": "https://doi.org/10.1016/S0736-0266(03)00110-4"
+        },
+        {
+          "title": "Chang, C.H., Tsai, W.C., Lin, M.S., Hsu, Y.H., Pang, J.H. (2011). The promoting effect of pentadecapeptide BPC 157 on tendon healing involves tendon outgrowth, cell survival, and cell migration. Journal of Applied Physiology, 110(3), 774-780.",
+          "publication_link": "https://doi.org/10.1152/japplphysiol.00945.2010"
+        },
+        {
+          "title": "Staresinic, M., Petrovic, I., Novinscak, T., et al. (2006). Effective therapy of transected quadriceps muscle in rat: Gastric pentadecapeptide BPC 157. Journal of Orthopaedic Research, 24(5), 1109-1117.",
+          "publication_link": "https://doi.org/10.1002/jor.20089"
+        },
+        {
+          "title": "Sikiric, P., Seiwerth, S., Rucman, R., et al. (2011). Stable gastric pentadecapeptide BPC 157: novel therapy in gastrointestinal tract. Current Pharmaceutical Design, 17(16), 1612-1632.",
+          "publication_link": "https://doi.org/10.2174/138161211796196954"
+        },
+        {
+          "title": "Sikiric, P., Hahm, K.B., Blagaic, A.B., et al. (2020). Stable Gastric Pentadecapeptide BPC 157, Robert's Stomach Cytoprotection. Gut and Liver, 14(2), 153-167.",
+          "publication_link": "https://doi.org/10.5009/gnl18490"
+        },
+        {
+          "title": "He, L., Feng, D., Guo, H., et al. (2022). Pharmacokinetics, distribution, metabolism, and excretion of body-protective compound 157. Frontiers in Pharmacology, 13, 1026182.",
+          "publication_link": "https://doi.org/10.3389/fphar.2022.1026182"
+        },
+        {
+          "title": "Vukojevic, J., Milavić, M., Perović, D., et al. (2022). Pentadecapeptide BPC 157 and the central nervous system. Neural Regeneration Research, 17(3), 482-487.",
+          "publication_link": "https://doi.org/10.4103/1673-5374.320969"
+        },
+        {
+          "title": "Perovic, D., Kolenc, D., Bilic, V., et al. (2019). Stable gastric pentadecapeptide BPC 157 can improve the healing course of spinal cord injury and lead to functional recovery in rats. Journal of Orthopaedic Surgery and Research, 14(1), 199.",
+          "publication_link": "https://doi.org/10.1186/s13018-019-1242-6"
+        },
+        {
+          "title": "Xu, C., Sun, L., Ren, F., et al. (2020). Preclinical safety evaluation of body protective compound-157, a potential drug for treating various wounds. Regulatory Toxicology and Pharmacology, 114, 104665.",
+          "publication_link": "https://doi.org/10.1016/j.yrtph.2020.104665"
+        }
+      ]
+  },
+  {
+    "name": "BPC-157",
+    "typical_dose": "500mcg-2mg",
+    "typical_dose_frequency": "1-2x daily",
+    "route_of_administration": [
+      {
+        "route": "Oral",
+        "details": "Oral capsules (take with water, preferably on empty stomach 30 minutes before meals)"
+      }
+    ],
+    "cycle": "4-8 weeks (typical), up to 12 weeks",
+    "storage": {
+      "temperature": "Room temperature (capsules); cool, dry place",
+      "condition": "Keep sealed, avoid heat/moisture/light"
+    },
+    "overview": {
+      "what_is_it": "BPC-157 is a synthetic pentadecapeptide (15 amino acids) derived from a protective protein found in human gastric juice. It's known for healing properties and is extensively researched for tissue repair, inflammation reduction, and gastrointestinal protection.",
+      "key_benefits": [
+        "Superior gastrointestinal protection",
+        "Systemic healing effects",
+        "Convenient oral administration",
+        "Particularly effective for digestive issues, ulcer prevention, and general wellness"
+      ],
+      "mechanism_of_action": "Remarkably stable in gastric acid. Oral administration provides direct GI protection and systemic healing via absorption. Promotes tissue repair by enhancing mucosal healing, reducing inflammation, and supporting angiogenesis."
+    },
+    "research_indications": {
+      "gastrointestinal": {
+        "effectiveness": "Most Effective",
+        "categories": [
+          {
+            "title": "Ulcer Protection",
+            "description": "Superior protective effects against gastric and duodenal ulcers through direct gastric contact and cytoprotective mechanisms."
+          },
+          {
+            "title": "Intestinal Repair",
+            "description": "Accelerated intestinal healing, reduced inflammatory markers in IBD models through direct mucosal contact."
+          },
+          {
+            "title": "Mucosal Healing",
+            "description": "Enhanced barrier function and accelerated epithelial regeneration via oral administration."
+          }
+        ]
+      },
+      "wound_healing": {
+        "effectiveness": "Effective",
+        "categories": [
+          {
+            "title": "Systemic Healing",
+            "description": "Systemic healing effects through circulation support tissue repair and recovery."
+          },
+          {
+            "title": "Anti-inflammatory",
+            "description": "Systemic anti-inflammatory effects support healing throughout the body via oral absorption."
+          },
+          {
+            "title": "Tissue Protection",
+            "description": "General tissue protection and repair through systemic circulation; less targeted than injectable form."
+          }
+        ]
+      },
+      "neurological": {
+        "effectiveness": "Moderate",
+        "categories": [
+          {
+            "title": "Neuroprotection",
+            "description": "Systemic neuroprotective effects, though may require higher doses than injectable."
+          },
+          {
+            "title": "Cognitive Support",
+            "description": "Potential support through gut-brain axis modulation."
+          },
+          {
+            "title": "Stress Response",
+            "description": "May aid stress modulation and neurological regulation via gut-brain connection."
+          }
+        ]
+      }
+    },
+    "research_protocols": [
+      {
+        "goal": "Gastric protection",
+        "dose": "500mcg-1mg",
+        "frequency": "1-2x daily",
+        "route": "Oral (empty stomach)"
+      },
+      {
+        "goal": "General healing",
+        "dose": "1-2mg",
+        "frequency": "1-2x daily",
+        "route": "Oral (empty stomach)"
+      },
+      {
+        "goal": "Ulcer prevention",
+        "dose": "500mcg",
+        "frequency": "2x daily",
+        "route": "Oral (empty stomach)"
+      },
+      {
+        "goal": "Maintenance",
+        "dose": "500mcg",
+        "frequency": "1x daily",
+        "route": "Oral (empty stomach)"
+      }
+    ],
+    "protocol_timing": "Most effective on empty stomach, 30 minutes before meals. Take consistently at same times daily.",
+    "peptide_interactions": [
+      {
+        "peptide": "TB-500",
+        "interaction": "Synergistic",
+        "description": "Complementary healing mechanisms, often used together."
+      },
+      {
+        "peptide": "GHRP-6",
+        "interaction": "Compatible",
+        "description": "No known negative interactions."
+      },
+      {
+        "peptide": "Ipamorelin",
+        "interaction": "Synergistic",
+        "description": "Increases GH receptor expression, amplifying growth hormone benefits."
+      },
+      {
+        "peptide": "CJC-1295",
+        "interaction": "Synergistic",
+        "description": "Upregulates GH receptors, enhances CJC-1295 tissue repair."
+      },
+      {
+        "peptide": "Melanotan II",
+        "interaction": "Compatible",
+        "description": "No known interactions – different mechanism."
+      },
+      {
+        "peptide": "AOD-9604",
+        "interaction": "Unknown",
+        "description": "Profile unclear."
+      }
+    ],
+    "reconstitution_steps": [
+      {
+        "step": 1,
+        "instruction": "Use pre-made stable oral capsules (recommended for convenience)."
+      },
+      {
+        "step": 2,
+        "instruction": "If using powder: measure accurate dose with precision milligram scale."
+      },
+      {
+        "step": 3,
+        "instruction": "Fill empty capsules with powder if making your own."
+      },
+      {
+        "step": 4,
+        "instruction": "Take on empty stomach with water (30 min before meals)."
+      },
+      {
+        "step": 5,
+        "instruction": "Wait 30 minutes before eating for optimal absorption."
+      },
+      {
+        "step": 6,
+        "instruction": "Store capsules in cool, dry place at room temp."
+      }
+    ],
+    "quality_indicators": {
+      "positive": [
+        {
+          "indicator": "Intact Capsules",
+          "description": "No cracks, discoloration or moisture. Clear dosage labeling."
+        },
+        {
+          "indicator": "Proper Packaging",
+          "description": "Sealed bottles or blister packs with expiration dates, batch numbers. Professional packaging."
+        },
+        {
+          "indicator": "Fine Powder",
+          "description": "If using powder, should be fine, white to off-white, no clumping/discoloration."
+        }
+      ],
+      "negative": [
+        {
+          "indicator": "Moisture Damage",
+          "description": "Capsules shouldn't be sticky/discolored. Powder should not be clumped."
+        },
+        {
+          "indicator": "Poor Storage",
+          "description": "Avoid products stored in excess heat, humidity, or light."
+        }
+      ]
+    },
+    "what_to_expect": [
+      "Week 1-2: Improved digestive comfort, reduced GI irritation",
+      "Week 2-4: Enhanced gastric protection and healing",
+      "Week 4-8: Systemic healing benefits, overall wellness",
+      "Side effects: Minimal, mild GI adjustment possible",
+      "Most effective for: Gastric ulcers, digestive issues, general healing"
+    ],
+    "side_effects_and_safety": [
+      "Generally very well tolerated",
+      "Take on empty stomach for best absorption",
+      "May cause mild digestive adjustment in first few days",
+      "Consult doctor if on blood thinners",
+      "Not recommended during pregnancy or breastfeeding"
+    ],
+    "references": [
+      {
+        "title": "Jóźwiak, M., Bauer, M., Kamysz, W., Kleczkowska, P. (2025). Multifunctionality and Possible Medical Application of the BPC 157 Peptide—Literature and Patent Review. Pharmaceuticals, 18(2), 185.",
+        "publication_link": "https://doi.org/10.3390/ph18020185"
+      },
+      {
+        "title": "Seiwerth, S., Milavic, M., Vukojevic, J., et al. (2021). Stable Gastric Pentadecapeptide BPC 157 and Wound Healing. Frontiers in Pharmacology, 12, 627533.",
+        "publication_link": "https://doi.org/10.3389/fphar.2021.627533"
+      },
+      {
+        "title": "Hsieh, M.J., Liu, H.T., Wang, C.N., et al. (2017). Therapeutic potential of pro-angiogenic BPC157 is associated with VEGFR2 activation and up-regulation. Journal of Molecular Medicine, 95(3), 323-333.",
+        "publication_link": "https://doi.org/10.1007/s00109-016-1488-y"
+      },
+      {
+        "title": "Staresinic, M., Sebecic, B., Patrlj, L., et al. (2003). Gastric pentadecapeptide BPC 157 accelerates healing of transected rat Achilles tendon and in vitro stimulates tendocytes growth. Journal of Orthopaedic Research, 21(6), 976-983.",
+        "publication_link": "https://doi.org/10.1016/S0736-0266(03)00110-4"
+      },
+      {
+        "title": "Chang, C.H., Tsai, W.C., Lin, M.S., Hsu, Y.H., Pang, J.H. (2011). The promoting effect of pentadecapeptide BPC 157 on tendon healing involves tendon outgrowth, cell survival, and cell migration. Journal of Applied Physiology, 110(3), 774-780.",
+        "publication_link": "https://doi.org/10.1152/japplphysiol.00945.2010"
+      },
+      {
+        "title": "Staresinic, M., Petrovic, I., Novinscak, T., et al. (2006). Effective therapy of transected quadriceps muscle in rat: Gastric pentadecapeptide BPC 157. Journal of Orthopaedic Research, 24(5), 1109-1117.",
+        "publication_link": "https://doi.org/10.1002/jor.20089"
+      },
+      {
+        "title": "Sikiric, P., Seiwerth, S., Rucman, R., et al. (2011). Stable gastric pentadecapeptide BPC 157: novel therapy in gastrointestinal tract. Current Pharmaceutical Design, 17(16), 1612-1632.",
+        "publication_link": "https://doi.org/10.2174/138161211796196954"
+      },
+      {
+        "title": "Sikiric, P., Hahm, K.B., Blagaic, A.B., et al. (2020). Stable Gastric Pentadecapeptide BPC 157, Robert's Stomach Cytoprotection. Gut and Liver, 14(2), 153-167.",
+        "publication_link": "https://doi.org/10.5009/gnl18490"
+      },
+      {
+        "title": "He, L., Feng, D., Guo, H., et al. (2022). Pharmacokinetics, distribution, metabolism, and excretion of body-protective compound 157. Frontiers in Pharmacology, 13, 1026182.",
+        "publication_link": "https://doi.org/10.3389/fphar.2022.1026182"
+      },
+      {
+        "title": "Vukojevic, J., Milavić, M., Perović, D., et al. (2022). Pentadecapeptide BPC 157 and the central nervous system. Neural Regeneration Research, 17(3), 482-487.",
+        "publication_link": "https://doi.org/10.4103/1673-5374.320969"
+      },
+      {
+        "title": "Perovic, D., Kolenc, D., Bilic, V., et al. (2019). Stable gastric pentadecapeptide BPC 157 can improve the healing course of spinal cord injury and lead to functional recovery in rats. Journal of Orthopaedic Surgery and Research, 14(1), 199.",
+        "publication_link": "https://doi.org/10.1186/s13018-019-1242-6"
+      },
+      {
+        "title": "Xu, C., Sun, L., Ren, F., et al. (2020). Preclinical safety evaluation of body protective compound-157, a potential drug for treating various wounds. Regulatory Toxicology and Pharmacology, 114, 104665.",
+        "publication_link": "https://doi.org/10.1016/j.yrtph.2020.104665"
+      }
+    ],
+    "references": [
+        {
+          "title": "Achilles Tendon Healing Study (2003)",
+          "type": "Animal study",
+          "dose_info": "10 μg/kg i.p. daily",
+          "duration": "14 days",
+          "sample_size": "n/a",
+          "findings": "Significant improvement in tendon healing compared to controls, improved biomechanical properties, faster functional recovery, enhanced tendon-to-bone integration.",
+          "url": "https://doi.org/10.1016/S0736-0266(03)00110-4"
+        },
+        {
+          "title": "Muscle Healing Research (2006)",
+          "type": "Animal study",
+          "dose_info": "10 μg/kg i.p. daily",
+          "duration": "28 days",
+          "sample_size": "n/a",
+          "findings": "Enhanced muscle regeneration, improved histological appearance, reduced inflammatory markers, restored muscle function.",
+          "url": "https://doi.org/10.1002/jor.20089"
+        },
+        {
+          "title": "Spinal Cord Injury Recovery (2019)",
+          "type": "Animal study",
+          "dose_info": "10 μg/kg i.p. daily",
+          "duration": "30 days",
+          "sample_size": "n/a",
+          "findings": "Improved functional recovery and reduced tissue damage in spinal cord injury models.",
+          "url": "https://doi.org/10.1186/s13018-019-1242-6"
+        },
+        {
+          "title": "Gastric Ulcer Protection (2020)",
+          "type": "Animal study",
+          "dose_info": "Multiple routes tested",
+          "duration": "Various durations",
+          "sample_size": "n/a",
+          "findings": "Comprehensive study showing BPC-157's protective effects against gastric ulcers through multiple mechanisms including cytoprotection and enhanced mucosal healing.",
+          "url": "https://doi.org/10.5009/gnl18490"
+        },
+        {
+          "title": "VEGF and Angiogenesis Study (2017)",
+          "type": "In vitro and animal study",
+          "dose_info": "Various concentrations",
+          "duration": "n/a",
+          "sample_size": "n/a",
+          "findings": "Demonstrated BPC-157's pro-angiogenic effects through VEGFR2 activation and upregulation, explaining its wound healing and tissue repair mechanisms.",
+          "url": "https://doi.org/10.1007/s00109-016-1488-y"
+        },
+        {
+          "title": "Safety Evaluation Study (2020)",
+          "type": "Preclinical safety study",
+          "dose_info": "Up to 1000 μg/kg",
+          "duration": "90 days",
+          "sample_size": "Multiple species",
+          "findings": "Comprehensive toxicology; no serious adverse effects at therapeutic doses, established safety profile.",
+          "url": "https://doi.org/10.1016/j.yrtph.2020.104665"
+        }
+      ],
+    "quick_start_guide": {
+      "typical_dose": "500mcg-1mg",
+      "how_often": "1-2x daily",
+      "how_to_take": "Oral capsules (with water, empty stomach)",
+      "best_timing": "30 minutes before meals",
+      "effects_timeline": "1-4 weeks for GI effects, 2-6 weeks for systemic healing",
+      "storage": "Room temp, cool dry place",
+      "cycle_length": "4-12 weeks",
+      "break_between": "4+ weeks"
+    }
+  },
+  {
+    "name": "Cagrilintide",
+    "typical_dose": "2.4 mg weekly",
+    "typical_dose_frequency": "Once weekly",
+    "route_of_administration": [
+      {
+        "route": "Injectable",
+        "details": "Subcutaneous injection (abdomen, thigh, or upper arm; rotate weekly)"
+      }
+    ],
+    "cycle": "Continuous (no defined endpoint in clinical trials)",
+    "storage": {
+      "temperature": "-20°C frozen; 2-8°C refrigerated after reconstitution",
+      "condition": "Protect from light, avoid freeze-thaw cycles"
+    },
+    "overview": {
+      "what_is_it": "Cagrilintide (AM833) is a novel long-acting lipidated amylin analog acting as a dual amylin and calcitonin receptor agonist, developed for weight management and type 2 diabetes treatment. Shows superior weight loss potential in combination with semaglutide (CagriSema).",
+      "key_benefits": [
+        "FDA development candidate, extensive Phase 3 data",
+        "Superior weight loss in combination with semaglutide",
+        "Once-weekly dosing convenience"
+      ],
+      "mechanism_of_action": "Subcutaneous injection provides optimal bioavailability for targeting dual amylin/calcitonin receptors, increasing satiety and improving metabolic outcomes."
+    },
+    "research_indications": {
+      "weight_loss": {
+        "effectiveness": "Most Effective",
+        "categories": [
+          {
+            "title": "Superior Obesity Treatment",
+            "description": "Phase 3 trials demonstrate up to 22.7% weight loss with CagriSema (cagrilintide + semaglutide) combination."
+          },
+          {
+            "title": "Type 2 Diabetes Weight Management",
+            "description": "15.7% weight loss in diabetic patients supported by glycemic improvements."
+          },
+          {
+            "title": "Sustained Weight Maintenance",
+            "description": "Long-acting formulation supports durable weight loss throughout treatment."
+          }
+        ]
+      },
+      "metabolic": {
+        "effectiveness": "Effective",
+        "categories": [
+          {
+            "title": "Glucose Control Enhancement",
+            "description": "Phase 2 data shows 2.2% HbA1c reduction with CagriSema."
+          },
+          {
+            "title": "Insulin Sensitivity",
+            "description": "Amylin receptor activation increases insulin sensitivity and supports glucose metabolism."
+          },
+          {
+            "title": "Gastric Emptying Regulation",
+            "description": "Controlled gastric emptying improves postprandial glucose and satiety."
+          }
+        ]
+      },
+      "appetite_control": {
+        "effectiveness": "Moderate",
+        "categories": [
+          {
+            "title": "Dual Pathway Satiety",
+            "description": "Amylin/calcitonin receptor activation offers robust appetite suppression."
+          },
+          {
+            "title": "Food Preference Modulation",
+            "description": "Central pathways influence eating behaviors and preferences."
+          },
+          {
+            "title": "Early Satiation",
+            "description": "Promotes fullness with smaller meal portions."
+          }
+        ]
+      }
+    },
+    "research_protocols": [
+      {
+        "goal": "Weight Loss (Monotherapy)",
+        "dose": "2.4 mg weekly",
+        "frequency": "Once weekly",
+        "route": "Subcutaneous"
+      },
+      {
+        "goal": "Weight Loss (CagriSema)",
+        "dose": "2.4 mg + semaglutide 2.4 mg weekly",
+        "frequency": "Once weekly",
+        "route": "Subcutaneous"
+      },
+      {
+        "goal": "Type 2 Diabetes Management",
+        "dose": "2.4 mg weekly",
+        "frequency": "Once weekly",
+        "route": "Subcutaneous with metformin"
+      },
+      {
+        "goal": "Dose Escalation Protocol",
+        "dose": "0.25 mg → 0.5 mg → 1 mg → 1.7 mg → 2.4 mg",
+        "frequency": "Weekly increase over 16 weeks",
+        "route": "Subcutaneous"
+      },
+      {
+        "goal": "Combination Diabetes Therapy",
+        "dose": "2.4 mg + SGLT2 inhibitor weekly",
+        "frequency": "Once weekly",
+        "route": "Subcutaneous"
+      },
+      {
+        "goal": "Cardiovascular Risk Reduction",
+        "dose": "2.4 mg weekly",
+        "frequency": "Once weekly",
+        "route": "Subcutaneous (REDEFINE 3 trial)"
+      }
+    ],
+    "protocol_timing": "Administer on the same day each week; evening injection may reduce nausea. Can be given with or without food.",
+    "peptide_interactions": [
+      {
+        "peptide": "Semaglutide",
+        "interaction": "Synergistic",
+        "description": "CagriSema provides enhanced weight loss and improved glycemic control (amylin + GLP-1 pathways)."
+      },
+      {
+        "peptide": "Tirzepatide",
+        "interaction": "Compatible",
+        "description": "No direct interactions; different mechanisms, theoretical potential for synergy."
+      },
+      {
+        "peptide": "Retatrutide",
+        "interaction": "Unknown",
+        "description": "No studies; both achieve similar weight loss through different mechanisms."
+      },
+      {
+        "peptide": "Liraglutide",
+        "interaction": "Compatible",
+        "description": "Similar efficacy, no adverse interactions reported."
+      },
+      {
+        "peptide": "Insulin",
+        "interaction": "Monitor Combination",
+        "description": "Can affect gastric emptying and insulin absorption; may require dose adjustments."
+      },
+      {
+        "peptide": "Metformin",
+        "interaction": "Compatible",
+        "description": "No pharmacokinetic interactions, tolerated in trials."
+      },
+      {
+        "peptide": "SGLT2 Inhibitors",
+        "interaction": "Compatible",
+        "description": "Used safely in trials for diabetes and weight management."
+      },
+      {
+        "peptide": "Pramlintide",
+        "interaction": "Avoid Combination",
+        "description": "Both are amylin receptor agonists; overlapping mechanisms and risk of GI side effects."
+      },
+      {
+        "peptide": "Oral Contraceptives",
+        "interaction": "Requires Timing",
+        "description": "Delayed gastric emptying may impact absorption; space administration by 1 hour."
+      }
+    ],
+    "reconstitution_steps": [
+      {
+        "step": 1,
+        "instruction": "Use bacteriostatic water (BAC), sterile technique essential."
+      },
+      {
+        "step": 2,
+        "instruction": "Acidify BAC to pH 3.5–4.5 for optimal stability. Standard BAC (pH 5.5–6) is acceptable short-term (<30 days)."
+      },
+      {
+        "step": 3,
+        "instruction": "Slowly reconstitute down vial side, swirl gently."
+      },
+      {
+        "step": 4,
+        "instruction": "Verify solution clarity; discard if cloudy or particulate."
+      },
+      {
+        "step": 5,
+        "instruction": "Store refrigerated (2–8°C) after reconstitution."
+      },
+      {
+        "step": 6,
+        "instruction": "Allow vial to reach room temperature before injection."
+      }
+    ],
+    "quality_indicators": {
+      "positive": [
+        {
+          "indicator": "Pre-filled pen design",
+          "description": "Clinical and future pharmaceutical forms are convenient, stable."
+        },
+        {
+          "indicator": "Pharmaceutical grade purity",
+          "description": "Clinical trial material is >98% pure, properly lipidated."
+        },
+        {
+          "indicator": "Frozen storage stability",
+          "description": "Stability maintained at -20°C."
+        },
+        {
+          "indicator": "Extended stability profile",
+          "description": "Remains stable >7 days at dosing interval."
+        }
+      ],
+      "negative": [
+        {
+          "indicator": "Fibril formation at improper pH",
+          "description": "Cloudy, gel-like texture signals degradation. Discard."
+        },
+        {
+          "indicator": "Aggregation or precipitation",
+          "description": "Visible particles or color changes signal protein degradation."
+        },
+        {
+          "indicator": "Temperature excursions",
+          "description": "High temperatures, freeze-thaw cycles are harmful."
+        }
+      ]
+    },
+    "what_to_expect": [
+      "Week 1-2: GI adaptation or mild nausea, dose escalation phase",
+      "Week 4-8: Early weight loss, increased satiety",
+      "Week 12-26: Significant weight loss, peak effects",
+      "Week 26+: Sustained maintenance with ongoing therapy"
+    ],
+    "side_effects_and_safety": [
+      "Most side effects are GI-related (nausea, vomiting, diarrhea) in initial weeks",
+      "Anti-cagrilintide antibodies develop in 46–73% of patients, but efficacy unchanged",
+      "No clinically relevant QTc prolongation",
+      "Only 57.3% of patients reach full 2.4 mg in REDEFINE 1 trial",
+      "Acidic reconstitution required to avoid degradation"
+    ],
+    "references": [
+      {
+        "title": "REDEFINE 1 Trial - Phase 3 Weight Loss (2025)",
+        "summary": "Humans | 2.4 mg weekly | 68 weeks | 22.7% weight loss vs 2.4% placebo",
+        "full_info": "Landmark Phase 3 trial published in NEJM demonstrating superior weight loss with CagriSema combination in 3,417 adults with obesity, achieving primary endpoints with excellent safety profile",
+        "publication_link": "https://www.nejm.org/doi/full/10.1056/NEJMoa2502081"
+      },
+      {
+        "title": "REDEFINE 2 Trial - Phase 3 Type 2 Diabetes (2025)",
+        "summary": "Humans | 2.4 mg weekly | 68 weeks | 15.7% weight loss, 73.5% achieved HbA1c ≤6.5%",
+        "full_info": "Phase 3 trial in 1,206 adults with type 2 diabetes and obesity published in NEJM, demonstrating significant weight loss and glycemic improvements with CagriSema",
+        "publication_link": "https://www.nejm.org/doi/full/10.1056/NEJMoa2502082"
+      },
+      {
+        "title": "Phase 2 Type 2 Diabetes Combination Study (2023)",
+        "summary": "Humans | 2.4 mg weekly | 32 weeks | 15.6% weight loss, 2.2% HbA1c reduction with CagriSema",
+        "full_info": "First study reporting efficacy of GLP-1/amylin combination in type 2 diabetes, showing superior weight loss and glycemic control versus individual components",
+        "publication_link": "https://www.sciencedirect.com/science/article/abs/pii/S0140673623011637"
+      },
+      {
+        "title": "Phase 2 Dose-Finding Monotherapy Trial (2021)",
+        "summary": "Humans | 0.3-4.5 mg weekly | 26 weeks | Up to 10.8% weight loss dose-dependent",
+        "full_info": "Multi-center dose-finding trial in 706 participants demonstrating dose-dependent weight loss and establishing optimal 2.4 mg weekly dosing",
+        "publication_link": "https://pubmed.ncbi.nlm.nih.gov/34798060/"
+      },
+      {
+        "title": "Phase 1b Safety and Pharmacokinetics Study (2021)",
+        "summary": "Humans | 0.16-4.5 mg weekly | 20 weeks | Safety profile established",
+        "full_info": "First-in-human combination study with semaglutide demonstrating acceptable safety profile and pharmacokinetic parameters for CagriSema development",
+        "publication_link": "https://www.sciencedirect.com/science/article/abs/pii/S014067362100845X"
+      },
+      {
+        "title": "Thorough QT Study - Cardiac Safety (2024)",
+        "summary": "Humans | 4.5 mg single dose | 5 days | No clinically relevant QTc prolongation",
+        "full_info": "Dedicated cardiac safety study confirming no significant QT interval prolongation at supratherapeutic doses, supporting cardiovascular safety profile",
+        "publication_link": "https://dom-pubs.onlinelibrary.wiley.com/doi/10.1111/dom.15951"
+      }
+    ],
+    "quick_start_guide": {
+      "typical_dose": "2.4 mg weekly (after escalation)",
+      "how_often": "Once weekly",
+      "how_to_take": "Subcutaneous injection",
+      "best_timing": "Same day weekly, preferably evening",
+      "effects_timeline": "Initial effects: 1–2 weeks; Significant: 4–12 weeks; Peak: 26+ weeks",
+      "storage": "Frozen -20°C (unmixed), 2–8°C (mixed)",
+      "cycle_length": "Continuous for sustained effects",
+      "break_between": "Not applicable (continuous therapy)"
+    },
+  "citations": [
+    {
+      "title": "Garvey, W.T., Blüher, M., Contreras, C.K.O., et al. (2025). Coadministered Cagrilintide and Semaglutide in Adults with Overweight or Obesity. New England Journal of Medicine, 393(1), 26-40. DOI: 10.1056/NEJMoa2502081",
+      "publication_link": "https://www.nejm.org/doi/full/10.1056/NEJMoa2502081"
+    },
+    {
+      "title": "Davies, M.J., Bajaj, H.S., Broholm, C., et al. (2025). Cagrilintide–Semaglutide in Adults with Overweight or Obesity and Type 2 Diabetes. New England Journal of Medicine, 393(1), 41-53. DOI: 10.1056/NEJMoa2502082",
+      "publication_link": "https://www.nejm.org/doi/full/10.1056/NEJMoa2502082"
+    },
+    {
+      "title": "Frias, J.P., Auerbach, P., Bajaj, H.S., et al. (2023). Efficacy and safety of co-administered once-weekly cagrilintide 2·4 mg with once-weekly semaglutide 2·4 mg in type 2 diabetes: a multicentre, randomised, double-blind, active-controlled, phase 2 trial. The Lancet, 402(10401), 720-730. DOI: 10.1016/S0140-6736(23)01163-7",
+      "publication_link": "https://www.sciencedirect.com/science/article/abs/pii/S0140673623011637"
+    },
+    {
+      "title": "Lau, D.C.W., Erichsen, L., Francisco, A.M., et al. (2021). Once-weekly cagrilintide for weight management in people with overweight and obesity: a multicentre, randomised, double-blind, placebo-controlled and active-controlled, dose-finding phase 2 trial. The Lancet, 398(10317), 2160-2172. DOI: 10.1016/S0140-6736(21)01751-7",
+      "publication_link": "https://pubmed.ncbi.nlm.nih.gov/34798060/"
+    },
+    {
+      "title": "Enebo, L.B., Berthelsen, K.K., Kankam, M., et al. (2021). Safety, tolerability, pharmacokinetics, and pharmacodynamics of concomitant administration of multiple doses of cagrilintide with semaglutide 2·4 mg for weight management: a randomised, controlled, phase 1b trial. The Lancet, 397(10286), 1736-1748. DOI: 10.1016/S0140-6736(21)00845-X",
+      "publication_link": "https://www.sciencedirect.com/science/article/abs/pii/S014067362100845X"
+    },
+    {
+      "title": "Kruse, T., Glastrup, S., Moser, C., et al. (2021). Development of Cagrilintide, a Long-Acting Amylin Analogue. Journal of Medicinal Chemistry, 64(16), 11183-11194. DOI: 10.1021/acs.jmedchem.1c00565",
+      "publication_link": "https://pubs.acs.org/doi/10.1021/acs.jmedchem.1c00565"
+    },
+    {
+      "title": "Cao, J., Gholamrezaie, L., Donnelly, D., et al. (2025). Structural and dynamic features of cagrilintide binding to calcitonin and amylin receptors. Nature Communications, 16, 850. DOI: 10.1038/s41467-025-58680-y",
+      "publication_link": "https://www.nature.com/articles/s41467-025-58680-y"
+    },
+    {
+      "title": "Gabe, M.B.N., Sonne, N., Liu, L., et al. (2024). Cagrilintide is not associated with clinically relevant QTc prolongation: A thorough QT study in healthy participants. Diabetes, Obesity and Metabolism, 26(11), 4985-4994. DOI: 10.1111/dom.15951",
+      "publication_link": "https://dom-pubs.onlinelibrary.wiley.com/doi/10.1111/dom.15951"
+    },
+    {
+      "title": "Dutta, D., Nagendra, L., Harish, B.G., et al. (2024). Efficacy and Safety of Cagrilintide Alone and in Combination with Semaglutide (Cagrisema) as Anti-Obesity Medications: A Systematic Review and Meta-Analysis. Indian Journal of Endocrinology and Metabolism, 28(5), 436-444. DOI: 10.4103/ijem.ijem_45_24",
+      "publication_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11642503/"
+    },
+    {
+      "title": "D'Ascanio, A.M., Mullally, J.A., Frishman, W.H. (2024). Cagrilintide: A Long-Acting Amylin Analog for the Treatment of Obesity. Cardiology in Review, 32(1), 83-90. DOI: 10.1097/CRD.0000000000000513",
+      "publication_link": "https://journals.lww.com/cardiologyinreview/fulltext/2024/01000/cagrilintide__a_long_acting_amylin_analog_for_the.13.aspx"
+    }
+  ]
+  },
+  
+  
+  
+  
+
+          
+
+    ]

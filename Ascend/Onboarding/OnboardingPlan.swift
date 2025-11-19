@@ -2,6 +2,8 @@ import SwiftUI
 
 struct OnboardingPlan: View {
     let onNext: () -> Void
+    let onBack: () -> Void
+    let progress: Double
     
     var body: some View {
         ZStack {
@@ -28,7 +30,7 @@ struct OnboardingPlan: View {
     
     private var headerSection: some View {
         HStack(spacing: 20) {
-            Button(action: {}) {
+            Button(action: onBack) {
                 Image(systemName: "chevron.left")
                     .font(.system(size: 22, weight: .semibold))
                     .foregroundColor(.black)
@@ -42,7 +44,7 @@ struct OnboardingPlan: View {
                     
                     RoundedRectangle(cornerRadius: 10)
                         .fill(Color.black)
-                        .frame(width: geometry.size.width * 1.0, height: 4)
+                        .frame(width: geometry.size.width * progress, height: 4)
                 }
             }
             .frame(height: 4)
@@ -285,6 +287,6 @@ struct OnboardingPlan: View {
 }
 
 #Preview {
-    OnboardingPlan(onNext: {})
+    OnboardingPlan(onNext: {}, onBack: {}, progress: 1.0)
 }
 

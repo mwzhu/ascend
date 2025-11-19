@@ -3,6 +3,8 @@ import SwiftUI
 struct OnboardingGender: View {
     @State private var selectedGender: String = ""
     let onNext: () -> Void
+    let onBack: () -> Void
+    let progress: Double
     
     let genderOptions: [(icon: String?, title: String)] = [
         (icon: "♂", title: "Male"),
@@ -19,7 +21,7 @@ struct OnboardingGender: View {
             VStack(alignment: .leading, spacing: 0) {
                 // Back Button and Progress Bar
                 HStack(spacing: 20) {
-                    Button(action: {}) {
+                    Button(action: onBack) {
                         Image(systemName: "chevron.left")
                             .font(.system(size: 22, weight: .semibold))
                             .foregroundColor(.black)
@@ -33,7 +35,7 @@ struct OnboardingGender: View {
                             
                             RoundedRectangle(cornerRadius: 10)
                                 .fill(Color.black)
-                                .frame(width: geometry.size.width * 0.35, height: 4)
+                                .frame(width: geometry.size.width * progress, height: 4)
                         }
                     }
                     .frame(height: 4)
@@ -124,5 +126,5 @@ struct GenderButton: View {
 }
 
 #Preview {
-    OnboardingGender(onNext: {})
+    OnboardingGender(onNext: {}, onBack: {}, progress: 0.32)
 }

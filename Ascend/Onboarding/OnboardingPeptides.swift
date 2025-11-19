@@ -3,6 +3,8 @@ import SwiftUI
 struct OnboardingPeptides: View {
     @State private var selectedPeptides: Set<String> = []
     let onNext: () -> Void
+    let onBack: () -> Void
+    let progress: Double
     
     let peptides = [
         "GHK-Cu",
@@ -32,7 +34,7 @@ struct OnboardingPeptides: View {
             VStack(alignment: .leading, spacing: 0) {
                 // Back Button and Progress Bar
                 HStack(spacing: 20) {
-                    Button(action: {}) {
+                    Button(action: onBack) {
                         Image(systemName: "chevron.left")
                             .font(.system(size: 22, weight: .semibold))
                             .foregroundColor(.black)
@@ -46,7 +48,7 @@ struct OnboardingPeptides: View {
                             
                             RoundedRectangle(cornerRadius: 10)
                                 .fill(Color.black)
-                                .frame(width: geometry.size.width * 0.1, height: 4)
+                                .frame(width: geometry.size.width * progress, height: 4)
                         }
                     }
                     .frame(height: 4)
@@ -139,5 +141,5 @@ struct MultiSelectButton: View {
 }
 
 #Preview {
-    OnboardingPeptides(onNext: {})
+    OnboardingPeptides(onNext: {}, onBack: {}, progress: 0.16)
 }

@@ -7,6 +7,8 @@ struct OnboardingHeightWeight: View {
     @State private var weightLbs = 117
     @State private var weightKg = 75
     let onNext: () -> Void
+    let onBack: () -> Void
+    let progress: Double
     
     // Generate imperial height options
     let imperialHeights: [String] = {
@@ -27,7 +29,7 @@ struct OnboardingHeightWeight: View {
             VStack(alignment: .leading, spacing: 0) {
                 // Back Button and Progress Bar
                 HStack(spacing: 20) {
-                    Button(action: {}) {
+                    Button(action: onBack) {
                         Image(systemName: "chevron.left")
                             .font(.system(size: 22, weight: .semibold))
                             .foregroundColor(.black)
@@ -41,7 +43,7 @@ struct OnboardingHeightWeight: View {
                             
                             RoundedRectangle(cornerRadius: 10)
                                 .fill(Color.black)
-                                .frame(width: geometry.size.width * 0.45, height: 4)
+                                .frame(width: geometry.size.width * progress, height: 4)
                         }
                     }
                     .frame(height: 4)
@@ -168,5 +170,5 @@ struct OnboardingHeightWeight: View {
 }
 
 #Preview {
-    OnboardingHeightWeight(onNext: {})
+    OnboardingHeightWeight(onNext: {}, onBack: {}, progress: 0.40)
 }

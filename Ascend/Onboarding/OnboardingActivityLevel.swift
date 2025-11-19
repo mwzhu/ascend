@@ -3,6 +3,8 @@ import SwiftUI
 struct OnboardingActivityLevel: View {
     @State private var selectedActivityLevel: String = ""
     let onNext: () -> Void
+    let onBack: () -> Void
+    let progress: Double
     
     let activityLevelOptions: [(icon: String, title: String, subtitle: String)] = [
         (icon: "figure.seated.side", title: "Sedentary", subtitle: "(mostly inactive, little exercise)"),
@@ -19,7 +21,7 @@ struct OnboardingActivityLevel: View {
             VStack(alignment: .leading, spacing: 0) {
                 // Back Button and Progress Bar
                 HStack(spacing: 20) {
-                    Button(action: {}) {
+                    Button(action: onBack) {
                         Image(systemName: "chevron.left")
                             .font(.system(size: 22, weight: .semibold))
                             .foregroundColor(.black)
@@ -33,7 +35,7 @@ struct OnboardingActivityLevel: View {
                             
                             RoundedRectangle(cornerRadius: 10)
                                 .fill(Color.black)
-                                .frame(width: geometry.size.width * 0.35, height: 4)
+                                .frame(width: geometry.size.width * progress, height: 4)
                         }
                     }
                     .frame(height: 4)
@@ -124,5 +126,5 @@ struct ActivityLevelButton: View {
 }
 
 #Preview {
-    OnboardingActivityLevel(onNext: {})
+    OnboardingActivityLevel(onNext: {}, onBack: {}, progress: 0.68)
 }

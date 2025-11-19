@@ -3,6 +3,8 @@ import SwiftUI
 struct OnboardingAccomplish: View {
     @State private var selectedAccomplishments: Set<String> = []
     let onNext: () -> Void
+    let onBack: () -> Void
+    let progress: Double
     
     let accomplishmentOptions: [(icon: String, title: String)] = [
         (icon: "leaf.fill", title: "Eat and live healthier"),
@@ -20,7 +22,7 @@ struct OnboardingAccomplish: View {
             VStack(alignment: .leading, spacing: 0) {
                 // Back Button and Progress Bar
                 HStack(spacing: 20) {
-                    Button(action: {}) {
+                    Button(action: onBack) {
                         Image(systemName: "chevron.left")
                             .font(.system(size: 22, weight: .semibold))
                             .foregroundColor(.black)
@@ -34,7 +36,7 @@ struct OnboardingAccomplish: View {
                             
                             RoundedRectangle(cornerRadius: 10)
                                 .fill(Color.black)
-                                .frame(width: geometry.size.width * 0.35, height: 4)
+                                .frame(width: geometry.size.width * progress, height: 4)
                         }
                     }
                     .frame(height: 4)
@@ -120,5 +122,5 @@ struct AccomplishmentButton: View {
 }
 
 #Preview {
-    OnboardingAccomplish(onNext: {})
+    OnboardingAccomplish(onNext: {}, onBack: {}, progress: 0.12)
 }
