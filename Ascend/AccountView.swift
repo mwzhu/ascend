@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct AccountView: View {
+    @Binding var showJourney: Bool
+    
     var body: some View {
         ScrollView(showsIndicators: false) {
             VStack(alignment: .leading, spacing: 0) {
@@ -41,7 +43,12 @@ struct AccountView: View {
                         .foregroundColor(.gray.opacity(0.6))
                         .padding(.horizontal, 20)
                     
-                    JourneyCard()
+                    Button(action: {
+                        showJourney = true
+                    }) {
+                        JourneyCard()
+                    }
+                    .buttonStyle(PlainButtonStyle())
                 }
                 .padding(.bottom, 24)
                 
@@ -376,5 +383,5 @@ struct RoundedCornersShape: Shape {
 }
 
 #Preview {
-    AccountView()
+    AccountView(showJourney: .constant(false))
 }

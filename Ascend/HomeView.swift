@@ -19,6 +19,7 @@ struct HomeView: View {
     @State private var selectedDate = Date()
     @State private var showDateCircles = false
     @State private var selectedTab: Tab = .home
+    @State private var showJourney = false
     
     var body: some View {
         ZStack {
@@ -28,9 +29,18 @@ struct HomeView: View {
                 currentView
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                 
-                BottomNavBar(selectedTab: $selectedTab)
+                if !showJourney {
+                    BottomNavBar(selectedTab: $selectedTab)
+                }
+            }
+            
+            if showJourney {
+                JourneyView(isPresented: $showJourney)
+                    .transition(.move(edge: .trailing))
+                    .zIndex(1)
             }
         }
+        .animation(.easeInOut(duration: 0.3), value: showJourney)
     }
     
     @ViewBuilder
@@ -41,11 +51,11 @@ struct HomeView: View {
         case .peptides:
             PeptidesView()
         case .progress:
-            ProgressView()
+            ResultsView()
         case .library:
             LibraryView()
         case .account:
-            AccountView()
+            AccountView(showJourney: $showJourney)
         }
     }
 }

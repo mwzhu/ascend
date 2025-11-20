@@ -8,24 +8,27 @@
 import SwiftUI
 
 struct JourneyView: View {
-    @Environment(\.dismiss) var dismiss
+    @Binding var isPresented: Bool
     @State private var selectedTimeRange = "1 days"
     
     var body: some View {
         ZStack {
-            LinearGradient(
+            RadialGradient(
                 gradient: Gradient(colors: [
-                    Color(red: 0.92, green: 0.88, blue: 0.95),
-                    Color(red: 0.88, green: 0.82, blue: 0.92)
+                    Color(hex: "FFB877"),
+                    Color(hex: "FFD9AA"),
+                    Color(hex: "FFE5CC"),
+                    Color(hex: "FFF5EB")
                 ]),
-                startPoint: .top,
-                endPoint: .bottom
+                center: .center,
+                startRadius: 100,
+                endRadius: 500
             )
             .ignoresSafeArea()
             
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 16) {
-                    JourneyMainCard(dismiss: dismiss, selectedTimeRange: selectedTimeRange)
+                    JourneyMainCard(dismiss: { isPresented = false }, selectedTimeRange: selectedTimeRange)
                     
                     Spacer().frame(height: 60)
                 }
@@ -33,11 +36,12 @@ struct JourneyView: View {
                 .padding(.top, 8)
             }
         }
+        .navigationBarHidden(true)
     }
 }
 
 struct JourneyMainCard: View {
-    let dismiss: DismissAction
+    let dismiss: () -> Void
     let selectedTimeRange: String
     
     var body: some View {
@@ -356,6 +360,6 @@ struct WeightProgressChart: View {
 }
 
 #Preview {
-    JourneyView()
+    JourneyView(isPresented: .constant(true))
 }
 
