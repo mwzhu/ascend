@@ -9,6 +9,8 @@ import SwiftUI
 
 struct JourneyView: View {
     @Binding var isPresented: Bool
+    let source: JourneySource
+    @Binding var selectedTab: Tab
     @State private var selectedTimeRange = "1 days"
     
     var body: some View {
@@ -27,7 +29,17 @@ struct JourneyView: View {
             .ignoresSafeArea()
             
             VStack(spacing: 16) {
-                JourneyMainCard(dismiss: { isPresented = false }, selectedTimeRange: selectedTimeRange)
+                JourneyMainCard(
+                    dismiss: {
+                        if source == .results {
+                            selectedTab = .progress
+                        } else {
+                            selectedTab = .account
+                        }
+                        isPresented = false
+                    },
+                    selectedTimeRange: selectedTimeRange
+                )
                 
                 Spacer()
             }
@@ -46,7 +58,7 @@ struct JourneyMainCard: View {
         VStack(spacing: 16) {
             VStack(spacing: 0) {
                 HStack {
-                    Button(action: { dismiss() }) {
+                    Button(action: dismiss) {
                         Image(systemName: "chevron.left")
                             .font(.system(size: 21, weight: .regular))
                             .foregroundColor(.gray.opacity(0.5))
@@ -358,6 +370,6 @@ struct WeightProgressChart: View {
 }
 
 #Preview {
-    JourneyView(isPresented: .constant(true))
+    JourneyView(isPresented: .constant(true), source: .account, selectedTab: .constant(.account))
 }
 

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AccountView: View {
     @Binding var showJourney: Bool
+    @Binding var journeySource: JourneySource
     
     var body: some View {
         ScrollView(showsIndicators: false) {
@@ -44,6 +45,7 @@ struct AccountView: View {
                         .padding(.horizontal, 20)
                     
                     Button(action: {
+                        journeySource = .account
                         showJourney = true
                     }) {
                         JourneyCard()
@@ -383,5 +385,5 @@ struct RoundedCornersShape: Shape {
 }
 
 #Preview {
-    AccountView(showJourney: .constant(false))
+    AccountView(showJourney: .constant(false), journeySource: .constant(.account))
 }

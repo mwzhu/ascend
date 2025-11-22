@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct PeptidesView: View {
+    @Binding var showLogPopup: Bool
     @State private var selectedDate = Date()
     @State private var showDateCircles = false
     
@@ -98,20 +99,39 @@ struct PeptidesView: View {
                 Spacer()
                 HStack {
                     Spacer()
-                    Button(action: {}) {
-                        Image(systemName: "plus")
-                            .font(.system(size: 24, weight: .semibold))
-                            .foregroundColor(.white)
-                            .frame(width: 60, height: 60)
-                            .background(Color.black)
-                            .clipShape(Circle())
-                            .shadow(color: .black.opacity(0.3), radius: 10, x: 0, y: 5)
+                    if !showLogPopup {
+                        Button(action: {
+                            showLogPopup = true
+                        }) {
+                            Image(systemName: "plus")
+                                .font(.system(size: 25, weight: .semibold))
+                                .foregroundColor(.white)
+                                .frame(width: 63, height: 63)
+                                .background(Color.black)
+                                .clipShape(Circle())
+                                .shadow(color: .black.opacity(0.3), radius: 10, x: 0, y: 5)
+                        }
+                        .padding(.trailing, 20)
+                        .padding(.bottom, 17)
                     }
-                    .padding(.trailing, 20)
-                    .padding(.bottom, 90)
                 }
             }
+            
+            if showLogPopup {
+                Color.black.opacity(0.4)
+                    .ignoresSafeArea()
+                    .transition(.opacity)
+                    .zIndex(2)
+                    .onTapGesture {
+                        showLogPopup = false
+                    }
+
+                LogOptionsPopup(isPresented: $showLogPopup)
+                    .transition(.scale(scale: 0.9, anchor: .bottomTrailing).combined(with: .opacity))
+                    .zIndex(3)
+            }
         }
+        .animation(.easeInOut(duration: 0.2), value: showLogPopup)
     }
     
     var dateString: String {
@@ -740,5 +760,5 @@ struct SideEffect: Identifiable {
 // }
 
 #Preview {
-    PeptidesView()
+    PeptidesView(showLogPopup: .constant(false))
 }

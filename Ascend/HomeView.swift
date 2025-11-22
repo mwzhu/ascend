@@ -15,6 +15,11 @@ enum Tab {
     case account
 }
 
+enum JourneySource {
+    case results
+    case account
+}
+
 func extractNumericValue(from string: String) -> Double {
     let pattern = #"-?\d+\.?\d*"#
     if let regex = try? NSRegularExpression(pattern: pattern),
@@ -31,6 +36,7 @@ struct HomeView: View {
     @State private var selectedTab: Tab = .home
     @State private var showJourney = false
     @State private var showLogPopup = false
+    @State private var journeySource: JourneySource = .account
     
     var body: some View {
         ZStack {
@@ -46,7 +52,7 @@ struct HomeView: View {
             }
             
             if showJourney {
-                JourneyView(isPresented: $showJourney)
+                JourneyView(isPresented: $showJourney, source: journeySource, selectedTab: $selectedTab)
                     .transition(.move(edge: .trailing))
                     .zIndex(1)
             }
@@ -79,13 +85,13 @@ struct HomeView: View {
                 showLogPopup: $showLogPopup
             )
         case .peptides:
-            PeptidesView()
+            PeptidesView(showLogPopup: $showLogPopup)
         case .progress:
-            ResultsView()
+            ResultsView(showJourney: $showJourney, journeySource: $journeySource, showLogPopup: $showLogPopup)
         case .library:
             LibraryView()
         case .account:
-            AccountView(showJourney: $showJourney)
+            AccountView(showJourney: $showJourney, journeySource: $journeySource)
         }
     }
 }
@@ -196,7 +202,18 @@ struct HomeContentView: View {
                         
                         // Selected Date's Log
                         LogCard()
-                        .padding(.bottom, 5)
+                        .padding(.bottom, 10)
+                        
+                        VStack(alignment: .leading, spacing: 0) {
+                            Text("OPTIONS")
+                                .font(.system(size: 11, weight: .regular))
+                                .foregroundColor(.gray.opacity(0.8))
+                                .padding(.horizontal, 20)
+                                .padding(.bottom, 8)
+                            
+                            NavigationRow(icon: "scalemass.fill", title: "Lifestyle Goal Settings")
+                        }
+                        .padding(.bottom, 12)
                     }
                     .padding(.top, 10)
                 }
@@ -216,7 +233,7 @@ struct HomeContentView: View {
                             Image(systemName: "plus")
                                 .font(.system(size: 25, weight: .semibold))
                                 .foregroundColor(.white)
-                                .frame(width: 65, height: 65)
+                                .frame(width: 63, height: 63)
                                 .background(Color.black)
                                 .clipShape(Circle())
                                 .shadow(color: .black.opacity(0.3), radius: 10, x: 0, y: 5)
@@ -1143,7 +1160,7 @@ struct BottomNavBar: View {
                 NavBarItem(icon: "chart.line.uptrend.xyaxis", isActive: selectedTab == .progress) {
                     selectedTab = .progress
                 }
-                NavBarItem(icon: "book.fill", isActive: selectedTab == .library) {
+                NavBarItem(icon: "book.pages.fill", isActive: selectedTab == .library) {
                     selectedTab = .library
                 }
                 NavBarItem(icon: "person.fill", isActive: selectedTab == .account) {

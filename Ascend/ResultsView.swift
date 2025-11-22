@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct ResultsView: View {
+    @Binding var showJourney: Bool
+    @Binding var journeySource: JourneySource
+    @Binding var showLogPopup: Bool
     @State private var selectedDate = Date()
     @State private var showDateCircles = false
+    @State private var showBookButton = false
+    @State private var hasAnimatedBookButton = false
     
     var body: some View {
         ZStack {
@@ -82,43 +87,109 @@ struct ResultsView: View {
                         // Progress and BMI Row
                         HStack(spacing: 12) {
                             ProgressCircleCard()
-                            BMICard()
+                            VStack(spacing: 12) {
+                                BMICard()
+                                DifferenceCard(valueText: "25.1lbs")
+                            }
                         }
                         .padding(.horizontal, 20)
-                        
-                        // Difference Card
-                        DifferenceCard()
                         
                         // Timeline
                         TimelineCard()
                         
                         // Selected Date's Log
                         LogCard()
-                        
-                        Spacer().frame(height: 80)
+                        .padding(.bottom, 10)
+
+                        VStack(alignment: .leading, spacing: 0) {
+                            Text("OPTIONS")
+                                .font(.system(size: 11, weight: .regular))
+                                .foregroundColor(.gray.opacity(0.8))
+                                .padding(.horizontal, 20)
+                                .padding(.bottom, 8)
+                            
+                            NavigationRow(icon: "scalemass.fill", title: "Weight Settings")
+                            NavigationRow(icon: "heart.text.clipboard.fill", title: "Show All Weight Logs")
+                        }
+                        .padding(.bottom, 15)
+                    
                     }
                     .padding(.top, 10)
                 }
                 
-                Spacer()
             }
             
-            // Plus Button
+            // Floating Buttons
             VStack {
                 Spacer()
                 HStack {
                     Spacer()
-                    Button(action: {}) {
-                        Image(systemName: "plus")
-                            .font(.system(size: 24, weight: .semibold))
-                            .foregroundColor(.white)
-                            .frame(width: 60, height: 60)
-                            .background(Color.black)
-                            .clipShape(Circle())
-                            .shadow(color: .black.opacity(0.3), radius: 10, x: 0, y: 5)
+                    VStack(spacing: 16) {
+                        Button(action: {
+                            journeySource = .results
+                            showJourney = true
+                        }) {
+                            Image(systemName: "book.fill")
+                                .font(.system(size: 25, weight: .semibold))
+                                .foregroundColor(.white)
+                                .frame(width: 63, height: 63)
+                                .background(
+                                    Circle()
+                                        .fill(Color(red: 0.78, green: 0.78, blue: 0.78))
+                                )
+                                .clipShape(Circle())
+                                .shadow(color: .black.opacity(0.2), radius: 10, x: 0, y: 5)
+                        }
+                        .opacity(showBookButton ? 1 : 0)
+                        .offset(y: showBookButton ? 0 : 48)
+                        .scaleEffect(showBookButton ? 1 : 0.5, anchor: .bottom)
+                        
+                        if !showLogPopup {
+                            Button(action: {
+                                showLogPopup = true
+                            }) {
+                                Image(systemName: "plus")
+                                    .font(.system(size: 25, weight: .semibold))
+                                    .foregroundColor(.white)
+                                    .frame(width: 63, height: 63)
+                                    .background(Color.black)
+                                    .clipShape(Circle())
+                                    .shadow(color: .black.opacity(0.3), radius: 10, x: 0, y: 5)
+                            }
+                        }
                     }
                     .padding(.trailing, 20)
-                    .padding(.bottom, 90)
+                    .padding(.bottom, 17)
+                }
+            }
+            
+            if showLogPopup {
+                Color.black.opacity(0.4)
+                    .ignoresSafeArea()
+                    .transition(.opacity)
+                    .zIndex(2)
+                    .onTapGesture {
+                        showLogPopup = false
+                    }
+
+                LogOptionsPopup(isPresented: $showLogPopup)
+                    .transition(.scale(scale: 0.9, anchor: .bottomTrailing).combined(with: .opacity))
+                    .zIndex(3)
+            }
+        }
+        .animation(.easeInOut(duration: 0.2), value: showLogPopup)
+        .onAppear {
+            guard !hasAnimatedBookButton else {
+                showBookButton = true
+                return
+            }
+            
+            hasAnimatedBookButton = true
+            showBookButton = false
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                withAnimation(.spring(response: 0.5, dampingFraction: 0.75)) {
+                    showBookButton = true
                 }
             }
         }
@@ -206,7 +277,7 @@ struct WeightChartCard: View {
             }
             .frame(height: 80)
         }
-        .padding(12)
+        .padding(14)
         .background(Color.gray.opacity(0.1))
         .cornerRadius(10)
         .padding(.horizontal, 20)
@@ -226,13 +297,13 @@ struct ProgressCircleCard: View {
             }
             
             Text("Goal Weight: 160lbs")
-                .font(.system(size: 12))
-                .foregroundColor(.gray)
+                .font(.system(size: 11))
+                .foregroundColor(.gray.opacity(0.7))
             
             ZStack {
                 Circle()
                     .stroke(Color.gray.opacity(0.2), lineWidth: 10)
-                    .frame(width: 90, height: 90)
+                    .frame(width: 120, height: 120)
                 
                 Circle()
                     .trim(from: 0, to: 1.0)
@@ -240,26 +311,26 @@ struct ProgressCircleCard: View {
                         Color(hex: "B366FF"),
                         style: StrokeStyle(lineWidth: 10, lineCap: .round)
                     )
-                    .frame(width: 90, height: 90)
+                    .frame(width: 120, height: 120)
                     .rotationEffect(.degrees(-90))
                 
                 Text("100%")
-                    .font(.system(size: 24, weight: .bold))
+                    .font(.system(size: 22, weight: .bold))
                     .foregroundColor(.black)
             }
             .frame(maxWidth: .infinity)
             .padding(.vertical, 6)
         }
         .frame(maxWidth: .infinity)
-        .padding(16)
-        .background(Color.black.opacity(0.05))
+        .padding(14)
+        .background(Color.gray.opacity(0.1))
         .cornerRadius(10)
     }
 }
 
 struct BMICard: View {
     var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
+        VStack(alignment: .leading, spacing:2.5) {
             HStack {
                 Image(systemName: "waveform.path.ecg")
                     .font(.system(size: 17))
@@ -269,58 +340,58 @@ struct BMICard: View {
                     .foregroundColor(.black)
                 Spacer()
                 Image(systemName: "info.circle")
-                    .font(.system(size: 14))
-                    .foregroundColor(.gray)
+                    .font(.system(size: 13))
+                    .foregroundColor(.gray.opacity(0.7))
             }
-            
-            Spacer()
-            
-            VStack(alignment: .leading, spacing: 3) {
-                Text("22")
-                    .font(.system(size: 36, weight: .bold))
-                    .foregroundColor(.black)
-                Text("Nov 3, 2:15 PM")
-                    .font(.system(size: 11))
-                    .foregroundColor(.gray)
-            }
-            
-            Spacer()
+            .padding(.bottom, 6)
+            Text("22")
+                .font(.system(size: 23, weight: .bold))
+                .foregroundColor(.black)
+            Text("Nov 3, 2:15 PM")
+                .font(.system(size: 11))
+                .foregroundColor(.gray.opacity(0.7))
         }
         .frame(maxWidth: .infinity)
-        .padding(16)
+        .padding(14)
         .background(Color.black.opacity(0.05))
         .cornerRadius(10)
     }
 }
 
 struct DifferenceCard: View {
+    let valueText: String
+    
+    private var arrowIcon: String {
+        let numericValue = extractNumericValue(from: valueText)
+        return numericValue < 0 ? "arrow.down.right" : "arrow.up.right"
+    }
+    
     var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
+        VStack(alignment: .leading, spacing:2.5) {
             HStack {
-                Image(systemName: "arrow.down.right")
+                Image(systemName: arrowIcon)
                     .font(.system(size: 17))
                     .foregroundColor(Color(hex: "B366FF"))
                 Text("Difference")
                     .font(.system(size: 16, weight: .semibold))
                     .foregroundColor(.black)
+                Spacer()
             }
-            
-            VStack(alignment: .leading, spacing: 3) {
-                Text("-25.1lbs")
-                    .font(.system(size: 28, weight: .bold))
-                    .foregroundColor(.black)
-                Text("From 174lbs, 11/02/25")
-                    .font(.system(size: 12))
-                    .foregroundColor(.gray)
-            }
+            .padding(.bottom, 6)
+            Text(valueText)
+                .font(.system(size: 23, weight: .bold))
+                .foregroundColor(.black)
+            Text("From 174lbs, 11/02/25")
+                .font(.system(size: 11))
+                .foregroundColor(.gray.opacity(0.7))
         }
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .padding(16)
-        .background(Color.black.opacity(0.05))
+        .frame(maxWidth: .infinity)
+        .padding(14)
+        .background(Color.gray.opacity(0.1))
         .cornerRadius(10)
-        .padding(.horizontal, 20)
     }
 }
+
 
 struct TimelineCard: View {
     var body: some View {
@@ -390,23 +461,23 @@ struct TimelineCard: View {
                     HStack(spacing: 0) {
                         RoundedRectangle(cornerRadius: 3)
                             .fill(Color(hex: "B366FF"))
-                            .frame(width: geometry.size.width * 0.33, height: 6)
+                            .frame(width: geometry.size.width * 0.33, height: 10)
                         
                         RoundedRectangle(cornerRadius: 3)
                             .fill(Color(hex: "B366FF").opacity(0.4))
-                            .frame(width: geometry.size.width * 0.67, height: 6)
+                            .frame(width: geometry.size.width * 0.67, height: 10)
                     }
                 }
             }
-            .frame(height: 6)
+            .frame(height: 10)
         }
-        .padding(16)
-        .background(Color.black.opacity(0.05))
+        .padding(14)
+        .background(Color.gray.opacity(0.1))
         .cornerRadius(10)
         .padding(.horizontal, 20)
     }
 }
 
 #Preview {
-    ResultsView()
+    ResultsView(showJourney: .constant(false), journeySource: .constant(.results), showLogPopup: .constant(false))
 }
