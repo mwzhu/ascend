@@ -140,10 +140,10 @@ struct WeightChartCard: View {
             HStack {
                 HStack(spacing: 6) {
                     Image(systemName: "scalemass.fill")
-                        .font(.system(size: 16))
+                        .font(.system(size: 17))
                         .foregroundColor(Color(hex: "B366FF"))
                     Text("Weight(lbs)")
-                        .font(.system(size: 15, weight: .bold))
+                        .font(.system(size: 16, weight: .semibold))
                         .foregroundColor(.black)
                 }
                 
@@ -206,9 +206,9 @@ struct WeightChartCard: View {
             }
             .frame(height: 80)
         }
-        .padding(16)
-        .background(Color.black.opacity(0.05))
-        .cornerRadius(16)
+        .padding(12)
+        .background(Color.gray.opacity(0.1))
+        .cornerRadius(10)
         .padding(.horizontal, 20)
     }
 }
@@ -218,10 +218,10 @@ struct ProgressCircleCard: View {
         VStack(alignment: .leading, spacing: 10) {
             HStack {
                 Image(systemName: "target")
-                    .font(.system(size: 16))
+                    .font(.system(size: 17))
                     .foregroundColor(Color(hex: "B366FF"))
                 Text("Progress")
-                    .font(.system(size: 15, weight: .bold))
+                    .font(.system(size: 16, weight: .semibold))
                     .foregroundColor(.black)
             }
             
@@ -253,7 +253,7 @@ struct ProgressCircleCard: View {
         .frame(maxWidth: .infinity)
         .padding(16)
         .background(Color.black.opacity(0.05))
-        .cornerRadius(16)
+        .cornerRadius(10)
     }
 }
 
@@ -262,10 +262,10 @@ struct BMICard: View {
         VStack(alignment: .leading, spacing: 10) {
             HStack {
                 Image(systemName: "waveform.path.ecg")
-                    .font(.system(size: 16))
+                    .font(.system(size: 17))
                     .foregroundColor(Color(hex: "B366FF"))
                 Text("BMI")
-                    .font(.system(size: 15, weight: .bold))
+                    .font(.system(size: 16, weight: .semibold))
                     .foregroundColor(.black)
                 Spacer()
                 Image(systemName: "info.circle")
@@ -289,7 +289,7 @@ struct BMICard: View {
         .frame(maxWidth: .infinity)
         .padding(16)
         .background(Color.black.opacity(0.05))
-        .cornerRadius(16)
+        .cornerRadius(10)
     }
 }
 
@@ -298,10 +298,10 @@ struct DifferenceCard: View {
         VStack(alignment: .leading, spacing: 10) {
             HStack {
                 Image(systemName: "arrow.down.right")
-                    .font(.system(size: 16))
+                    .font(.system(size: 17))
                     .foregroundColor(Color(hex: "B366FF"))
                 Text("Difference")
-                    .font(.system(size: 15, weight: .bold))
+                    .font(.system(size: 16, weight: .semibold))
                     .foregroundColor(.black)
             }
             
@@ -317,7 +317,7 @@ struct DifferenceCard: View {
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(16)
         .background(Color.black.opacity(0.05))
-        .cornerRadius(16)
+        .cornerRadius(10)
         .padding(.horizontal, 20)
     }
 }
@@ -327,10 +327,10 @@ struct TimelineCard: View {
         VStack(alignment: .leading, spacing: 12) {
             HStack {
                 Image(systemName: "calendar")
-                    .font(.system(size: 16))
+                    .font(.system(size: 17))
                     .foregroundColor(Color(hex: "B366FF"))
                 Text("Timeline")
-                    .font(.system(size: 15, weight: .bold))
+                    .font(.system(size: 16, weight: .semibold))
                     .foregroundColor(.black)
                 
                 Spacer()
@@ -402,95 +402,10 @@ struct TimelineCard: View {
         }
         .padding(16)
         .background(Color.black.opacity(0.05))
-        .cornerRadius(16)
+        .cornerRadius(10)
         .padding(.horizontal, 20)
     }
 }
-
-// struct LogCard: View {
-//     var body: some View {
-//         VStack(alignment: .leading, spacing: 16) {
-//             HStack {
-//                 Image(systemName: "list.bullet.clipboard")
-//                     .font(.system(size: 20))
-//                     .foregroundColor(.black)
-//                 Text("Selected Date's Log (1)")
-//                     .font(.system(size: 18, weight: .bold))
-//                     .foregroundColor(.black)
-//                 Spacer()
-//                 Button(action: {}) {
-//                     Text("See more")
-//                         .font(.system(size: 14))
-//                         .foregroundColor(.black.opacity(0.6))
-//                 }
-//             }
-            
-//             Divider()
-            
-//             VStack(alignment: .leading, spacing: 12) {
-//                 Text("OPTIONS")
-//                     .font(.system(size: 11, weight: .semibold))
-//                     .foregroundColor(.gray)
-                
-//                 HStack {
-//                     Image(systemName: "scalemass.fill")
-//                         .font(.system(size: 20))
-//                         .foregroundColor(.gray)
-//                     Text("Weight Settings")
-//                         .font(.system(size: 16))
-//                         .foregroundColor(.black)
-//                     Spacer()
-//                     Image(systemName: "chevron.right")
-//                         .font(.system(size: 14))
-//                         .foregroundColor(.gray)
-//                 }
-                
-//                 HStack {
-//                     Image(systemName: "list.bullet")
-//                         .font(.system(size: 20))
-//                         .foregroundColor(.gray)
-//                     Text("Show All Weight Logs")
-//                         .font(.system(size: 16))
-//                         .foregroundColor(.black)
-//                     Spacer()
-//                     Image(systemName: "chevron.right")
-//                         .font(.system(size: 14))
-//                         .foregroundColor(.gray)
-//                 }
-//             }
-//         }
-//         .padding(20)
-//         .background(Color.black.opacity(0.05))
-//         .cornerRadius(20)
-//         .padding(.horizontal, 20)
-//     }
-// }
-
-// extension Color {
-//     init(hex: String) {
-//         let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
-//         var int: UInt64 = 0
-//         Scanner(string: hex).scanHexInt64(&int)
-//         let a, r, g, b: UInt64
-//         switch hex.count {
-//         case 3:
-//             (a, r, g, b) = (255, (int >> 8) * 17, (int >> 4 & 0xF) * 17, (int & 0xF) * 17)
-//         case 6:
-//             (a, r, g, b) = (255, int >> 16, int >> 8 & 0xFF, int & 0xFF)
-//         case 8:
-//             (a, r, g, b) = (int >> 24, int >> 16 & 0xFF, int >> 8 & 0xFF, int & 0xFF)
-//         default:
-//             (a, r, g, b) = (255, 0, 0, 0)
-//         }
-//         self.init(
-//             .sRGB,
-//             red: Double(r) / 255,
-//             green: Double(g) / 255,
-//             blue: Double(b) / 255,
-//             opacity: Double(a) / 255
-//         )
-//     }
-// }
 
 #Preview {
     ResultsView()

@@ -26,15 +26,13 @@ struct JourneyView: View {
             )
             .ignoresSafeArea()
             
-            ScrollView(showsIndicators: false) {
-                VStack(spacing: 16) {
-                    JourneyMainCard(dismiss: { isPresented = false }, selectedTimeRange: selectedTimeRange)
-                    
-                    Spacer().frame(height: 60)
-                }
-                .padding(.horizontal, 16)
-                .padding(.top, 8)
+            VStack(spacing: 16) {
+                JourneyMainCard(dismiss: { isPresented = false }, selectedTimeRange: selectedTimeRange)
+                
+                Spacer()
             }
+            .padding(.horizontal, 16)
+            .padding(.top, 8)
         }
         .navigationBarHidden(true)
     }

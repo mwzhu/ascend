@@ -15,11 +15,22 @@ enum Tab {
     case account
 }
 
+func extractNumericValue(from string: String) -> Double {
+    let pattern = #"-?\d+\.?\d*"#
+    if let regex = try? NSRegularExpression(pattern: pattern),
+       let match = regex.firstMatch(in: string, range: NSRange(string.startIndex..., in: string)),
+       let range = Range(match.range, in: string) {
+        return Double(string[range]) ?? 0
+    }
+    return 0
+}
+
 struct HomeView: View {
     @State private var selectedDate = Date()
     @State private var showDateCircles = false
     @State private var selectedTab: Tab = .home
     @State private var showJourney = false
+    @State private var showLogPopup = false
     
     var body: some View {
         ZStack {
@@ -29,7 +40,7 @@ struct HomeView: View {
                 currentView
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                 
-                if !showJourney {
+                if !showJourney && !showLogPopup {
                     BottomNavBar(selectedTab: $selectedTab)
                 }
             }
@@ -39,15 +50,34 @@ struct HomeView: View {
                     .transition(.move(edge: .trailing))
                     .zIndex(1)
             }
+
+            if showLogPopup {
+                Color.black.opacity(0.4)
+                    .ignoresSafeArea()
+                    .transition(.opacity)
+                    .zIndex(2)
+                    .onTapGesture {
+                        showLogPopup = false
+                    }
+
+                LogOptionsPopup(isPresented: $showLogPopup)
+                    .transition(.scale(scale: 0.9, anchor: .bottomTrailing).combined(with: .opacity))
+                    .zIndex(3)
+            }
         }
         .animation(.easeInOut(duration: 0.3), value: showJourney)
+        .animation(.easeInOut(duration: 0.2), value: showLogPopup)
     }
     
     @ViewBuilder
     private var currentView: some View {
         switch selectedTab {
         case .home:
-            HomeContentView(selectedDate: $selectedDate, showDateCircles: $showDateCircles)
+            HomeContentView(
+                selectedDate: $selectedDate,
+                showDateCircles: $showDateCircles,
+                showLogPopup: $showLogPopup
+            )
         case .peptides:
             PeptidesView()
         case .progress:
@@ -63,6 +93,7 @@ struct HomeView: View {
 struct HomeContentView: View {
     @Binding var selectedDate: Date
     @Binding var showDateCircles: Bool
+    @Binding var showLogPopup: Bool
     
     var body: some View {
         ZStack {
@@ -132,26 +163,40 @@ struct HomeContentView: View {
                         // To Do List
                         ToDoListCard()
                         
-                        // Medication Level
-                        MedicationLevelCard()
-                        
                         // Health Metrics Grid
-                        HStack(spacing: 12) {
-                            MetricCard(icon: "carrot.fill", title: "Fiber", value: "25g", goal: "30g", color: .orange)
-                            MetricCard(icon: "drop.fill", title: "Water", value: "6", goal: "8", color: .blue)
+                        HStack(alignment: .top, spacing: 12) {
+                            VStack(spacing: 12) {
+                                CaloriesCard(icon: "bolt.fill", title: "Calories ", value: "6666.5", goal: "8888", color: .orange)
+                                ProteinCard(icon: "fork.knife", title: "Protein", value: "666", goal: "888.9g", color: .purple)
+                                OtherCard(metrics: [
+                                    OtherMetric(label: "Fiber", value: "485", goal: "1648kcal"),
+                                    OtherMetric(label: "Carbs", value: "8", goal: "226g"),
+                                    OtherMetric(label: "Fat", value: "31.5", goal: "43g")
+                                ])
+                            }
+                            .frame(maxWidth: .infinity, alignment: .top)
+                            
+                            VStack(spacing: 12) {
+                                WaterCard(icon: "drop.fill", title: "Water", value: "120oz", goal: "160.3oz", color: .blue)
+                                GoalCard(icon: "fork.knife", title: "Goal", value: "222lbs", goal: "222lbs", color: .green)                            }
+                            .frame(maxWidth: .infinity, alignment: .top)
                         }
+                        .padding(.horizontal, 20)
                         
-                        HStack(spacing: 12) {
-                            MetricCard(icon: "fork.knife", title: "Protein", value: "80g", goal: "100g", color: .red)
-                            MetricCard(icon: "figure.walk", title: "Activity", value: "45m", goal: "60m", color: .green)
-                        }
-                        
-                        MetricCard(icon: "target", title: "Goal", value: "2/3", goal: "Complete", color: .purple, isWide: true)
+                        ActivityCard(
+                            icon: "figure.run",
+                            title: "Activity",
+                            value: "3504",
+                            goal: "5000",
+                            color: .red,
+                            workoutValue: "60",
+                            workoutGoal: "30min"
+                        )
+                            .padding(.horizontal, 20)
                         
                         // Selected Date's Log
                         LogCard()
-                        
-                        Spacer().frame(height: 80)
+                        .padding(.bottom, 5)
                     }
                     .padding(.top, 10)
                 }
@@ -164,17 +209,21 @@ struct HomeContentView: View {
                 Spacer()
                 HStack {
                     Spacer()
-                    Button(action: {}) {
-                        Image(systemName: "plus")
-                            .font(.system(size: 24, weight: .semibold))
-                            .foregroundColor(.white)
-                            .frame(width: 60, height: 60)
-                            .background(Color.black)
-                            .clipShape(Circle())
-                            .shadow(color: .black.opacity(0.3), radius: 10, x: 0, y: 5)
+                    if !showLogPopup {
+                        Button(action: {
+                            showLogPopup = true
+                        }) {
+                            Image(systemName: "plus")
+                                .font(.system(size: 25, weight: .semibold))
+                                .foregroundColor(.white)
+                                .frame(width: 65, height: 65)
+                                .background(Color.black)
+                                .clipShape(Circle())
+                                .shadow(color: .black.opacity(0.3), radius: 10, x: 0, y: 5)
+                        }
+                        .padding(.trailing, 20)
+                        .padding(.bottom, 17)
                     }
-                    .padding(.trailing, 20)
-                    .padding(.bottom, 90)
                 }
             }
         }
@@ -294,22 +343,90 @@ struct DateCircle: View {
 }
 
 struct ToDoListCard: View {
+    @State private var isExpanded = true
+    
     var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
-            HStack {
-                Text("Peptide Day")
-                    .font(.system(size: 18, weight: .bold))
-                    .foregroundColor(.black)
-                Spacer()
+        VStack(alignment: .leading, spacing: 0) {
+            Button(action: {
+                withAnimation(.easeInOut(duration: 0.3)) {
+                    isExpanded.toggle()
+                }
+            }) {
+                HStack {
+                    Text("Peptide Day")
+                        .font(.system(size: 30, weight: .bold))
+                        .foregroundStyle(
+                            LinearGradient(
+                                gradient: Gradient(stops: [
+                                    .init(color: Color(hex: "FF7300"), location: 0.0),
+                                    .init(color: Color(hex: "FF8000"), location: 0.15),
+                                    .init(color: Color(hex: "FF8F00"), location: 0.35),
+                                    .init(color: Color(hex: "FFA200"), location: 0.5),
+                                    .init(color: Color(hex: "FFB300"), location: 0.7),
+                                    .init(color: Color(hex: "FFC400"), location: 0.85),
+                                    .init(color: Color(hex: "FFD700"), location: 1.0)
+                                ]),
+                                startPoint: .leading,
+                                endPoint: .trailing
+                            )
+                        )
+                        .shadow(color: Color(hex: "FFB300").opacity(0.25), radius: 4, x: 0, y: 0)
+                    Spacer()
+                    Text(isExpanded ? "See Less" : "See More")
+                        .font(.system(size: 14))
+                        .foregroundColor(.gray.opacity(0.5))
+                }
+                .padding(.horizontal, 20)
+                .padding(.top, 20)
+                .padding(.bottom, 16)
             }
+            .buttonStyle(PlainButtonStyle())
+            .zIndex(1)
             
-            ToDoItem(title: "Morning injection", time: "8:00 AM", isChecked: true)
-            ToDoItem(title: "Log symptoms", time: "2:00 PM", isChecked: false)
-            ToDoItem(title: "Evening injection", time: "8:00 PM", isChecked: false)
+            VStack(spacing: 0) {
+                ToDoItem(title: "Morning injection", time: "8:00 AM", isChecked: true)
+                
+                Rectangle()
+                    .fill(Color.clear)
+                    .frame(height: 1)
+                    .overlay(
+                        Rectangle()
+                            .stroke(style: StrokeStyle(lineWidth: 1, dash: [4, 4]))
+                            .foregroundColor(.gray.opacity(0.3))
+                    )
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 12)
+                
+                ToDoItem(title: "Thymosin Beta-4 (100mg)", time: "2:00 PM", isChecked: false)
+                
+                Rectangle()
+                    .fill(Color.clear)
+                    .frame(height: 1)
+                    .overlay(
+                        Rectangle()
+                            .stroke(style: StrokeStyle(lineWidth: 1, dash: [4, 4]))
+                            .foregroundColor(.gray.opacity(0.3))
+                    )
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 12)
+                
+                ToDoItem(title: "Evening injection", time: "8:00 PM", isChecked: false)
+            }
+            .padding(.bottom, isExpanded ? 20 : 0)
+            .frame(height: isExpanded ? nil : 0, alignment: .top)
+            .opacity(isExpanded ? 1 : 0)
+            .clipped()
+            .allowsHitTesting(isExpanded)
+            .zIndex(0)
         }
-        .padding(20)
-        .background(Color.black.opacity(0.05))
-        .cornerRadius(20)
+        .background(Color.gray.opacity(0.1))
+        .cornerRadius(10)
+        .overlay(
+            RoundedRectangle(cornerRadius: 10)
+                .stroke(style: StrokeStyle(lineWidth: 1, dash: [4, 4]))
+                .foregroundColor(.gray.opacity(0.3))
+                .padding(6)
+        )
         .padding(.horizontal, 20)
     }
 }
@@ -321,116 +438,555 @@ struct ToDoItem: View {
     
     var body: some View {
         HStack(spacing: 12) {
-            Image(systemName: isChecked ? "checkmark.circle.fill" : "circle")
-                .font(.system(size: 24))
-                .foregroundColor(isChecked ? .green : .black.opacity(0.3))
+            ZStack {
+                RoundedRectangle(cornerRadius: 6)
+                    .stroke(Color.gray.opacity(0.32), lineWidth: 2)
+                    .frame(width: 18, height: 18)
+                    .background(
+                        RoundedRectangle(cornerRadius: 6)
+                            .fill(Color.clear)
+                    )
+                
+                if isChecked {
+                    Image(systemName: "checkmark")
+                        .font(.system(size: 8, weight: .black))
+                        .foregroundColor(.black)
+                }
+            }
+            .frame(width: 24, height: 24)
             
             VStack(alignment: .leading, spacing: 2) {
                 Text(title)
-                    .font(.system(size: 16, weight: .medium))
-                    .foregroundColor(.black)
-                    .strikethrough(isChecked, color: .black.opacity(0.5))
+                    .font(.system(size: 14, weight: .medium))
+                    .foregroundColor(isChecked ? .gray.opacity(0.6) : .black)
+                    .strikethrough(isChecked, color: .gray.opacity(0.6))
             }
             
             Spacer()
             
             Text(time)
-                .font(.system(size: 14))
-                .foregroundColor(.black.opacity(0.5))
+                .font(.system(size: 14, weight: .medium))
+                .foregroundColor(.gray.opacity(0.9))
         }
-    }
-}
-
-struct MedicationLevelCard: View {
-    var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
-            HStack {
-                Text("Medication Level")
-                    .font(.system(size: 18, weight: .bold))
-                    .foregroundColor(.black)
-                Spacer()
-            }
-            
-            HStack(spacing: 12) {
-                VStack(alignment: .leading, spacing: 4) {
-                    Text("Current")
-                        .font(.system(size: 12))
-                        .foregroundColor(.black.opacity(0.5))
-                    Text("2.5mg")
-                        .font(.system(size: 24, weight: .bold))
-                        .foregroundColor(.black)
-                }
-                
-                Spacer()
-                
-                ZStack {
-                    Circle()
-                        .stroke(Color.black.opacity(0.2), lineWidth: 8)
-                        .frame(width: 80, height: 80)
-                    
-                    Circle()
-                        .trim(from: 0, to: 0.75)
-                        .stroke(
-                            LinearGradient(
-                                colors: [.blue, .purple],
-                                startPoint: .leading,
-                                endPoint: .trailing
-                            ),
-                            style: StrokeStyle(lineWidth: 8, lineCap: .round)
-                        )
-                        .frame(width: 80, height: 80)
-                        .rotationEffect(.degrees(-90))
-                    
-                    Text("75%")
-                        .font(.system(size: 16, weight: .bold))
-                        .foregroundColor(.black)
-                }
-            }
-        }
-        .padding(20)
-        .background(Color.black.opacity(0.05))
-        .cornerRadius(20)
         .padding(.horizontal, 20)
     }
 }
 
-struct MetricCard: View {
+struct CaloriesCard: View {
     let icon: String
     let title: String
     let value: String
     let goal: String
     let color: Color
-    var isWide: Bool = false
+    @State private var quantity: Int = 1
+    
+    private var progress: CGFloat {
+        let valueNum = extractNumericValue(from: value)
+        let goalNum = extractNumericValue(from: goal)
+        return min(max(valueNum / goalNum, 0), 1)
+    }
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 5) {
+            HStack(spacing: 4) {
+                Image(systemName: icon)
+                    .font(.system(size: 16))
+                    .foregroundColor(color)
+                Text(title)
+                    .font(.system(size: 15, weight: .semibold))
+                    .foregroundColor(.black)
+                              
+                HStack(spacing: 0) {
+                    Image(systemName: "minus")
+                        .font(.system(size: 9, weight: .semibold))
+                        .foregroundColor(.white)
+                        .frame(width: 16, height: 16)
+                        .background(Color.gray.opacity(0.2))
+                        .clipShape(Circle())
+                    
+                    Text("888")
+                        .font(.system(size: 12, weight: .medium))
+                        .foregroundColor(.black.opacity(0.9))
+                        .frame(minWidth: 30)
+                    
+                    Image(systemName: "plus")
+                        .font(.system(size: 9, weight: .semibold))
+                        .foregroundColor(.white)
+                        .frame(width: 16, height: 16)
+                        .background(Color.gray.opacity(0.2))
+                        .clipShape(Circle())
+                } 
+            }
+            .padding(.bottom, 14)
+            
+            HStack(alignment: .firstTextBaseline, spacing: 4) {
+                Text(value)
+                    .font(.system(size: 20, weight: .bold))
+                    .foregroundColor(.black)
+                Text("/ \(goal)")
+                    .font(.system(size: 11))
+                    .foregroundColor(.black.opacity(0.25))
+            }
+            
+            GeometryReader { geometry in
+                ZStack(alignment: .leading) {
+                    RoundedRectangle(cornerRadius: 4)
+                        .fill(Color.gray.opacity(0.2))
+                        .frame(height: 9)
+                    
+                    RoundedRectangle(cornerRadius: 4)
+                        .fill(color)
+                        .frame(width: geometry.size.width * progress, height: 9)
+                }
+            }
+            .frame(height: 9)
+            
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(14)
+        .background(Color.gray.opacity(0.1))
+        .cornerRadius(10)
+    }
+}
+
+struct CupShape: InsettableShape {
+    var insetAmount: CGFloat = 0
+    
+    func path(in rect: CGRect) -> Path {
+        let insetRect = rect.insetBy(dx: insetAmount, dy: insetAmount)
+        var path = Path()
+        
+        let topInset: CGFloat = insetRect.width * 0.06
+        let bottomInset: CGFloat = insetRect.width * 0.14
+        let cornerRadius: CGFloat = insetRect.width * 0.15
+        
+        let topLeft = CGPoint(x: insetRect.minX + topInset, y: insetRect.minY)
+        let topRight = CGPoint(x: insetRect.maxX - topInset, y: insetRect.minY)
+        let bottomLeft = CGPoint(x: insetRect.minX + bottomInset, y: insetRect.maxY)
+        let bottomRight = CGPoint(x: insetRect.maxX - bottomInset, y: insetRect.maxY)
+        
+        path.move(to: CGPoint(x: topLeft.x + cornerRadius, y: topLeft.y))
+        path.addLine(to: CGPoint(x: topRight.x - cornerRadius, y: topRight.y))
+        path.addQuadCurve(to: CGPoint(x: topRight.x, y: topRight.y + cornerRadius),
+                          control: topRight)
+        path.addLine(to: CGPoint(x: bottomRight.x, y: bottomRight.y - cornerRadius))
+        path.addQuadCurve(to: CGPoint(x: bottomRight.x - cornerRadius, y: bottomRight.y),
+                          control: bottomRight)
+        path.addLine(to: CGPoint(x: bottomLeft.x + cornerRadius, y: bottomLeft.y))
+        path.addQuadCurve(to: CGPoint(x: bottomLeft.x, y: bottomLeft.y - cornerRadius),
+                          control: bottomLeft)
+        path.addLine(to: CGPoint(x: topLeft.x, y: topLeft.y + cornerRadius))
+        path.addQuadCurve(to: CGPoint(x: topLeft.x + cornerRadius, y: topLeft.y),
+                          control: topLeft)
+        path.closeSubpath()
+        
+        return path
+    }
+    
+    func inset(by amount: CGFloat) -> some InsettableShape {
+        var shape = self
+        shape.insetAmount += amount
+        return shape
+    }
+}
+
+struct ActivityCard: View {
+    let icon: String
+    let title: String
+    let value: String
+    let goal: String
+    let color: Color
+    let workoutValue: String
+    let workoutGoal: String
+    
+    private var progress: CGFloat {
+        let valueNum = extractNumericValue(from: value)
+        let goalNum = extractNumericValue(from: goal)
+        return min(max(valueNum / goalNum, 0), 1)
+    }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             HStack {
-                Image(systemName: icon)
-                    .font(.system(size: 20))
-                    .foregroundColor(color)
+                HStack(spacing: 4) {
+                    Image(systemName: icon)
+                        .font(.system(size: 16))
+                        .foregroundColor(color)
+                    
+                    Text(title)
+                        .font(.system(size: 15, weight: .semibold))
+                        .foregroundColor(.black)
+                }
+                
                 Spacer()
+                
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("Steps")
+                        .font(.system(size: 11, weight: .medium))
+                        .foregroundColor(.black.opacity(0.8))
+                    
+                    HStack(alignment: .firstTextBaseline, spacing: 0) {
+                        Text(value)
+                            .font(.system(size: 15, weight: .semibold))
+                            .foregroundColor(.black)
+                        Text("/\(goal)")
+                            .font(.system(size: 11, weight: .medium))
+                            .foregroundColor(.black.opacity(0.25))
+                    }
+                }
+
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("Workout")
+                        .font(.system(size: 11, weight: .medium))
+                        .foregroundColor(.black.opacity(0.8))
+                    
+                    HStack(alignment: .firstTextBaseline, spacing: 0) {
+                        Text(value)
+                            .font(.system(size: 15, weight: .semibold))
+                            .foregroundColor(.black)
+                        Text("/\(goal)")
+                            .font(.system(size: 11, weight: .medium))
+                            .foregroundColor(.black.opacity(0.25))
+                    }
+                }
             }
             
-            Text(title)
-                .font(.system(size: 14))
-                .foregroundColor(.black.opacity(0.7))
+            let footprintCount = 14
+            let filledFootprints = Int((progress * CGFloat(footprintCount)).rounded(.down))
             
-            HStack(alignment: .firstTextBaseline, spacing: 4) {
-                Text(value)
-                    .font(.system(size: 24, weight: .bold))
-                    .foregroundColor(.black)
-                Text("/ \(goal)")
-                    .font(.system(size: 14))
-                    .foregroundColor(.black.opacity(0.5))
+            HStack(spacing: 6) {
+                ForEach(0..<footprintCount, id: \.self) { index in
+                    Image(systemName: "shoeprints.fill")
+                        .font(.system(size: 16))
+                        .foregroundColor(index < filledFootprints ? Color(red: 0.93, green: 0.1, blue: 0.08) : Color(red: 0.93, green: 0.1, blue: 0.08).opacity(0.35))
+                }
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .padding(16)
-        .background(Color.black.opacity(0.05))
-        .cornerRadius(16)
-        .padding(.horizontal, isWide ? 20 : 0)
-        .if(!isWide) { view in
-            view.padding(.leading, 20)
+        .padding(14)
+        .background(Color.gray.opacity(0.1))
+        .cornerRadius(10)
+    }
+}
+
+struct ProteinCard: View {
+    let icon: String
+    let title: String
+    let value: String
+    let goal: String
+    let color: Color
+    @State private var quantity: Int = 1
+    
+    private var progress: CGFloat {
+        let valueNum = extractNumericValue(from: value)
+        let goalNum = extractNumericValue(from: goal)
+        return min(max(valueNum / goalNum, 0), 1)
+    }
+    
+    var body: some View {
+        VStack(spacing: 18) {
+            HStack(spacing: 4) {
+                Image(systemName: icon)
+                    .font(.system(size: 16))
+                    .foregroundColor(color)
+                Text(title)
+                    .font(.system(size: 15, weight: .semibold))
+                    .foregroundColor(.black)
+                
+                Spacer()
+                    
+            }
+            
+            ZStack {
+                Circle()
+                    .stroke(Color.gray.opacity(0.2), lineWidth: 9)
+                    .frame(width: 110, height: 110)
+                
+                Circle()
+                    .trim(from: 0, to: progress)
+                    .stroke(color, style: StrokeStyle(lineWidth: 9, lineCap: .round))
+                    .rotationEffect(.degrees(-90))
+                    .frame(width: 110, height: 110)
+                
+                VStack(spacing: 0) {
+                    Text("\(value)/\(goal)")
+                        .font(.system(size: 17, weight: .bold))
+                        .foregroundColor(.black)
+                }
+            }
+            .multilineTextAlignment(.center)
+            .multilineTextAlignment(.center)
+
+            HStack(spacing: 3) {
+                Image(systemName: "minus")
+                    .font(.system(size: 9, weight: .semibold))
+                    .foregroundColor(.white)
+                    .frame(width: 16, height: 16)
+                    .background(Color.gray.opacity(0.2))
+                    .clipShape(Circle())
+                
+                Text("88g")
+                    .font(.system(size: 12, weight: .medium))
+                    .foregroundColor(.black.opacity(0.9))
+                    .padding(.horizontal, 4)
+                    .fixedSize()
+                
+                Image(systemName: "plus")
+                    .font(.system(size: 9, weight: .semibold))
+                    .foregroundColor(.white)
+                    .frame(width: 16, height: 16)
+                    .background(Color.gray.opacity(0.2))
+                    .clipShape(Circle())
+            }
+            .multilineTextAlignment(.center)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(14)
+        .background(Color.gray.opacity(0.1))
+        .cornerRadius(10)
+    }
+}
+
+struct WaterCard: View {
+    let icon: String
+    let title: String
+    let value: String
+    let goal: String
+    let color: Color
+    @State private var quantity: Int = 1
+    
+    private var progress: CGFloat {
+        let valueNum = extractNumericValue(from: value)
+        let goalNum = extractNumericValue(from: goal)
+        return min(max(valueNum / goalNum, 0), 1)
+    }
+    
+    var body: some View {
+        VStack(spacing: 18) {
+            HStack(spacing: 4) {
+                Image(systemName: icon)
+                    .font(.system(size: 16))
+                    .foregroundColor(color)
+                Text(title)
+                    .font(.system(size: 15, weight: .semibold))
+                    .foregroundColor(.black)
+                
+                Spacer()
+                    
+            }
+            
+            GeometryReader { geometry in
+                ZStack {
+                    CupShape()
+                        .stroke(Color.gray.opacity(0.2), lineWidth: 6)
+                    
+                    CupShape()
+                        .inset(by: 3)
+                        .fill(color.opacity(0.6))
+                        .mask(
+                            VStack {
+                                Spacer()
+                                Rectangle()
+                                    .frame(height: geometry.size.height * progress)
+                            }
+                        )
+                    
+                    Text(value)
+                        .font(.system(size: 20, weight: .bold))
+                        .foregroundColor(.black)
+                }
+            }
+            .frame(width: 90, height: 110)
+
+            HStack(spacing: 3) {
+                Image(systemName: "minus")
+                    .font(.system(size: 9, weight: .semibold))
+                    .foregroundColor(.white)
+                    .frame(width: 16, height: 16)
+                    .background(Color.gray.opacity(0.2))
+                    .clipShape(Circle())
+                
+                Text("20oz")
+                    .font(.system(size: 12, weight: .medium))
+                    .foregroundColor(.black.opacity(0.9))
+                    .padding(.horizontal, 4)
+                    .fixedSize()
+                
+                Image(systemName: "plus")
+                    .font(.system(size: 9, weight: .semibold))
+                    .foregroundColor(.white)
+                    .frame(width: 16, height: 16)
+                    .background(Color.gray.opacity(0.2))
+                    .clipShape(Circle())
+            }
+            .multilineTextAlignment(.center)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(14)
+        .background(Color.gray.opacity(0.1))
+        .cornerRadius(10)
+    }
+}
+
+struct GoalCard: View {
+    let icon: String
+    let title: String
+    let value: String
+    let goal: String
+    let color: Color
+    @State private var quantity: Int = 1
+    
+    private var progress: CGFloat {
+        let valueNum = extractNumericValue(from: value)
+        let goalNum = extractNumericValue(from: goal)
+        return min(max(valueNum / goalNum, 0), 1)
+    }
+    
+    private var progressText: String {
+        let safeProgress = progress.isFinite ? progress : 0
+        let percent = Int((safeProgress * 100).rounded())
+        return "\(percent)% of goal"
+    }
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 14) {
+            HStack(spacing: 6) {
+                Image(systemName: icon)
+                    .font(.system(size: 16, weight: .semibold))
+                    .foregroundColor(color)
+                Text(title)
+                    .font(.system(size: 15, weight: .semibold))
+                    .foregroundColor(.black)
+                Spacer()
+            }
+            
+            GeometryReader { geometry in
+                let width = geometry.size.width
+                let height = geometry.size.height
+                let start = CGPoint(x: width * 0.05, y: height * 0.85)
+                let peak = CGPoint(x: width * 0.2, y: height * 0.2)
+                let dip = CGPoint(x: width * 0.38, y: height * 0.7)
+                let current = CGPoint(x: width * 0.58, y: height * 0.45)
+                let projected = CGPoint(x: width * 0.95, y: height * 0.7)
+                
+                ZStack {
+                    Path { path in
+                        path.move(to: start)
+                        path.addQuadCurve(to: peak, control: CGPoint(x: width * 0.1, y: height * 0.35))
+                        path.addQuadCurve(to: current, control: CGPoint(x: width * 0.44, y: height * 0.15))
+                    }
+                    .stroke(color, style: StrokeStyle(lineWidth: 3.5, lineCap: .round))
+                    
+                    Path { path in
+                        path.move(to: current)
+                        path.addQuadCurve(to: projected, control: CGPoint(x: width * 0.75, y: height * 0.55))
+                    }
+                    .stroke(color.opacity(0.4), style: StrokeStyle(lineWidth: 3.5, lineCap: .round, dash: [6, 6]))
+                    
+                    Circle()
+                        .fill(Color.white)
+                        .frame(width: 16, height: 16)
+                        .shadow(color: color.opacity(0.3), radius: 6, x: 0, y: 4)
+                        .position(current)
+                    
+                    Circle()
+                        .fill(color)
+                        .frame(width: 10, height: 10)
+                        .position(current)
+                }
+            }
+            .padding(.vertical, -18)
+            .frame(height: 100)
+            
+            VStack(alignment: .leading, spacing: 2) {
+                Text(progressText)
+                    .font(.system(size: 11, weight: .semibold))
+                    .foregroundColor(.white)
+                    .padding(.horizontal, 6)
+                    .padding(.vertical, 2.5)
+                    .background(color)
+                    .clipShape(Capsule())
+                    .padding(.bottom, 4)
+            
+                Text(value)
+                    .font(.system(size: 22, weight: .bold))
+                    .foregroundColor(.black)
+                
+                Text(goal)
+                    .font(.system(size: 11, weight: .regular))
+                    .foregroundColor(.black.opacity(0.25))
+            }
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(14)
+        .background(Color.gray.opacity(0.1))
+        .cornerRadius(10)
+    }
+}
+
+struct OtherCard: View {
+    let metrics: [OtherMetric]
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 5) {
+            Text("Other")
+                .font(.system(size: 15, weight: .semibold))
+                .foregroundColor(.black)
+                .padding(.bottom, 8)
+            
+            ForEach(metrics) { metric in
+                OtherMetricRow(metric: metric)
+            }
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(14)
+        .background(Color.gray.opacity(0.1))
+        .cornerRadius(10)
+    }
+}
+
+struct OtherMetric: Identifiable {
+    let id = UUID()
+    let label: String
+    let value: String
+    let goal: String
+}
+
+struct OtherMetricRow: View {
+    let metric: OtherMetric
+    
+    private var progress: CGFloat {
+        let valueNum = extractNumericValue(from: metric.value)
+        let goalNum = extractNumericValue(from: metric.goal)
+        return min(max(valueNum / goalNum, 0), 1)
+    }
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 1) {
+            HStack {
+                Text(metric.label)
+                    .font(.system(size: 11, weight: .semibold))
+                    .foregroundColor(.black.opacity(0.9))
+                
+                Spacer()
+                
+                Text("\(metric.value)/\(metric.goal)")
+                    .font(.system(size: 11))
+                    .foregroundColor(.black.opacity(0.9))
+            }
+            
+            GeometryReader { geometry in
+                ZStack(alignment: .leading) {
+                    RoundedRectangle(cornerRadius: 4)
+                        .fill(Color.gray.opacity(0.12))
+                        .frame(height: 4)
+                    
+                    RoundedRectangle(cornerRadius: 4)
+                        .fill(Color.black)
+                        .frame(width: geometry.size.width * progress, height: 4)
+                }
+            }
+            .frame(height: 4)
         }
     }
 }
@@ -451,7 +1007,7 @@ struct LogCard: View {
         }
         .padding(20)
         .background(Color.black.opacity(0.05))
-        .cornerRadius(20)
+        .cornerRadius(10)
         .padding(.horizontal, 20)
     }
 }
@@ -479,6 +1035,95 @@ struct LogEntry: View {
     }
 }
 
+struct LogOptionsPopup: View {
+    @Binding var isPresented: Bool
+    
+    var body: some View {
+        VStack {
+            Spacer()
+            
+            VStack(spacing: 10) {
+                VStack(spacing: 12) {
+                    primaryAction(icon: "syringe.fill", text: "Log Peptide", tint: Color(hex: "8A6BF2"))
+                    primaryAction(icon: "camera.fill", text: "Log Photos", tint: Color(hex: "F5A623"))
+                    primaryAction(icon: "scalemass", text: "Log Weight", tint: Color(hex: "C183FF"))
+                    primaryAction(icon: "figure.run", text: "Log Activity", tint: Color(hex: "FF2D55"))
+                    primaryAction(icon: "face.smiling", text: "Log Side Effect", tint: Color(hex: "6BD17B"))
+                }
+                .padding(16)
+                .background(Color.black)
+                .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
+                
+                VStack(spacing: 10) {
+                    HStack(spacing: 10) {
+                        secondaryCard(icon: "barcode.viewfinder", text: "Scan Food")
+                        secondaryCard(icon: "fork.knife", text: "Search Food")
+                    }
+                    
+                    HStack(spacing: 10) {
+                        secondaryCard(icon: "plus.forwardslash.minus", text: "Calculator")
+                        secondaryCard(icon: "document.viewfinder.fill", text: "Scan COA")
+                    }
+                }
+            }
+            .padding(.horizontal, 30)
+            .padding(.bottom, 20)
+        }
+    }
+    
+    private func primaryAction(icon: String, text: String, tint: Color) -> some View {
+        Button {
+            isPresented = false
+        } label: {
+            HStack {
+                Image(systemName: icon)
+                    .font(.system(size: 22, weight: .semibold))
+                    .foregroundColor(tint)
+                    .frame(width: 34, height: 34)
+                    .background(Color.white.opacity(0.08))
+                    .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+                Text(text)
+                    .font(.system(size: 17, weight: .semibold))
+                    .foregroundColor(.white)
+            }
+            .frame(maxWidth: .infinity)
+            .padding(.vertical, 10)
+            .padding(.horizontal, 6)
+            .background(Color.white.opacity(0.05))
+            .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+        }
+        .buttonStyle(PlainButtonStyle())
+    }
+    
+    private func secondaryAction(icon: String, text: String) -> some View {
+        Button {
+            isPresented = false
+        } label: {
+            VStack(spacing: 6) {
+                Image(systemName: icon)
+                    .font(.system(size: 24, weight: .semibold))
+                    .foregroundColor(.white)
+                    .frame(width: 48, height: 48)
+                    .background(Color.white.opacity(0.08))
+                    .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
+                Text(text)
+                    .font(.system(size: 13, weight: .medium))
+                    .foregroundColor(.white)
+            }
+            .frame(maxWidth: .infinity)
+        }
+        .buttonStyle(PlainButtonStyle())
+    }
+    
+    private func secondaryCard(icon: String, text: String) -> some View {
+        secondaryAction(icon: icon, text: text)
+            .padding(12)
+            .frame(maxWidth: .infinity)
+            .background(Color.black)
+            .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
+    }
+}
+
 struct BottomNavBar: View {
     @Binding var selectedTab: Tab
     
@@ -486,7 +1131,7 @@ struct BottomNavBar: View {
         VStack(spacing: 0) {
             Rectangle()
                 .fill(Color.gray.opacity(0.2))
-                .frame(height: 0.5)
+                .frame(height: 0.8)
             
             HStack(spacing: 0) {
                 NavBarItem(icon: "house.fill", isActive: selectedTab == .home) {

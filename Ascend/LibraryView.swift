@@ -78,22 +78,20 @@ struct LibraryView: View {
                         
                         // To Do List
                         ToDoListCard()
-                        
-                        // Medication Level
-                        MedicationLevelCard()
+
                         
                         // Health Metrics Grid
-                        HStack(spacing: 12) {
-                            MetricCard(icon: "carrot.fill", title: "Fiber", value: "25g", goal: "30g", color: .orange)
-                            MetricCard(icon: "drop.fill", title: "Water", value: "6", goal: "8", color: .blue)
-                        }
+                        // HStack(spacing: 12) {
+                        //     MetricCard(icon: "carrot.fill", title: "Fiber", value: "25g", goal: "30g", color: .orange)
+                        //     MetricCard(icon: "drop.fill", title: "Water", value: "6", goal: "8", color: .blue)
+                        // }
                         
-                        HStack(spacing: 12) {
-                            MetricCard(icon: "fork.knife", title: "Protein", value: "80g", goal: "100g", color: .red)
-                            MetricCard(icon: "figure.walk", title: "Activity", value: "45m", goal: "60m", color: .green)
-                        }
+                        // HStack(spacing: 12) {
+                        //     MetricCard(icon: "fork.knife", title: "Protein", value: "80g", goal: "100g", color: .red)
+                        //     MetricCard(icon: "figure.walk", title: "Activity", value: "45m", goal: "60m", color: .green)
+                        // }
                         
-                        MetricCard(icon: "target", title: "Goal", value: "2/3", goal: "Complete", color: .purple, isWide: true)
+                        // MetricCard(icon: "target", title: "Goal", value: "2/3", goal: "Complete", color: .purple, isWide: true)
                         
                         // Selected Date's Log
                         LogCard()
