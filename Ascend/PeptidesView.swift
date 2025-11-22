@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PeptidesView: View {
     @Binding var showLogPopup: Bool
+    var onLogPeptide: (() -> Void)?
     @State private var selectedDate = Date()
     @State private var showDateCircles = false
     
@@ -126,9 +127,12 @@ struct PeptidesView: View {
                         showLogPopup = false
                     }
 
-                LogOptionsPopup(isPresented: $showLogPopup)
-                    .transition(.scale(scale: 0.9, anchor: .bottomTrailing).combined(with: .opacity))
-                    .zIndex(3)
+                LogOptionsPopup(
+                    isPresented: $showLogPopup,
+                    onLogPeptide: onLogPeptide
+                )
+                .transition(.scale(scale: 0.9, anchor: .bottomTrailing).combined(with: .opacity))
+                .zIndex(3)
             }
         }
         .animation(.easeInOut(duration: 0.2), value: showLogPopup)

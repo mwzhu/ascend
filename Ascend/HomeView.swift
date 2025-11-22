@@ -20,6 +20,12 @@ enum JourneySource {
     case account
 }
 
+enum LogShotSource {
+    case home
+    case peptides
+    case results
+}
+
 func extractNumericValue(from string: String) -> Double {
     let pattern = #"-?\d+\.?\d*"#
     if let regex = try? NSRegularExpression(pattern: pattern),
@@ -37,6 +43,8 @@ struct HomeView: View {
     @State private var showJourney = false
     @State private var showLogPopup = false
     @State private var journeySource: JourneySource = .account
+    @State private var showLogShot = false
+    @State private var logShotSource: LogShotSource = .home
     
     var body: some View {
         ZStack {
@@ -66,13 +74,44 @@ struct HomeView: View {
                         showLogPopup = false
                     }
 
-                LogOptionsPopup(isPresented: $showLogPopup)
-                    .transition(.scale(scale: 0.9, anchor: .bottomTrailing).combined(with: .opacity))
-                    .zIndex(3)
+                LogOptionsPopup(
+                    isPresented: $showLogPopup,
+                    onLogPeptide: {
+                        logShotSource = determineLogShotSource()
+                        showLogPopup = false
+                        showLogShot = true
+                    }
+                )
+                .transition(.scale(scale: 0.9, anchor: .bottomTrailing).combined(with: .opacity))
+                .zIndex(3)
+            }
+            
+            if showLogShot {
+                LogShot(
+                    isPresented: $showLogShot,
+                    source: logShotSource,
+                    selectedTab: $selectedTab
+                )
+                .transition(.move(edge: .trailing))
+                .zIndex(4)
             }
         }
         .animation(.easeInOut(duration: 0.3), value: showJourney)
         .animation(.easeInOut(duration: 0.2), value: showLogPopup)
+        .animation(.easeInOut(duration: 0.3), value: showLogShot)
+    }
+    
+    private func determineLogShotSource() -> LogShotSource {
+        switch selectedTab {
+        case .home:
+            return .home
+        case .peptides:
+            return .peptides
+        case .progress:
+            return .results
+        default:
+            return .home
+        }
     }
     
     @ViewBuilder
@@ -85,9 +124,25 @@ struct HomeView: View {
                 showLogPopup: $showLogPopup
             )
         case .peptides:
-            PeptidesView(showLogPopup: $showLogPopup)
+            PeptidesView(
+                showLogPopup: $showLogPopup,
+                onLogPeptide: {
+                    logShotSource = .peptides
+                    showLogPopup = false
+                    showLogShot = true
+                }
+            )
         case .progress:
-            ResultsView(showJourney: $showJourney, journeySource: $journeySource, showLogPopup: $showLogPopup)
+            ResultsView(
+                showJourney: $showJourney,
+                journeySource: $journeySource,
+                showLogPopup: $showLogPopup,
+                onLogPeptide: {
+                    logShotSource = .results
+                    showLogPopup = false
+                    showLogShot = true
+                }
+            )
         case .library:
             LibraryView()
         case .account:
@@ -1054,6 +1109,7 @@ struct LogEntry: View {
 
 struct LogOptionsPopup: View {
     @Binding var isPresented: Bool
+    var onLogPeptide: (() -> Void)?
     
     var body: some View {
         VStack {
@@ -1061,7 +1117,9 @@ struct LogOptionsPopup: View {
             
             VStack(spacing: 10) {
                 VStack(spacing: 12) {
-                    primaryAction(icon: "syringe.fill", text: "Log Peptide", tint: Color(hex: "8A6BF2"))
+                    primaryAction(icon: "syringe.fill", text: "Log Peptide", tint: Color(hex: "8A6BF2"), action: {
+                        onLogPeptide?()
+                    })
                     primaryAction(icon: "camera.fill", text: "Log Photos", tint: Color(hex: "F5A623"))
                     primaryAction(icon: "scalemass", text: "Log Weight", tint: Color(hex: "C183FF"))
                     primaryAction(icon: "figure.run", text: "Log Activity", tint: Color(hex: "FF2D55"))
@@ -1088,9 +1146,13 @@ struct LogOptionsPopup: View {
         }
     }
     
-    private func primaryAction(icon: String, text: String, tint: Color) -> some View {
+    private func primaryAction(icon: String, text: String, tint: Color, action: (() -> Void)? = nil) -> some View {
         Button {
-            isPresented = false
+            if let action = action {
+                action()
+            } else {
+                isPresented = false
+            }
         } label: {
             HStack {
                 Image(systemName: icon)

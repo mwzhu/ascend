@@ -11,6 +11,7 @@ struct ResultsView: View {
     @Binding var showJourney: Bool
     @Binding var journeySource: JourneySource
     @Binding var showLogPopup: Bool
+    var onLogPeptide: (() -> Void)?
     @State private var selectedDate = Date()
     @State private var showDateCircles = false
     @State private var showBookButton = false
@@ -172,9 +173,12 @@ struct ResultsView: View {
                         showLogPopup = false
                     }
 
-                LogOptionsPopup(isPresented: $showLogPopup)
-                    .transition(.scale(scale: 0.9, anchor: .bottomTrailing).combined(with: .opacity))
-                    .zIndex(3)
+                LogOptionsPopup(
+                    isPresented: $showLogPopup,
+                    onLogPeptide: onLogPeptide
+                )
+                .transition(.scale(scale: 0.9, anchor: .bottomTrailing).combined(with: .opacity))
+                .zIndex(3)
             }
         }
         .animation(.easeInOut(duration: 0.2), value: showLogPopup)
